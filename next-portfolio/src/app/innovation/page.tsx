@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";        
+import { motion } from "framer-motion";
 import {
   IconCalendar,
   IconStack2,
@@ -20,11 +20,10 @@ import {
 import { SlGraph } from "react-icons/sl";
 import { IoBookOutline, IoQrCode } from "react-icons/io5";
 import Example from "@/components/contribution";
-import { getCachedContributions } from '@/lib/github-contributions';
+import { getCachedContributions } from "@/lib/github-contributions";
+import { Skeleton } from "@/components/ui/skeleton";
 
 import CustomCursor from "../CustomCursor";
-
-    const { contributions, total } = await getCachedContributions();
 
 export default function ResDexPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -32,6 +31,11 @@ export default function ResDexPage() {
   const [activeTab, setActiveTab] = useState("All");
   const [loaded, setLoaded] = useState(false);
   const [lightMode, setLightMode] = useState(false);
+
+  // contributions state (safe defaults to avoid null type errors)
+  const [contributions, setContributions] = useState<any[]>([]);
+  const [total, setTotal] = useState<number>(0);
+  const [loadingContrib, setLoadingContrib] = useState(true);
 
   useEffect(() => {
     setLightMode(localStorage.getItem("theme") === "light");
@@ -55,18 +59,30 @@ export default function ResDexPage() {
     };
   }, [isMobile]);
 
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const { contributions, total } = await getCachedContributions();
+        setContributions(contributions);
+        setTotal(total);
+      } finally {
+        setLoadingContrib(false);
+      }
+    };
+    load();
+  }, []);
+
   const handleBack = () => {
     setExiting(true);
     setTimeout(() => router.push("/"), 600);
   };
 
-  const textColor  = lightMode ? "#111" : "#111";
-  const fadedText  = lightMode ? "#444" : "#444";
+  const textColor = lightMode ? "#111" : "#111";
+  const fadedText = lightMode ? "#444" : "#444";
   const fadedLabel = lightMode ? "#666" : "#666";
-  const bgColor    = lightMode ? "#ffffff" : "#ffffff";
+  const bgColor = lightMode ? "#ffffff" : "#ffffff";
 
   const projects = [
-    
     {
       title: "ResDex",
       tags: ["Full-Stack"],
@@ -82,7 +98,6 @@ export default function ResDexPage() {
         "Exploring urban heat vulnerability and tree planting priorities in Toronto for sustainable development through machine-learning for data-driven insights.",
       icon: <MdLocationSearching size={15} color={textColor} />,
       link: "/innovation/hotspots",
-
     },
     {
       title: "Lyra",
@@ -130,9 +145,7 @@ export default function ResDexPage() {
       : projects.filter((proj) => proj.tags.includes(activeTab));
 
   return (
-    
     <>
-    
       <main
         className={`min-h-screen px-6 py-12 font-sans transition-all duration-700 ease-in-out ${
           loaded && !exiting ? "opacity-100 blur-none" : "opacity-0 blur-sm"
@@ -170,30 +183,28 @@ export default function ResDexPage() {
               Intersection of Innovation & Research
             </h1>
             <p style={{ fontSize: "0.8rem", color: fadedText }}>
-              My contributions to making the world of technology more accessible and impactful, showcasing projects that simplify complex problems and drive positive change.
-
-
+              My contributions to making the world of technology more accessible
+              and impactful, showcasing projects that simplify complex problems
+              and drive positive change.
               <br />
               <br />
-              </p>
+            </p>
 
+            {loadingContrib ? (
+              <div className="space-y-2">
+                <Skeleton className="h-4 w-[250px]" />
+                <Skeleton className="h-4 w-[200px]" />
+                <Skeleton className="h-20 w-full" />
+              </div>
+            ) : (
               <Example data={contributions} total={total} />
-
-
-              {/* <span className="italic" style={{ fontSize: "0.8rem", color: fadedText }}>
-                Note: I'm still working on adding the remaining project
-                read-more pages! Until then, feel free to check out my GitHub:&nbsp;
-                <a
-                  href="https://github.com/devp19"
-                  target="_blank"
-                  className="underline"
-                >
-                  github.com/devp19
-                </a>
-              </span> */}
+            )}
           </div>
-                            <div className="border-t border-gray-200" style={{ maxWidth: "100%" }}></div>
 
+          <div
+            className="border-t border-gray-200"
+            style={{ maxWidth: "100%" }}
+          ></div>
 
           <div
             className="relative flex gap-2"
@@ -203,12 +214,12 @@ export default function ResDexPage() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-className="
-  relative z-10 px-4 py-1 rounded-full select-none
-  bg-transparent                       /* starting state  */
-  transition-colors duration-900 ease-out   /* smooth fade */
-  hover:bg-[#f3f4f6]                   /* target color on hover */
-"
+                className="
+                  relative z-10 px-4 py-1 rounded-full select-none
+                  bg-transparent
+                  transition-colors duration-900 ease-out
+                  hover:bg-[#f3f4f6]
+                "
                 style={{ border: "none", cursor: "pointer" }}
               >
                 {activeTab === tab && (
@@ -221,7 +232,7 @@ className="
                       damping: 30,
                     }}
                     style={{
-                      background: lightMode ? "#e5e7eb" : "#d1d5db", 
+                      background: lightMode ? "#e5e7eb" : "#d1d5db",
                     }}
                   />
                 )}
@@ -235,10 +246,9 @@ className="
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
             {filteredProjects.map((project, index) => (
               <div
-              
                 key={index}
                 className="relative p-6 transition duration-300 ease-in-out hover:scale-[1.015] hover:cursor-pointer"
-                style={{ borderBottom: "1px solid gray", height: "300px"}}
+                style={{ borderBottom: "1px solid gray", height: "300px" }}
                 onClick={() => {
                   if (project.link) {
                     setExiting(true);
@@ -250,32 +260,25 @@ className="
 
                 <h3
                   className="font-regular"
-                  style={{ fontSize: "1rem", color: textColor, cursor: 'pointer' }}
+                  style={{
+                    fontSize: "1rem",
+                    color: textColor,
+                    cursor: "pointer",
+                  }}
                 >
                   {project.title}
                 </h3>
 
                 <p
                   className="font-regular mt-2 mb-20"
-                  style={{ fontSize: "0.85rem", color: fadedLabel, cursor: 'pointer' }}
+                  style={{
+                    fontSize: "0.85rem",
+                    color: fadedLabel,
+                    cursor: "pointer",
+                  }}
                 >
                   {project.description}
                 </p>
-
-                {/* {project.note && (
-                  <>
-                    <br />
-                    <p
-                      className="font-regular italic pb-10"
-                      style={{
-                        fontSize: "0.85rem",
-                        color: fadedLabel,
-                      }}
-                    >
-                      {project.note}
-                    </p>
-                  </>
-                )} */}
 
                 <p
                   style={{
@@ -283,7 +286,7 @@ className="
                     color: fadedLabel,
                     position: "absolute",
                     bottom: "1rem",
-                    cursor: 'pointer',
+                    cursor: "pointer",
                   }}
                 >
                   {project.tags.join(" • ")}
@@ -299,7 +302,7 @@ className="
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "0.25rem",
-                    cursor: 'pointer'
+                    cursor: "pointer",
                   }}
                 >
                   Read More <MdArrowRightAlt size={15} color={textColor} />
@@ -309,8 +312,6 @@ className="
           </div>
         </div>
       </main>
-     
     </>
-    
   );
 }
