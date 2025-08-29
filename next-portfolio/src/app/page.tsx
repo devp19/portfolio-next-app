@@ -223,7 +223,7 @@ export default function CanopyDemo() {
             </a>
           </span>
           <br />
-          software engineer (s25)
+          ai developer (f25), prev automation
           <span
             data-cursor-hover
             onClick={() => handleNavigation("/fidelity")}

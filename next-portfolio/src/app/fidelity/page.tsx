@@ -73,7 +73,7 @@ useEffect(() => {
             onMouseOver={(e) => (e.currentTarget.style.color = textColor)}
             onMouseOut={(e) => (e.currentTarget.style.color = fadedText)}
           >
-            ← Back
+            ← Home / Fidelity
             <span
               className="absolute left-0 -bottom-0.5 h-0.25 w-full bg-current
                          origin-left scale-x-0
@@ -123,6 +123,35 @@ useEffect(() => {
             </p>
           </div>
 
+                    <div style={{ height: "1px", backgroundColor: 'black', opacity: '0.2' }}></div>
+
+
+          <h1 style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>
+              AI Developer (F25)
+            </h1>
+
+  <p style={{ color: fadedText, fontSize: "0.8rem" }}>
+                Details Coming Soon!
+              </p>
+
+
+              <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7365836092371107840?collapsed=1" height="600" width="100%" frameBorder="0" allowFullScreen={true} title="Embedded post"></iframe>
+          
+          <div style={{ height: "1px", backgroundColor: 'black', opacity: '0.2' }}></div>
+
+          <h1 style={{ fontSize: "1.2rem", marginBottom: "0.5rem" }}>
+              Automation Analyst (S25)
+            </h1>
+
+            <p style={{ color: fadedText, fontSize: "0.8rem" }}>
+                As an Automation Analyst at Fidelity, I lead end-to-end
+                development of cloud workflows using Power Automate and Azure. I
+                work closely with stakeholders to gather requirements, design
+                solutions, and manage the full software development lifecycle;
+                from planning and building to testing and deployment. My work
+                helps teams automate tasks, improve efficiency, and reduce
+                manual effort.
+              </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
             <div>
               <h3
@@ -141,7 +170,7 @@ useEffect(() => {
                 <li>Hybrid Work Environment</li>
                 <li>Toronto Office</li>
                 <li>4 Months</li>
-                <li>May - September 2025</li>
+                <li>September - December 2025</li>
               </ul>
             </div>
 
@@ -159,9 +188,9 @@ useEffect(() => {
                 <IconStack2 size={"0.8rem"} color={textColor} /> Tech Stack
               </h3>
               <ul style={{ color: fadedText, fontSize: "0.8rem" }}>
-                <li>Power Automate</li>
-                <li>Power BI</li>
-                <li>Microsoft Azure</li>
+                <li>Python</li>
+                <li>Jupyter</li>
+                <li>FilxGPT (Custom LLM)</li>
                 <li>Python</li>
                 <li>Power Apps</li>
               </ul>
@@ -178,19 +207,22 @@ useEffect(() => {
                   gap: "0.5rem",
                 }}
               >
-                <IconInfoCircle size={"0.8rem"} color={textColor} /> Overview
+                <IconInfoCircle size={"0.8rem"} color={textColor} /> Highlights
               </h3>
               <p style={{ color: fadedText, fontSize: "0.8rem" }}>
-                As an Automation Analyst at Fidelity, I lead end-to-end
-                development of cloud workflows using Power Automate and Azure. I
-                work closely with stakeholders to gather requirements, design
-                solutions, and manage the full software development lifecycle;
-                from planning and building to testing and deployment. My work
-                helps teams automate tasks, improve efficiency, and reduce
-                manual effort.
+                <ul style={{ color: fadedText, fontSize: "0.8rem" }}>
+                <li>Automation Team Member of the Month - August 2025</li>
+                <li>1,596 hours saved through workflow automation</li>
+                <li>FilxGPT (Custom LLM)</li>
+                <li>Python</li>
+                <li>Power Apps</li>
+              </ul>
+                <br></br>
               </p>
             </div>
           </div>
+                      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7315829870335336448?collapsed=1" height="600" width="100%" frameBorder="0" allowFullScreen={true} title="Embedded post"></iframe>
+
         </div>
       </main>
     </>
