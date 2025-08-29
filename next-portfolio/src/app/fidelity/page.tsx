@@ -212,10 +212,8 @@ useEffect(() => {
               <p style={{ color: fadedText, fontSize: "0.8rem" }}>
                 <ul style={{ color: fadedText, fontSize: "0.8rem" }}>
                 <li>Automation Team Member of the Month - August 2025</li>
+                <li style={{ color: 'white'}}>.</li>
                 <li>1,596 hours saved through workflow automation</li>
-                <li>FilxGPT (Custom LLM)</li>
-                <li>Python</li>
-                <li>Power Apps</li>
               </ul>
                 <br></br>
               </p>

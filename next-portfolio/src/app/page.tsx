@@ -8,18 +8,17 @@ import CustomCursor from "./CustomCursor";
 
 export default function CanopyDemo() {
   const [zooming, setZooming] = useState(false);
-  const [lightMode, setLightMode] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      const theme = localStorage.getItem("theme");
-      return theme === null || theme === "light";
-    }
-    return true;
-  });
+  const [lightMode, setLightMode] = useState<boolean>(true); // default safe for SSR
 
   const [isMobile, setIsMobile] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [exiting, setExiting] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    setLightMode(theme === null || theme === "light");
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 600);
@@ -163,7 +162,7 @@ export default function CanopyDemo() {
             }}
             aria-label="Twitter"
           >
-            <FaXTwitter />
+            <FaXTwitter color="black" opacity={0.85} />
           </a>
           <a
             href="https://github.com/devp19"
@@ -177,7 +176,7 @@ export default function CanopyDemo() {
             }}
             aria-label="GitHub"
           >
-            <FaGithub />
+            <FaGithub color="black" opacity={0.85} />
           </a>
           <a
             href="https://linkedin.com/in/devp19"
@@ -191,7 +190,7 @@ export default function CanopyDemo() {
             }}
             aria-label="LinkedIn"
           >
-            <FaLinkedin />
+            <FaLinkedin color="black" opacity={0.85} />
           </a>
         </div>
 
@@ -219,7 +218,7 @@ export default function CanopyDemo() {
               tabIndex={0}
             >
               code, cognitive science, and applied research
-             <CgArrowTopRight color={iconColor} />
+             <CgArrowTopRight color="black" opacity={0.85} />
             </a>
           </span>
           <br />
@@ -240,7 +239,7 @@ export default function CanopyDemo() {
             }}
             tabIndex={0}
           >
-            @fidelity <CgArrowTopRight color={iconColor} />
+            @fidelity <CgArrowTopRight color="black" opacity={0.85} />
           </span>
           <br></br>
           honours computer science
@@ -260,7 +259,7 @@ export default function CanopyDemo() {
             }}
             tabIndex={0}
           >
-            @torontomet <CgArrowTopRight color={iconColor} />
+            @torontomet <CgArrowTopRight color="black" opacity={0.85} />
           </span>
 
           {/* <span
