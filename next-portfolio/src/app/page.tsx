@@ -212,6 +212,7 @@ useEffect(() => {
         >
           <span data-cursor-hover>
             <a
+            className="group inline-flex items-center underline cursor-pointer"
               onClick={() => handleNavigation("/innovation")}
               style={{
                 textDecoration: "underline",
@@ -223,13 +224,15 @@ useEffect(() => {
               tabIndex={0}
             >
               code, cognitive science, and applied research
-             <CgArrowTopRight color="white" opacity={1} />
+             <CgArrowTopRight className="transition-transform duration-200 group-hover:translate-x-2 ml-1" color="white" opacity={1} />
             </a>
           </span>
           <br />
           ai developer (f25), prev automation
           <span
             data-cursor-hover
+                        className="group inline-flex items-center underline cursor-pointer"
+
             onClick={() => handleNavigation("/fidelity")}
             style={{
               textDecoration: "underline",
@@ -241,12 +244,14 @@ useEffect(() => {
             }}
             tabIndex={0}
           >
-            @fidelity <CgArrowTopRight color="white" opacity={1} />
+            @fidelity <CgArrowTopRight className="transition-transform duration-200 group-hover:translate-x-2 ml-1" color="white" opacity={1} />
           </span>
           <br></br>
           honours computer science
           <span
             data-cursor-hover
+                        className="group inline-flex items-center underline cursor-pointer"
+
             onClick={() => handleNavigation("/torontomet")}
             style={{
               textDecoration: "underline",
@@ -258,7 +263,7 @@ useEffect(() => {
             }}
             tabIndex={0}
           >
-            @torontomet <CgArrowTopRight color="white" opacity={1} />
+            @torontomet <CgArrowTopRight className="transition-transform duration-200 group-hover:translate-x-2 ml-1" color="white" opacity={1} />
           </span>
 
           {/* <span
