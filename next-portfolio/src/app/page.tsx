@@ -8,12 +8,20 @@ import CustomCursor from "./CustomCursor";
 
 export default function CanopyDemo() {
   const [zooming, setZooming] = useState(false);
-  const [lightMode, setLightMode] = useState<boolean>(true); // default safe for SSR
+  const [lightMode, setLightMode] = useState<boolean>(true);
 
   const [isMobile, setIsMobile] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [exiting, setExiting] = useState(false);
   const router = useRouter();
+
+  const [textReady, setTextReady] = useState(false);
+
+useEffect(() => {
+  const timer = setTimeout(() => setTextReady(true), 120); 
+  return () => clearTimeout(timer);
+}, []);
+
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -128,7 +136,6 @@ export default function CanopyDemo() {
           bottom: isMobile ? "1.2rem" : "2rem",
           color: textColor,
           fontSize: isMobile ? "0.93rem" : "0.95rem",
-          opacity: 0.85,
           lineHeight: 1.5,
           maxWidth: isMobile ? "92vw" : "550px",
           zIndex: 20,
@@ -136,12 +143,14 @@ export default function CanopyDemo() {
           display: "flex",
           flexDirection: "column",
           gap: "0.5em",
+          opacity: textReady ? 0.85 : 0,
+    transform: textReady ? "translateY(0px)" : "translateY(40px)",
+    transition: "opacity 0.55s cubic-bezier(.4,2,.3,1), transform 0.6s cubic-bezier(.4,2,.3,1)",
         }}
       >
         <div
           style={{
-            fontWeight: 300,
-            fontSize: isMobile ? "0.88rem" : "0.9rem",
+            fontSize: isMobile ? "0.88rem" : "1rem",
             marginBottom: "0.5em",
             display: "flex",
             alignItems: "center",
@@ -162,7 +171,7 @@ export default function CanopyDemo() {
             }}
             aria-label="Twitter"
           >
-            <FaXTwitter color="white" opacity={0.85} />
+            <FaXTwitter color="white" opacity={1} />
           </a>
           <a
             href="https://github.com/devp19"
@@ -176,7 +185,7 @@ export default function CanopyDemo() {
             }}
             aria-label="GitHub"
           >
-            <FaGithub color="white" opacity={0.85} />
+            <FaGithub color="white" opacity={1} />
           </a>
           <a
             href="https://linkedin.com/in/devp19"
@@ -190,13 +199,12 @@ export default function CanopyDemo() {
             }}
             aria-label="LinkedIn"
           >
-            <FaLinkedin color="white" opacity={0.85} />
+            <FaLinkedin color="white" opacity={1} />
           </a>
         </div>
 
         <div
           style={{
-            fontWeight: 300,
             fontSize: isMobile ? "0.88rem" : "0.9rem",
             marginBottom: "0.5em",
             lineHeight: 1.8,
@@ -207,18 +215,15 @@ export default function CanopyDemo() {
               onClick={() => handleNavigation("/innovation")}
               style={{
                 textDecoration: "underline",
-                fontWeight: 300,
-                fontSize: isMobile ? "0.88rem" : "0.9rem",
                 color: textColor,
                 display: "inline-flex",
                 cursor: "pointer",
-                opacity: 0.85,
                 alignItems: "center",
               }}
               tabIndex={0}
             >
               code, cognitive science, and applied research
-             <CgArrowTopRight color="white" opacity={0.85} />
+             <CgArrowTopRight color="white" opacity={1} />
             </a>
           </span>
           <br />
@@ -228,18 +233,15 @@ export default function CanopyDemo() {
             onClick={() => handleNavigation("/fidelity")}
             style={{
               textDecoration: "underline",
-              fontWeight: 300,
-              fontSize: isMobile ? "0.88rem" : "0.9rem",
               color: textColor,
               cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
-              opacity: 0.85,
               marginLeft: "0.2em",
             }}
             tabIndex={0}
           >
-            @fidelity <CgArrowTopRight color="white" opacity={0.85} />
+            @fidelity <CgArrowTopRight color="white" opacity={1} />
           </span>
           <br></br>
           honours computer science
@@ -248,18 +250,15 @@ export default function CanopyDemo() {
             onClick={() => handleNavigation("/torontomet")}
             style={{
               textDecoration: "underline",
-              fontWeight: 300,
-              fontSize: isMobile ? "0.88rem" : "0.9rem",
               color: textColor,
               cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
-              opacity: 0.85,
               marginLeft: "0.2em",
             }}
             tabIndex={0}
           >
-            @torontomet <CgArrowTopRight color="white" opacity={0.85} />
+            @torontomet <CgArrowTopRight color="white" opacity={1} />
           </span>
 
           {/* <span
