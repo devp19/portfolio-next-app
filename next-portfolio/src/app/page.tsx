@@ -34,6 +34,8 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 
+
+
 export default function CanopyDemo() {
   const [zooming, setZooming] = useState(false);
   const [lightMode, setLightMode] = useState<boolean>(true);
@@ -45,6 +47,25 @@ export default function CanopyDemo() {
   const router = useRouter();
 
   const [textReady, setTextReady] = useState(false);
+
+
+  const navigationRoutes = {
+  'ai-engineer': '/fidelity',
+  'automation-developer': '/fidelity', 
+  'resdex': '/innovation/resdex',
+  'hotspots-ai': '/innovation/hotspots',
+  'lyra': '/innovation/lyra',
+  'tmu': '/torontomet'
+}
+
+  const handleItemSelect = (value: string) => {
+    setOpen(false);
+
+    if (value in navigationRoutes) {
+      router.push(navigationRoutes[value as keyof typeof navigationRoutes]);
+    }
+  }
+
 
   useEffect(() => {
     const timer = setTimeout(() => setTextReady(true), 120);
@@ -150,7 +171,7 @@ export default function CanopyDemo() {
           left: isMobile ? 0 : undefined,
           zIndex: 10,
           pointerEvents: zooming ? "none" : "auto",
-          flexDirection: "column", // Add this to stack vertically
+          flexDirection: "column",
         }}
       >
         <img
@@ -170,7 +191,6 @@ export default function CanopyDemo() {
           draggable={false}
         />
 
-        {/* Centered prompt under the image */}
         <div
           style={{
             marginTop: "1.2em",
@@ -213,110 +233,122 @@ export default function CanopyDemo() {
           </p>
         </div>
 
-       <CommandDialog open={open} onOpenChange={setOpen}>
-  <CommandInput placeholder="Search or click to open a page..." />
-  <CommandList>
-    <CommandEmpty>No results found.</CommandEmpty>
-    <CommandGroup heading="Fidelity Investments">
-      <CommandItem>
-        <img
-          src="./fidelity-icon.png"
-          width={24}
-          height={24}
-          alt="Fidelity"
-        />
-        <span>AI Engineer</span>
-        <CommandShortcut>Internship (Current)</CommandShortcut>
-      </CommandItem>
-      <CommandItem>
-        <img
-          src="./fidelity-icon.png"
-          width={24}
-          height={24}
-          alt="Fidelity"
-        />
-        <span>Automation Developer</span>
-        <CommandShortcut>Internship (S25)</CommandShortcut>
-      </CommandItem>
-    </CommandGroup>
-    <CommandSeparator />
-    <CommandGroup heading="Innovation / Projects">
-      <CommandItem>
-        <img
-          src="./beige-logo.png"
-          width={24}
-          height={24}
-          alt="ResDex Logo"
-        />
-        <span>ResDex</span>
-        <CommandShortcut>Founder & Engineer</CommandShortcut>
-      </CommandItem>
-      <CommandItem>
-        <span className="p-1">
-        <CircleGauge size={24}/>
-        </span>
-        <span>HotSpots AI</span>
-        <CommandShortcut>ML / Research</CommandShortcut>
-      </CommandItem>
-      <CommandItem>
-        <img
-          src="./lyra-icon.png"
-          width={24}
-          height={24}
-          alt="Lyra Logo"
-        />
-        <span>Lyra</span>
-        <CommandShortcut>AI Integrated IDE</CommandShortcut>
-      </CommandItem>
+      <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Search or click to open a page..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Fidelity Investments">
+          <CommandItem 
+            value="ai-engineer"
+            onSelect={handleItemSelect}
+          >
+            <img
+              src="./fidelity-icon.png"
+              width={24}
+              height={24}
+              alt="Fidelity"
+            />
+            <span>AI Engineer</span>
+            <CommandShortcut>Internship (Current)</CommandShortcut>
+          </CommandItem>
+          <CommandItem 
+            value="automation-developer"
+            onSelect={handleItemSelect}
+          >
+            <img
+              src="./fidelity-icon.png"
+              width={24}
+              height={24}
+              alt="Fidelity"
+            />
+            <span>Automation Developer</span>
+            <CommandShortcut>Internship (S25)</CommandShortcut>
+          </CommandItem>
+        </CommandGroup>
+        <CommandSeparator />
+        <CommandGroup heading="Innovation / Projects">
+          <CommandItem 
+            value="resdex"
+            onSelect={handleItemSelect}
+          >
+            <img
+              src="./beige-logo.png"
+              width={24}
+              height={24}
+              alt="ResDex Logo"
+            />
+            <span>ResDex</span>
+            <CommandShortcut>Founder & Engineer</CommandShortcut>
+          </CommandItem>
+          <CommandItem 
+            value="hotspots-ai"
+            onSelect={handleItemSelect}
+          >
+            <span className="p-1">
+              <CircleGauge size={24}/>
+            </span>
+            <span>HotSpots AI</span>
+            <CommandShortcut>ML / Research</CommandShortcut>
+          </CommandItem>
+          <CommandItem 
+            value="lyra"
+            onSelect={handleItemSelect}
+          >
+            <img
+              src="./lyra-icon.png"
+              width={24}
+              height={24}
+              alt="Lyra Logo"
+            />
+            <span>Lyra</span>
+            <CommandShortcut>AI Integrated IDE</CommandShortcut>
+          </CommandItem>
+        </CommandGroup>
+        <CommandSeparator />
+        <CommandGroup heading="Education">
+          <CommandItem 
+            value="tmu"
+            onSelect={handleItemSelect}
+          >
+            <img
+              src="./tmu-icon.jpg"
+              width={24}
+              height={24}
+              alt="TMU"
+            />
+            <span>Toronto Metropolitan University</span>
+            <CommandShortcut>2023 - Present</CommandShortcut>
+          </CommandItem>
+        </CommandGroup>
+      </CommandList>
       
-    </CommandGroup>
-
-    <CommandSeparator />
-    <CommandGroup heading="Education">
-      <CommandItem>
-        <img
-          src="./tmu-icon.jpg"
-          width={24}
-          height={24}
-          alt="TMU"
-        />
-        <span>Toronto Metropolitan University</span>
-        <CommandShortcut>2023 - Present</CommandShortcut>
-      </CommandItem>
-      
-    </CommandGroup>
-  </CommandList>
-  
-  {/* Footer section */}
-  <div className="flex items-center justify-between border-t px-4 py-2 text-xs bg-muted/50">
-    <div className="flex items-center gap-2">
-      <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-        <span className="text-xs">Esc</span>
-      </kbd>
-    </div>
-    <div className="flex items-center gap-4">
-      <span>Open 
-        <kbd className="ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-          <CornerDownLeft size={10}/>
-        </kbd>
-      </span>
-      <span className="text-muted-foreground">  | 
-       
-      </span>
-      <span>Select</span>
-      <div className="flex items-center gap-1">
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded  bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-                    <ArrowUp size={10}/>
-
-        </kbd>
-        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded  bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-                              <ArrowDown size={10}/>
-
-        </kbd>
+      {/* Footer section */}
+      <div className="flex items-center justify-between border-t px-4 py-2 text-xs bg-muted/50">
+        <div className="flex items-center gap-2">
+          <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+            <span className="text-xs">Esc</span>
+          </kbd>
+        </div>
+        <div className="flex items-center gap-4">
+          <span>Open 
+            <kbd className="ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+              <CornerDownLeft size={10}/>
+            </kbd>
+          </span>
+          <span className="text-muted-foreground">  | 
+          </span>
+          <span>Select</span>
+          <div className="flex items-center gap-1">
+            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded  bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+              <ArrowUp size={10}/>
+            </kbd>
+            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded  bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+              <ArrowDown size={10}/>
+            </kbd>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</CommandDialog>
+    </CommandDialog>
        
       </div>
 
