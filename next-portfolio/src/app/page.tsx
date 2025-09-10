@@ -19,7 +19,8 @@ import {
   CornerDownLeft,
   ArrowUp,
   ArrowDown,
-  CircleGauge
+  CircleGauge,
+  ArrowUpRightIcon
 } from "lucide-react";
 
 import {
@@ -34,6 +35,12 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 
+
+import {
+  Announcement,
+  AnnouncementTag,
+  AnnouncementTitle,
+} from "@/components/ui/kibo-ui/announcement";
 
 
 export default function CanopyDemo() {
@@ -231,7 +238,18 @@ export default function CanopyDemo() {
               </kbd>
             </a>
           </p>
+
+
+          
         </div>
+<Announcement className="mt-2 bg-muted border-none">
+    <AnnouncementTitle>
+     <span className="absolute flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            </span>  <span className="ml-4">Currently Updating!</span>
+    </AnnouncementTitle>
+  </Announcement>
 
       <CommandDialog open={open} onOpenChange={setOpen}>
       <CommandInput placeholder="Search or click to open a page..." />
