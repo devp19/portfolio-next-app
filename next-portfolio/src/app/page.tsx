@@ -6,9 +6,34 @@ import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { CgArrowTopRight } from "react-icons/cg";
 import CustomCursor from "./CustomCursor";
 
+import {
+  Calculator,
+  Calendar,
+  CreditCard,
+  Settings,
+  Smile,
+  User,
+  Code,
+  Workflow,
+  Cable,
+} from "lucide-react";
+
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command";
+
 export default function CanopyDemo() {
   const [zooming, setZooming] = useState(false);
   const [lightMode, setLightMode] = useState<boolean>(true);
+  const [open, setOpen] = React.useState(false);
 
   const [isMobile, setIsMobile] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -17,11 +42,21 @@ export default function CanopyDemo() {
 
   const [textReady, setTextReady] = useState(false);
 
-useEffect(() => {
-  const timer = setTimeout(() => setTextReady(true), 120); 
-  return () => clearTimeout(timer);
-}, []);
+  useEffect(() => {
+    const timer = setTimeout(() => setTextReady(true), 120);
+    return () => clearTimeout(timer);
+  }, []);
 
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setOpen((open) => !open);
+      }
+    };
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -51,7 +86,7 @@ useEffect(() => {
         top: document.documentElement.scrollHeight,
         behavior: "smooth",
       });
-    }, 100); 
+    }, 100);
     return () => clearTimeout(scrollTimeout);
   }, []);
 
@@ -111,25 +146,95 @@ useEffect(() => {
           left: isMobile ? 0 : undefined,
           zIndex: 10,
           pointerEvents: zooming ? "none" : "auto",
+          flexDirection: "column", // Add this to stack vertically
         }}
       >
         <img
           src="/final.gif"
           alt="Pixels"
           style={{
-            opacity: lightMode ? 0.85 : 1,
             width: isMobile ? "120px" : "clamp(180px, 18vw, 180px)",
             height: "auto",
-            transition:
-              "transform 0.6s cubic-bezier(.4,2.2,.2,1), filter 0.6s",
-            transform: zooming ? "scale(20)" : "scale(1)",
+
             display: "block",
+
+            opacity: textReady ? 0.85 : 0,
+            transform: textReady ? "translateY(0px)" : "translateY(40px)",
+            transition:
+              "opacity 0.55s cubic-bezier(.4,2,.3,1), transform 0.6s cubic-bezier(.4,2,.3,1)",
           }}
           draggable={false}
         />
+
+        {/* Centered prompt under the image */}
+        <div
+          style={{
+            marginTop: "1.2em",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <p
+            className="text-muted-foreground text-sm rounded-full mt-5 bg-muted px-4 py-2"
+            style={{
+              opacity: textReady ? 0.85 : 0,
+              transform: textReady ? "translateY(0px)" : "translateY(40px)",
+              transition:
+                "opacity 0.55s cubic-bezier(.4,2,.3,1), transform 0.6s cubic-bezier(.4,2,.3,1)",
+            }}
+          >
+            <a onClick={() => setOpen(true)}>
+              Press{" "}
+              <kbd className="hover-bg-muted-foreground/50 ml-2 inline-flex bg-muted-foreground/10 select-none items-center gap-1 rounded-full border px-4 align-middle font-medium font-mono text-[10px] text-muted-foreground leading-loose">
+                ⌘ + K
+              </kbd>
+            </a>
+          </p>
+        </div>
+
+        <CommandDialog open={open} onOpenChange={setOpen}>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Fidelity Investments">
+              <CommandItem>
+                <Code />
+                <span>AI Developer (F25)</span>
+              </CommandItem>
+              <CommandItem>
+                <Cable />
+                <span>Automation Developer (S25)</span>
+              </CommandItem>
+              <CommandItem>
+                <Calculator />
+                <span>Calculator</span>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Settings">
+              <CommandItem>
+                <User />
+                <span>Profile</span>
+                <CommandShortcut>⌘P</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <CreditCard />
+                <span>Billing</span>
+                <CommandShortcut>⌘B</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <Settings />
+                <span>Settings</span>
+                <CommandShortcut>⌘S</CommandShortcut>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </CommandDialog>
       </div>
 
-      <div
+      {/* <div
         style={{
           position: "absolute",
           left: isMobile ? "1rem" : "2rem",
@@ -266,27 +371,9 @@ useEffect(() => {
             @torontomet <CgArrowTopRight className="transition-transform duration-200 group-hover:translate-x-2 ml-1" color="white" opacity={1} />
           </span>
 
-          {/* <span
-            data-cursor-hover
-            onClick={() => handleNavigation("/innovation/resdex")}
-            style={{
-              textDecoration: "underline",
-              fontWeight: 300,
-              fontSize: isMobile ? "0.88rem" : "0.9rem",
-              color: textColor,
-              display: "inline-flex",
-              cursor: "pointer",
-              opacity: 0.85,
-              alignItems: "center",
-              marginLeft: "0.2em",
-            }}
-            tabIndex={0}
-          >
-            @resdex <CgArrowTopRight color={iconColor} />
-          </span> */}
           <br />
         </div>
-      </div>
+      </div> */}
 
       <style>
         {`
