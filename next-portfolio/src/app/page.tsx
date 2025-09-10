@@ -177,7 +177,7 @@ export default function CanopyDemo() {
           }}
         >
           <p
-            className="text-muted-foreground text-sm rounded-full mt-5 bg-muted px-4 py-2"
+            className="text-xs rounded-full mt-5 px-4 py-2"
             style={{
               opacity: textReady ? 0.85 : 0,
               transform: textReady ? "translateY(0px)" : "translateY(40px)",
@@ -185,10 +185,10 @@ export default function CanopyDemo() {
                 "opacity 0.55s cubic-bezier(.4,2,.3,1), transform 0.6s cubic-bezier(.4,2,.3,1)",
             }}
           >
-            <a onClick={() => setOpen(true)}>
+            <a onClick={() => setOpen(true)} className="font-mono">
               Press{" "}
-              <kbd className="hover-bg-muted-foreground/50 ml-2 inline-flex bg-muted-foreground/10 select-none items-center gap-1 rounded-full border px-4 align-middle font-medium font-mono text-[10px] text-muted-foreground leading-loose">
-                ⌘ + K
+              <kbd className="font-mono hover-bg-muted-foreground/50 ml-2 inline-flex bg-muted-foreground/10 select-none items-center gap-1 rounded-sm border px-4 align-middle text-[10px] leading-loose">
+             <svg style={{ marginBottom: '1.5px', marginRight: '1px' }} xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-command-icon lucide-command"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg> + K
               </kbd>
             </a>
           </p>
