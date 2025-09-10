@@ -18,7 +18,8 @@ import {
   Cable,
   CornerDownLeft,
   ArrowUp,
-  ArrowDown
+  ArrowDown,
+  CircleGauge
 } from "lucide-react";
 
 import {
@@ -239,6 +240,38 @@ export default function CanopyDemo() {
       </CommandItem>
     </CommandGroup>
     <CommandSeparator />
+    <CommandGroup heading="Innovation / Projects">
+      <CommandItem>
+        <img
+          src="./beige-logo.png"
+          width={24}
+          height={24}
+          alt="ResDex Logo"
+        />
+        <span>ResDex</span>
+        <CommandShortcut>Founder & Engineer</CommandShortcut>
+      </CommandItem>
+      <CommandItem>
+        <span className="p-1">
+        <CircleGauge size={24}/>
+        </span>
+        <span>HotSpots AI</span>
+        <CommandShortcut>ML / Research</CommandShortcut>
+      </CommandItem>
+      <CommandItem>
+        <img
+          src="./lyra-icon.png"
+          width={24}
+          height={24}
+          alt="Lyra Logo"
+        />
+        <span>Lyra</span>
+        <CommandShortcut>AI Integrated IDE</CommandShortcut>
+      </CommandItem>
+      
+    </CommandGroup>
+
+    <CommandSeparator />
     <CommandGroup heading="Education">
       <CommandItem>
         <img
@@ -250,16 +283,7 @@ export default function CanopyDemo() {
         <span>Toronto Metropolitan University</span>
         <CommandShortcut>2023 - Present</CommandShortcut>
       </CommandItem>
-      <CommandItem>
-        <CreditCard />
-        <span>Billing</span>
-        <CommandShortcut>⌘B</CommandShortcut>
-      </CommandItem>
-      <CommandItem>
-        <Settings />
-        <span>Settings</span>
-        <CommandShortcut>⌘S</CommandShortcut>
-      </CommandItem>
+      
     </CommandGroup>
   </CommandList>
   
