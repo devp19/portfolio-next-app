@@ -16,6 +16,9 @@ import {
   Code,
   Workflow,
   Cable,
+  CornerDownLeft,
+  ArrowUp,
+  ArrowDown
 } from "lucide-react";
 
 import {
@@ -188,50 +191,109 @@ export default function CanopyDemo() {
             <a onClick={() => setOpen(true)} className="font-mono">
               Press{" "}
               <kbd className="font-mono hover-bg-muted-foreground/50 ml-2 inline-flex bg-muted-foreground/10 select-none items-center gap-1 rounded-sm border px-4 align-middle text-[10px] leading-loose">
-             <svg style={{ marginBottom: '1.5px', marginRight: '1px' }} xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-command-icon lucide-command"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg> + K
+                <svg
+                  style={{ marginBottom: "1.5px", marginRight: "1px" }}
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="9"
+                  height="9"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-command-icon lucide-command"
+                >
+                  <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
+                </svg>{" "}
+                + K
               </kbd>
             </a>
           </p>
         </div>
 
-        <CommandDialog open={open} onOpenChange={setOpen}>
-          <CommandInput placeholder="Type a command or search..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Fidelity Investments">
-              <CommandItem>
-                <Code />
-                <span>AI Developer (F25)</span>
-              </CommandItem>
-              <CommandItem>
-                <Cable />
-                <span>Automation Developer (S25)</span>
-              </CommandItem>
-              <CommandItem>
-                <Calculator />
-                <span>Calculator</span>
-              </CommandItem>
-            </CommandGroup>
-            <CommandSeparator />
-            <CommandGroup heading="Settings">
-              <CommandItem>
-                <User />
-                <span>Profile</span>
-                <CommandShortcut>⌘P</CommandShortcut>
-              </CommandItem>
-              <CommandItem>
-                <CreditCard />
-                <span>Billing</span>
-                <CommandShortcut>⌘B</CommandShortcut>
-              </CommandItem>
-              <CommandItem>
-                <Settings />
-                <span>Settings</span>
-                <CommandShortcut>⌘S</CommandShortcut>
-              </CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </CommandDialog>
+       <CommandDialog open={open} onOpenChange={setOpen}>
+  <CommandInput placeholder="Search or click to open a page..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Fidelity Investments">
+      <CommandItem>
+        <img
+          src="./fidelity-icon.png"
+          width={24}
+          height={24}
+          alt="Fidelity"
+        />
+        <span>AI Engineer</span>
+        <CommandShortcut>Internship (Current)</CommandShortcut>
+      </CommandItem>
+      <CommandItem>
+        <img
+          src="./fidelity-icon.png"
+          width={24}
+          height={24}
+          alt="Fidelity"
+        />
+        <span>Automation Developer</span>
+        <CommandShortcut>Internship (S25)</CommandShortcut>
+      </CommandItem>
+    </CommandGroup>
+    <CommandSeparator />
+    <CommandGroup heading="Education">
+      <CommandItem>
+        <img
+          src="./tmu-icon.jpg"
+          width={24}
+          height={24}
+          alt="TMU"
+        />
+        <span>Toronto Metropolitan University</span>
+        <CommandShortcut>2023 - Present</CommandShortcut>
+      </CommandItem>
+      <CommandItem>
+        <CreditCard />
+        <span>Billing</span>
+        <CommandShortcut>⌘B</CommandShortcut>
+      </CommandItem>
+      <CommandItem>
+        <Settings />
+        <span>Settings</span>
+        <CommandShortcut>⌘S</CommandShortcut>
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+  
+  {/* Footer section */}
+  <div className="flex items-center justify-between border-t px-4 py-2 text-xs bg-muted/50">
+    <div className="flex items-center gap-2">
+      <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+        <span className="text-xs">Esc</span>
+      </kbd>
+    </div>
+    <div className="flex items-center gap-4">
+      <span>Open 
+        <kbd className="ml-2 pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+          <CornerDownLeft size={10}/>
+        </kbd>
+      </span>
+      <span className="text-muted-foreground">  | 
+       
+      </span>
+      <span>Select</span>
+      <div className="flex items-center gap-1">
+        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded  bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                    <ArrowUp size={10}/>
+
+        </kbd>
+        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded  bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                              <ArrowDown size={10}/>
+
+        </kbd>
+      </div>
+    </div>
+  </div>
+</CommandDialog>
+       
       </div>
 
       {/* <div
