@@ -22,7 +22,7 @@ export default function ResDexPage() {
 
   const sections = [
     { id: 'introduction', label: 'Introduction' },
-    { id: 'project-motive', label: 'Technical Architecture' },
+    { id: 'project-motive', label: 'Experience' },
     { id: 'tech-stack-selection', label: 'Building for Scale and Security' },
     { id: 'partnerships', label: 'Partnerships & Growth' },
     { id: 'future-plans', label: 'Future Plans' }
@@ -283,11 +283,12 @@ It’s fast, accessible, and built to help makers like us build smarter from day
               </section>
 
               <section id="project-motive">
-                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Technical Architecture</h2>
+                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Experience</h2>
                 <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                  As students ourselves, we experienced firsthand the frustration of finding meaningful research opportunities. The current system heavily favors students at prestigious institutions or those with existing academic connections, leaving talented individuals without clear pathways to contribute to cutting-edge research. Traditional academic networking relies on outdated methods like email chains, bulletin boards, and word-of-mouth referrals, creating information silos where opportunities are hidden from those who might be the perfect fit.
-                  <br /><br />
-                  We wanted an environment where students could discover opportunities based on merit and interest, without worrying about institutional prestige or personal connections. ResDex is our answer: a research discovery platform that puts talent, passion, and potential first; created to solve the very access barriers we encountered ourselves.
+                I walked into the hackathon with a brand new team, completely different ambitions, a Google Doc full of big ideas, and absolutely no sleep in sight. Being only one of the few hackers from a "non-target" university, it was definetely a whole different atmosphere. The ideas, the skill-level and execution was all on another level. Our group wasn’t shy about setting wild goals; actually, we were pretty loud about it. We wanted to win, yes, but more than that, we wanted to build something that felt genuinely new.
+<br></br>
+<br></br>
+We ended up pouring everything into Tunnel, a platform that helps makers validate product ideas and features in seconds with AI-driven, real-market personas. And the loss of sleep? Totally worth it. When they announced us for both the MLH Track and Best Use of VAPI awards, we were stunned into silence (something that rarely happened over the weekend). The biggest plot twist? Out of the 100+ projects submitted towards the YCombinator track, we were shortlisted as one of the top 10 teams for an interview! We sat down with none other than <span className="text-white">Nicolas Dessaigne</span> and Andrew Miklas from Y Combinator to talk about the future of our project. Having YC interviewers poke holes in your pitch is nerve-wracking and surreal: one moment you’re just a sleep-deprived student, the next you’re tossing ideas around with people who’ve seen a thousand startups rise and fall. Winning big, meeting genuine legends, and realizing how much is possible when you just show up and start building—it made every hour totally, absolutely worth it.
                 </p>
               </section>
 
