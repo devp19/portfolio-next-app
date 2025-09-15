@@ -6,6 +6,12 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { LiaGithub } from "react-icons/lia";
 import { FaLink, FaLinkedin } from "react-icons/fa6";
+import {
+  Announcement,
+  AnnouncementTag,
+  AnnouncementTitle,
+} from "@/components/ui/kibo-ui/announcement";
+import { ArrowUpRightIcon } from "lucide-react";
 
 export default function ResDexPage() {
   const [exiting, setExiting] = useState(false);
@@ -103,14 +109,37 @@ export default function ResDexPage() {
               <span className="absolute left-0 -bottom-0.5 h-0.25 w-full bg-current origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
             </button>
           </div>
+
+          
         </div>
 
+        
+
         <div className="flex-1 overflow-y-auto custom-scrollbar">
-          <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 pb-16">
-            <header className="space-y-4">
-              <p style={{ color: fadedLabel, fontSize: "0.8rem" }}>HackTheNorth 2x Track Winner</p>
-              <h1 style={{ fontSize: "1.8rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                Tunnel
+          <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-16 flex gap-8">
+            <aside className="hidden lg:block w-64 sticky top-20 self-start">
+              <nav>
+                <h3 className="inline-flex items-center gap-2" style={{ color: 'white', fontSize: "0.9rem", marginBottom: "0.5rem" }}>
+                   Table of Contents
+                </h3>
+                <ul style={{ color: fadedText, fontSize: "0.85rem" }} className="space-y-1">
+                  <li><button onClick={() => smoothScrollToSection('introduction')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Introduction</button></li>
+                  <li><button onClick={() => smoothScrollToSection('project-motive')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>The Research Access Problem</button></li>
+                  <li><button onClick={() => smoothScrollToSection('tech-stack-selection')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Building for Scale and Security</button></li>
+                  <li><button onClick={() => smoothScrollToSection('partnerships')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Partnerships & Growth</button></li>
+                  <li><button onClick={() => smoothScrollToSection('future-plans')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Future Plans</button></li>
+                </ul>
+              </nav>
+            </aside>
+            <div className="flex-1 max-w-3xl">
+          
+          <p style={{ fontSize: "0.6rem", color: fadedText }}>
+              September 15th, 2025
+              </p>
+
+            <header className="space-y-4 mt-3">
+                            <h1 style={{ fontSize: "1.8rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                Tunnel – AI Agent Simulation
                 <a href="https://resdex.ca" target="_blank" rel="noopener noreferrer" aria-label="ResDex Website" style={{ paddingLeft: "0.75rem" }}>
                   <FaLink size={15} color={textColor} />
                 </a>
@@ -120,24 +149,37 @@ export default function ResDexPage() {
                 <a href="https://linkedin.com/company/resdex" target="_blank" rel="noopener noreferrer" aria-label="ResDex LinkedIn">
                   <FaLinkedin size={17} color={textColor} />
                 </a>
+
               </h1>
+
+              
               <p style={{ fontSize: "0.9rem", color: fadedText }}>
                 Tunnel is an advanced AI-powered market simulation platform designed to revolutionize how product ideas are validated and refined. Instead of relying solely on traditional market research methods (which are slow, expensive, and often inaccessible), Tunnel enables you to test your ideas instantly against a diverse array of intelligent personas, each modeled with unique demographics, psychographics, and behavioral traits.
               </p>
-              <div className="flex items-center gap-2 ml-1">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <div className="absolute top-0 left-0 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
-                </div>
-                <span style={{fontSize: "0.8rem", color: fadedText}}>Enhancements are coming!</span>
-              </div>
+
+              <Announcement style={{ border: "1px solid #3a3a3a"}}>
+    <AnnouncementTag>Latest update</AnnouncementTag>
+    <AnnouncementTitle>
+    HackTheNorth – Vapi Track Winner
+      <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
+    </AnnouncementTitle>
+  </Announcement>
+
+  <Announcement style={{ border: "1px solid #3a3a3a", marginLeft: '10px'}}>
+    <AnnouncementTag>Latest update</AnnouncementTag>
+    <AnnouncementTitle>
+      HackTheNorth – MLH Track Winner
+      <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
+    </AnnouncementTitle>
+  </Announcement>
+            
             </header>
 
             <div className="mt-8 rounded-2xl" style={{ background: "#111111", border: "1px solid #2a2a2a" }}>
               <video src="/vid.mp4" width={1200} height={800} className="w-full object-cover rounded-2xl" autoPlay loop muted playsInline></video>
             </div>
 
-            <nav className="mt-10">
+            <nav className="mt-10 lg:hidden">
               <h3 className="inline-flex items-center gap-2" style={{ color: fadedLabel, fontSize: "0.8rem", marginBottom: "0.5rem" }}>
                 <IconInfoCircle size={"0.8rem"} color={textColor} /> Table of Contents
               </h3>
@@ -227,6 +269,7 @@ export default function ResDexPage() {
                 </ul>
               </div>
             </section>
+            </div>
           </div>
         </div>
       </div>
