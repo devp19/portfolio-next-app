@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { LiaGithub } from "react-icons/lia";
 import { FaLink, FaLinkedin } from "react-icons/fa6";
+import { IoIosArrowForward } from "react-icons/io";
 import {
   Announcement,
   AnnouncementTag,
@@ -17,6 +18,15 @@ export default function ResDexPage() {
   const [exiting, setExiting] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [lightMode, setLightMode] = useState(false);
+  const [activeSection, setActiveSection] = useState('introduction');
+
+  const sections = [
+    { id: 'introduction', label: 'Introduction' },
+    { id: 'project-motive', label: 'Technical Architecture' },
+    { id: 'tech-stack-selection', label: 'Building for Scale and Security' },
+    { id: 'partnerships', label: 'Partnerships & Growth' },
+    { id: 'future-plans', label: 'Future Plans' }
+  ];
 
   useEffect(() => {
     setLightMode(localStorage.getItem("theme") === "light");
@@ -33,6 +43,34 @@ export default function ResDexPage() {
     };
   }, []);
 
+  // Intersection Observer for tracking active section
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach(section => {
+      const element = document.getElementById(section.id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, [loaded]);
+
   const handleBack = () => {
     setExiting(true);
     setTimeout(() => {
@@ -41,6 +79,7 @@ export default function ResDexPage() {
   };
 
   const smoothScrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
@@ -54,6 +93,36 @@ export default function ResDexPage() {
   const fadedText = "#9ca3af"; // muted text
   const fadedLabel = "#a1a1aa"; // slightly stronger muted label
   const bgColor = "#0e0e0e";
+
+  const NavigationItem = ({ section, isActive }: { section: { id: string; label: string }, isActive: boolean }) => (
+    <li className="relative">
+      <button 
+        onClick={() => smoothScrollToSection(section.id)}
+        className="flex items-center w-full text-left transition-all duration-300 ease-out hover:translate-x-1"
+        style={{ 
+          color: isActive ? textColor : fadedText,
+          background: "none", 
+          border: "none", 
+          cursor: "pointer", 
+          padding: 0,
+          paddingLeft: isActive ? "1rem" : "0"
+        }}
+      >
+        <div 
+          className="absolute left-0 transition-all duration-300 ease-out"
+          style={{
+            opacity: isActive ? 1 : 0,
+            transform: isActive ? 'translateX(0)' : 'translateX(-8px)'
+          }}
+        >
+          <IoIosArrowForward size={12} color="#ffffff" />
+        </div>
+        <span className="transition-all duration-300">
+          {section.label}
+        </span>
+      </button>
+    </li>
+  );
 
   return (
     <>
@@ -89,6 +158,11 @@ export default function ResDexPage() {
         .custom-scrollbar {
           scrollbar-gutter: stable;
         }
+
+        /* Smooth arrow animation */
+        .nav-arrow {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
       `}</style>
       <div
         className={`h-screen flex flex-col font-sans transition-all duration-700 ease-in-out ${
@@ -109,25 +183,23 @@ export default function ResDexPage() {
               <span className="absolute left-0 -bottom-0.5 h-0.25 w-full bg-current origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
             </button>
           </div>
-
-          
         </div>
-
-        
 
         <div className="flex-1 overflow-y-auto custom-scrollbar">
           <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-16 flex gap-8">
             <aside className="hidden lg:block w-64 sticky top-20 self-start">
               <nav>
-                <h3 className="inline-flex items-center gap-2" style={{ color: 'white', fontSize: "0.9rem", marginBottom: "0.5rem" }}>
+                <h3 className="inline-flex items-center gap-2" style={{ color: fadedLabel, fontSize: "0.9rem", marginBottom: "1rem" }}>
                    Table of Contents
                 </h3>
-                <ul style={{ color: fadedText, fontSize: "0.85rem" }} className="space-y-1">
-                  <li><button onClick={() => smoothScrollToSection('introduction')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Introduction</button></li>
-                  <li><button onClick={() => smoothScrollToSection('project-motive')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>The Research Access Problem</button></li>
-                  <li><button onClick={() => smoothScrollToSection('tech-stack-selection')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Building for Scale and Security</button></li>
-                  <li><button onClick={() => smoothScrollToSection('partnerships')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Partnerships & Growth</button></li>
-                  <li><button onClick={() => smoothScrollToSection('future-plans')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Future Plans</button></li>
+                <ul style={{ fontSize: "0.85rem" }} className="space-y-3">
+                  {sections.map((section) => (
+                    <NavigationItem 
+                      key={section.id} 
+                      section={section} 
+                      isActive={activeSection === section.id} 
+                    />
+                  ))}
                 </ul>
               </nav>
             </aside>
@@ -180,28 +252,38 @@ export default function ResDexPage() {
             </div>
 
             <nav className="mt-10 lg:hidden">
-              <h3 className="inline-flex items-center gap-2" style={{ color: fadedLabel, fontSize: "0.8rem", marginBottom: "0.5rem" }}>
+              <h3 className="inline-flex items-center gap-2" style={{ color: fadedLabel, fontSize: "0.8rem", marginBottom: "1rem" }}>
                 <IconInfoCircle size={"0.8rem"} color={textColor} /> Table of Contents
               </h3>
-              <ul style={{ color: fadedText, fontSize: "0.85rem" }} className="space-y-1">
-                <li><button onClick={() => smoothScrollToSection('introduction')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Introduction</button></li>
-                <li><button onClick={() => smoothScrollToSection('project-motive')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>The Research Access Problem</button></li>
-                <li><button onClick={() => smoothScrollToSection('tech-stack-selection')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Building for Scale and Security</button></li>
-                <li><button onClick={() => smoothScrollToSection('partnerships')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Partnerships & Growth</button></li>
-                <li><button onClick={() => smoothScrollToSection('future-plans')} style={{ color: fadedText, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}>Future Plans</button></li>
+              <ul style={{ fontSize: "0.85rem" }} className="space-y-3">
+                {sections.map((section) => (
+                  <NavigationItem 
+                    key={section.id} 
+                    section={section} 
+                    isActive={activeSection === section.id} 
+                  />
+                ))}
               </ul>
             </nav>
 
             <article className="prose prose-invert max-w-none mt-10">
               <section id="introduction">
-                <h2 style={{ fontSize: "1.5rem" }}>Redefining the World of Research</h2>
+                <h2 style={{ fontSize: "1.5rem" }}>Introduction</h2>
                 <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                  ResDex is designed to democratize access to academic research by creating a centralized platform where students can discover opportunities regardless of their institutional affiliation. By prioritizing merit over connections, ResDex ensures that all processes and networking happen transparently, eliminating the barriers that traditionally limit research access to elite institutions or well-connected individuals. Its intuitive environment accelerates academic discovery by combining portfolio showcasing, real-time search, and collaboration tools into one unified platform. With ResDex, students can seamlessly find and engage with research opportunities from any location, confidently building their academic careers without sacrificing access or opportunity.
-                </p>
+               
+                Have you ever spent months building something you believed in, only to launch and realize... no one actually wanted it? I’ve been there, and it’s a brutal feeling. Turns out, we're not alone—most startups fail, and the number one reason is building something with no real market need.
+<br></br>
+<br></br>
+We looked at the usual ways to validate ideas; surveys, focus groups, user interviews...but they’re slow, expensive, and often miss the mark. At <a href="https://hackthenorth.com/" target="_blank"><span className="text-white italic">HackTheNorth</span></a>, our team set out to find a better way. That’s how Tunnel was created.
+<br></br>
+<br></br>
+Tunnel is an AI-powered market simulation platform that lets you test product and feature ideas instantly. You can interact with hundreds of realistic, personality-driven personas that represent your target market. Instead of guessing what people might think, you can see real-time reactions and insights, all before writing a single line of code.
+
+It’s fast, accessible, and built to help makers like us build smarter from day one.                </p>
               </section>
 
               <section id="project-motive">
-                <h2 style={{ fontSize: "1.2rem", marginTop: "2rem" }}>The Research Access Problem</h2>
+                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Technical Architecture</h2>
                 <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
                   As students ourselves, we experienced firsthand the frustration of finding meaningful research opportunities. The current system heavily favors students at prestigious institutions or those with existing academic connections, leaving talented individuals without clear pathways to contribute to cutting-edge research. Traditional academic networking relies on outdated methods like email chains, bulletin boards, and word-of-mouth referrals, creating information silos where opportunities are hidden from those who might be the perfect fit.
                   <br /><br />
