@@ -296,16 +296,24 @@ We ended up pouring everything into Tunnel, a platform that helps makers validat
               </section>
 
               <section id="tech-stack-selection">
-                <h2 style={{ fontSize: "1.2rem", marginTop: "2rem" }}>Building for Scale and Security</h2>
+                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Building for Scale and Security</h2>
                 <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                  Next.js provides the foundation for our platform with its excellent performance characteristics and developer experience. TypeScript ensures code reliability and maintainability as we scale our team and feature set. For data management, we leverage both Supabase for real-time features and user authentication, and Firestore for complex querying and scalable document storage.
-                </p>
-                <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "1rem" }}>
-                  Amazon S3 handles secure file storage for research portfolios and project documentation. This architecture allows us to handle the unique demands of academic networking while maintaining the speed and reliability that modern users expect from digital platforms.
-                </p>
-                <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "1rem" }}>
-                  By doing a market-analysis and understanding the unique needs of academic networking, we estimate ResDex will have a reccuring growing user base with a SBS (Semester by Semester) growth of 200+ onboarded students. This is the low-end of our estimation but speaking frankly, we need to build for scalability right away!
-                </p>
+                When we set out to build Tunnel, we wanted every piece of the architecture to feel seamless, responsive, and as dynamic as the market simulations themselves. On the frontend, we chose a modern stack, <span className="text-white">Next.js</span>, <span className="text-white">TypeScript</span>, <span className="text-white">Tailwind</span>, and <span className="text-white">Shadcn UI Primitives</span> <i>(my absolute favourite)</i> ! 
+                
+                <br></br>
+                <br></br>
+                Additionally, we created a real-time 3D globe <i>(which ended up being a fan favourite from all the feedback we got!)</i> powered by <span className="text-white">Three.js</span> and <span className="text-white">React Three Fiber</span>. All the UI logic lives alongside beautifully animated transitions, thanks to <span className="text-white">Framer Motion</span>, while Tailwind CSS and Radix UI handle styling and accessibility for every component. 
+                <br></br>
+                <br></br>
+                The heart of Tunnel is our custom API layer, built with <span className="text-white">Next.js API routes</span>, that orchestrates persona generation, project analysis, voice session bridging, and session management. Intelligence flows from <span className="text-white">Cohere's</span> suite of AI tools, which handles everything from <span className="text-white">semantic understanding</span> and <span className="text-white">ranking algorithms</span> to nuanced conversation generation. 
+                
+                <br></br>
+                <br></br>
+                
+                For voice, we use <span className="text-white">Vapi</span> with an <span className="text-white">MCP server</span> to provide instant, realistic phone-like interactions with each persona directly from the browser.
+
+All user and simulation data is managed in MongoDB Atlas, which offers the flexibility to store evolving persona profiles—with nested demographic, psychographic, and behavioral data—plus full records of simulations, feedback, and voice transcripts. We use compound indexing and partitioning to make sure data retrieval stays fast, even when scaling to hundreds of concurrent users. Live updates come in via fast polling mechanisms and optimistic UI updates, so users never wait for feedback, and all session data auto-saves in the background using a debounce system to prevent data loss. Centralized state management with Zustand lets us synchronize everything from current focus groups to real-time persona responses, even across collaborative sessions. Everything runs on Vercel, which enables near-instant deployments and ensures that our app stays globally available and performant. The result is a platform that combines next-gen AI, interactive graphics, and robust backend systems—all woven together to deliver instant, actionable market insights.
+</p>
               </section>
 
               <section id="partnerships">
