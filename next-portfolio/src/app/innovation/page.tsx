@@ -10,7 +10,7 @@ import {
   IconInfoCircle,
   icons,
 } from "@tabler/icons-react";
-import { FaTerminal } from "react-icons/fa6";
+import { FaTerminal, FaCircleNodes } from "react-icons/fa6";
 import {
   MdLocationSearching,
   MdOutlineViewInAr,
@@ -83,6 +83,14 @@ export default function ResDexPage() {
   const bgColor = lightMode ? "#ffffff" : "#ffffff";
 
   const projects = [
+    {
+      title: "Tunnel",
+      tags: ["AI","Full-Stack", "Research"],
+      description:
+        "An AI-powered market simulation platform that empowers you to test your product ideas against hundreds of dynamic, intelligent personas; providing real-time insights and feedback for smarter decision-making.",
+      icon: <FaCircleNodes size={15} color={textColor} />,
+      link: "/innovation/tunnel",
+    },
     {
       title: "ResDex",
       tags: ["Full-Stack"],
