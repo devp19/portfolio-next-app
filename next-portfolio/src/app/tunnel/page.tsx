@@ -79,6 +79,103 @@ const code2 = [
 ];
 
 
+const code3 = [
+  {
+    language: "json",
+    filename: "sample_raw_metadata.json",
+    code: ` "location": {
+            "city": "Toronto",
+            "country": "Canada",
+            "coordinates": {
+                "longitude": -79.3832,
+                "latitude": 43.6532
+            }
+        },
+        "demographics": {
+            "generation": "Gen X",
+            "gender": "Male",
+            "ageRange": "45-50"
+        },
+        "professional": {
+            "seniority": "C-Level",
+            "primaryIndustry": "Fintech",
+            "secondaryIndustry": "Leadership",
+            "companySize": "100-500",
+            "yearsExperience": 22
+        },
+        "psychographics": {
+            "techAdoption": 7,
+            "riskTolerance": 9,
+            "priceSensitivity": 3,
+            "influenceScore": 9,
+            "brandLoyalty": 8
+        },
+        "interests": [
+            "Strategy",
+            "Innovation",
+            "Golf",
+            "Investing"
+        ],
+        "personality": {
+            "openness": 0.7,
+            "conscientiousness": 0.9,
+            "extraversion": 0.8,
+            "agreeableness": 0.6,
+            "neuroticism": 0.2
+        },
+  `
+  
+  }
+];
+
+const code4 = [
+  {
+    language: "txt",
+    filename: "terminal.txt",
+    code: ` ✓ Compiled /api/extract-niche in 536ms (1820 modules)
+ [EXTRACT-NICHE] API endpoint called
+ [EXTRACT-NICHE] Request body: { 'create genx app related to fintech in canada' }
+ [EXTRACT-NICHE] Processing idea: create genx app related to fintech in canada...
+ [EXTRACT-NICHE] Starting niche analysis for idea length: 44
+ [EXTRACT-NICHE] Lowercase idea: create genx app related to fintech in canada
+ [EXTRACT-NICHE] Analyzing 15 potential niches...
+ [EXTRACT-NICHE] Financial Technology: score=1.50, keywords=[fintech]
+ [EXTRACT-NICHE] Productivity & Business Tools: score=0.45, keywords=[app]
+ [EXTRACT-NICHE] Best match: { name: 'Financial Technology', score: 1.5 }
+ [EXTRACT-NICHE] Successfully identified niche: Financial Technology
+ POST /api/extract-niche 200 in 597ms
+  `
+  
+  }
+];
+
+const code5 = [
+{
+  language: "txt",
+  filename: "terminal.txt",
+  code: ` 
+  [SELECT-NICHE-USERS] Cohere rerank completed, got 25 results
+  [SELECT-NICHE-USERS] Relevance scores: {
+      count: 25,
+      average: '0.341',
+      max: '0.866',
+      min: '0.249',
+      highRelevance: 1,
+      mediumRelevance: 2,
+      lowRelevance: 22
+    }
+
+  [SELECT-NICHE-USERS] Top 5 selected users:
+  1. James Wilson (0.866) - CEO
+  2. Derek Ward (0.759) - Learning Experience Designer
+  3. Michelle Nelson (0.561) - Financial Analyst
+  4. Tessa Watson (0.392) - Policy Analyst
+  5. Jared Bishop (0.336) - Regulatory Compliance Officer
+  `
+
+  
+}
+];
 
 export default function ResDexPage() {
   const [exiting, setExiting] = useState(false);
@@ -490,7 +587,7 @@ This offers the flexibility to store evolving persona profiles [ with nested dem
 <MathJax className="text-white text-2xl mt-3 mb-3">{`\\( z = \\text{radius} \\cdot \\sin(\\phi) \\cdot \\sin(\\theta) \\)`}</MathJax>
 
 </MathJaxContext>
-This mapping aligns the poles and the equator correctly in a 3D scene.
+ This mapping aligns the poles and the equator correctly in a 3D scene.
 
 <br></br>
 <br></br>
@@ -502,7 +599,7 @@ This mapping aligns the poles and the equator correctly in a 3D scene.
   {`\\( \\mathrm{THREE.Vector3}(x, y, z) \\)`}
 </MathJax>
 
-A new 3D Vector where x, y, and z are the Cartesian coordinates calculated above—this represents the position in 3D space for given (lat, lon) on a sphere
+A new 3D Vector where x, y, and z are the Cartesian coordinates calculated above—this represents the position in 3D space for given (lat, lon) on a sphere.
 
 
 
@@ -510,7 +607,6 @@ A new 3D Vector where x, y, and z are the Cartesian coordinates calculated above
 
 
 </MathJaxContext>
-This mapping aligns the poles and the equator correctly in a 3D scene.
 
 
    <br></br>
@@ -526,16 +622,71 @@ This mapping aligns the poles and the equator correctly in a 3D scene.
 
 
               <section id="runtime-agent">
-                <h2 style={{ fontSize: "1.2rem", marginTop: "2rem" }}>Runtime Agent</h2>
+                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Runtime Agent</h2>
                 <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                  Our roadmap includes advanced matching algorithms powered by machine learning to better connect students with relevant opportunities based on their skills, interests, and career goals. We're developing integrated collaboration tools, including project management features, communication channels, and progress tracking systems to support the entire research lifecycle from discovery to publication.
-                </p>
-                <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "1rem" }}>
-                  Long-term plans include expanding into international markets, supporting multi-language content, and building partnerships with funding organizations to help students secure financial support for their research endeavors.
-                </p>
-                <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "1rem" }}>
-                  Additional planned features include AI-powered research matching, integrated publication tracking, funding opportunity discovery, and enhanced networking tools that make academic collaboration even more seamless and effective.
-                </p>
+                One of the other things I worked on was the runtime agent powering all the <span className="text-white">AI personas</span> inside Tunnel, so I wanted to break down how it actually works behind the scenes. The runtime agent is basically the heart of our persona simulation—it’s the thing that lets each persona have unique, consistent opinions, behaviors, and even voice conversations with users.
+
+<br></br>
+<br></br>
+Whenever you submit a product idea, the agent kicks into action by grabbing all the relevant persona profiles from our database (demographics, psychographics, past interactions, and more). It fetches related agent profiles by extracting a niche from the product idea and matching it with the personas' interests. For example, refer to how the Extraction identified a Financial Technology niche from the prompt.
+</p>
+<CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code4} defaultValue={code4[0].language}>
+    <CodeBlockBody>
+      {(item) => (
+        <CodeBlockItem key={item.language} value={item.language}>
+          <CodeBlockContent language={item.language as BundledLanguage} syntaxHighlighting={false} style={{ marginBottom: '10px' }}>
+            {item.code}
+          </CodeBlockContent>
+        </CodeBlockItem>
+      )}
+    </CodeBlockBody>
+  </CodeBlock>
+  <p style={{ color: fadedText, fontSize: "0.9rem" }}>
+
+ From there, we filter through ALL the agents that are created using a quick search algorithm. This algorithm matches the niche with the agents' interests via <span className="text-white">Cohere's ranker</span>. You can see a small snippet of an agent's  persona below which we generate and store as metadata for each agent. We store these as 'users' in the <span className="text-white">Auth0 user database</span>.
+
+  </p>
+
+<CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code3} defaultValue={code3[0].language}>
+    <CodeBlockBody>
+      {(item) => (
+        <CodeBlockItem key={item.language} value={item.language}>
+          <CodeBlockContent language={item.language as BundledLanguage} syntaxHighlighting={false} style={{ marginBottom: '10px' }}>
+            {item.code}
+          </CodeBlockContent>
+        </CodeBlockItem>
+      )}
+    </CodeBlockBody>
+  </CodeBlock>
+
+<p style={{ color: fadedText, fontSize: "0.9rem" }}>
+
+  
+For every single simulation, it orchestrates multiple stages: first, it runs <span className="text-white">Cohere’s reranking</span> to figure out which personas actually care about this idea, then it generates tailored reactions using our AI pipelines. Each agent’s response isn’t generic—it’s built from the persona’s attributes, combined with pattern recognition and sentiment extraction, so every reply feels unique and grounded.
+
+</p>
+
+<CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code5} defaultValue={code5[0].language}>
+    <CodeBlockBody>
+      {(item) => (
+        <CodeBlockItem key={item.language} value={item.language}>
+          <CodeBlockContent language={item.language as BundledLanguage} syntaxHighlighting={false} style={{ marginBottom: '10px' }}>
+            {item.code}
+          </CodeBlockContent>
+        </CodeBlockItem>
+      )}
+    </CodeBlockBody>
+  </CodeBlock>
+
+<br></br>
+
+<p style={{ color: fadedText, fontSize: "0.9rem" }}>
+
+But we didn’t stop at just text. When you want to actually “call” a persona, the runtime agent passes all their context; personality, history, specific feedback—into <span style={{ color: textColor }}>Vapi (AI Voice Agent)</span>, which then transforms that into a real-time, dynamic voice call right in the browser. All the state, conversation transcripts, and even evolving feedback are instantly synced, so the agent can remember what’s happened before and respond accordingly in future sessions.
+
+<br></br>
+<br></br>
+Everything the agent does happens in real-time, with results stored, tracked, and sent back to the user. This means you’re never stuck waiting or wondering if the system is keeping up. The end result is that every simulated persona feels alive, coherent, and actually grows over time, making the whole market simulation so much more real and useful.                </p>
               </section>
             </article>
 
