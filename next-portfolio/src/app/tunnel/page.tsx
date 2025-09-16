@@ -185,10 +185,23 @@ export default function ResDexPage() {
 
   const sections = [
     { id: 'introduction', label: 'Introduction' },
-    { id: 'project-motive', label: 'Experience' },
     { id: 'tech-stack-selection', label: 'Building for Scale and Security' },
-    { id: 'globe', label: 'The Globe' },
-    { id: 'runtime-agent', label: 'Runtime Agent' }
+    { 
+      id: 'globe', 
+      label: 'The Globe',
+      subSections: [
+        { id: 'sphere-wireframe', label: 'Sphere Wireframe' },
+        { id: 'vector-coords', label: 'Vector Coords' },
+        { id: 'result', label: 'Result' }
+      ]
+    },
+    { id: 'runtime-agent', label: 'Runtime Agent',
+      subSections: [
+        { id: 'niche-extraction', label: 'Niche Extraction' },
+        { id: 'ranking', label: 'Cohere Ranking' }]
+   },
+     { id: 'experience', label: 'Ending Remarks' },
+
   ];
 
   useEffect(() => {
@@ -214,6 +227,7 @@ export default function ResDexPage() {
       threshold: 0
     };
 
+    
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -229,7 +243,18 @@ export default function ResDexPage() {
       if (element) {
         observer.observe(element);
       }
+
+      if (section.subSections) {
+        section.subSections.forEach(subSection => {
+          const subElement = document.getElementById(subSection.id);
+          if (subElement) {
+            observer.observe(subElement);
+          }
+        });
+      }
     });
+
+    
 
     return () => observer.disconnect();
   }, [loaded]);
@@ -282,6 +307,37 @@ export default function ResDexPage() {
         </div>
         <span className="transition-all duration-300">
           {section.label}
+        </span>
+      </button>
+    </li>
+  );
+
+  const SubNavigationItem = ({ subSection, isActive }: { subSection: { id: string; label: string }, isActive: boolean }) => (
+    <li className="relative ml-4">
+      <button 
+        onClick={() => smoothScrollToSection(subSection.id)}
+        className="flex items-center w-full text-left transition-all duration-300 ease-out hover:translate-x-1"
+        style={{ 
+          color: isActive ? textColor : fadedText,
+          background: "none", 
+          border: "none", 
+          cursor: "pointer", 
+          padding: 0,
+          paddingLeft: isActive ? "1rem" : "0",
+          fontSize: "0.8rem"
+        }}
+      >
+        <div 
+          className="absolute left-0 transition-all duration-300 ease-out"
+          style={{
+            opacity: isActive ? 1 : 0,
+            transform: isActive ? 'translateX(0)' : 'translateX(-8px)'
+          }}
+        >
+          <IoIosArrowForward size={10} color="#ffffff" />
+        </div>
+        <span className="transition-all duration-300">
+          {subSection.label}
         </span>
       </button>
     </li>
@@ -356,13 +412,25 @@ export default function ResDexPage() {
                    Table of Contents
                 </h3>
                 <ul style={{ fontSize: "0.85rem" }} className="space-y-3">
-                  {sections.map((section) => (
-                    <NavigationItem 
-                      key={section.id} 
-                      section={section} 
-                      isActive={activeSection === section.id} 
-                    />
-                  ))}
+                {sections.map((section) => (
+  <div key={section.id}>
+    <NavigationItem 
+      section={section} 
+      isActive={activeSection === section.id} 
+    />
+    {section.subSections && (
+      <ul className="space-y-2 mt-2">
+        {section.subSections.map((subSection) => (
+          <SubNavigationItem
+            key={subSection.id}
+            subSection={subSection}
+            isActive={activeSection === subSection.id}
+          />
+        ))}
+      </ul>
+    )}
+  </div>
+))}
                 </ul>
               </nav>
             </aside>
@@ -419,13 +487,25 @@ export default function ResDexPage() {
                 <IconInfoCircle size={"0.8rem"} color={textColor} /> Table of Contents
               </h3>
               <ul style={{ fontSize: "0.85rem" }} className="space-y-3">
-                {sections.map((section) => (
-                  <NavigationItem 
-                    key={section.id} 
-                    section={section} 
-                    isActive={activeSection === section.id} 
-                  />
-                ))}
+              {sections.map((section) => (
+  <div key={section.id}>
+    <NavigationItem 
+      section={section} 
+      isActive={activeSection === section.id} 
+    />
+    {section.subSections && (
+      <ul className="space-y-2 mt-2">
+        {section.subSections.map((subSection) => (
+          <SubNavigationItem
+            key={subSection.id}
+            subSection={subSection}
+            isActive={activeSection === subSection.id}
+          />
+        ))}
+      </ul>
+    )}
+  </div>
+))}
               </ul>
             </nav>
 
@@ -445,20 +525,7 @@ Tunnel is an AI-powered market simulation platform that lets you test product an
 It’s fast, accessible, and built to help makers like us build smarter from day one.                </p>
               </section>
 
-              <section id="project-motive">
-                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Experience</h2>
-                <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                I walked into the hackathon with a brand new team, completely different ambitions, a Google Doc full of big ideas, and absolutely no sleep in sight. Being only one of the few hackers from a "non-target" university, it was definetely a whole different atmosphere. The ideas, the skill-level and execution was all on another level. Our group wasn’t shy about setting wild goals; actually, we were pretty loud about it. We wanted to win, yes, but more than that, we wanted to build something that felt genuinely new.
-<br></br>
-<br></br>
-
-
-We ended up pouring everything into Tunnel, a platform that helps makers validate product ideas and features in seconds with AI-driven, real-market personas. And the loss of sleep? Totally worth it. When they announced us for both the <span className="text-white">MLH Track</span> and <span className="text-white">Best use of Vapi - AI Voice Agent</span> awards, we were stunned into silence (something that rarely happened over the weekend).
-<br></br>
-<br></br>
- The biggest plot twist? Out of the 100+ projects submitted towards the <span className="text-white">Y Combinator</span> track, we were shortlisted as one of the <span className="text-white">top 10</span> teams for an interview! We sat down with none other than <a href="https://www.ycombinator.com/people/nicolas-dessaigne" target="_blank"><span className="text-white">Nicolas Dessaigne</span></a> and <a href="https://www.ycombinator.com/people/andrew-miklas" target="_blank"><span className="text-white">Andrew Miklas</span></a> from <span className="text-white">Y Combinator</span> to talk about the future of our project. Having YC interviewers poke holes in your pitch is nerve-wracking and surreal: one moment you’re just a sleep-deprived student, the next you’re tossing ideas around with people who’ve seen a thousand startups rise and fall. Winning big, meeting genuine legends, and realizing how much is possible when you just show up and start buildaing—it made every hour totally, absolutely worth it.
-                </p>
-              </section>
+            
 
               <section id="tech-stack-selection">
                 <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Building for Scale and Security</h2>
@@ -516,7 +583,7 @@ This offers the flexibility to store evolving persona profiles [ with nested dem
     </CodeBlockBody>
   </CodeBlock>
                
-                <p style={{ color: fadedText, fontSize: "0.9rem" }}>
+                <p id="sphere-wireframe" style={{ color: fadedText, fontSize: "0.9rem" }}>
                   Wireframe Sphere Creation (Code Snippet)
 
                   <br></br>
@@ -542,8 +609,8 @@ This offers the flexibility to store evolving persona profiles [ with nested dem
    
    <br></br>
    <br></br>
-   The next step, and probably the most complex part, is to map coordinates to actual vector coordinates because the globe is round, not flat....
-
+   <span id="vector-coords">The next step, and probably the most complex part, is to map coordinates to actual vector coordinates because the globe is round, not flat....
+   </span>
    <br></br>
    <br></br>
    To do that, I used a simple conversion algorithm. The <span className="text-white">latLonToVector3()</span> function converts a point on a sphere given by geographic coordinates (latitude, longitude, and radius) into a 3D Cartesian coordinate (x, y, z) as used in 3D engines like Three.js. Here's the breakdown below:
@@ -615,7 +682,7 @@ A new 3D Vector where x, y, and z are the Cartesian coordinates calculated above
      
                 </p>
 
-                <div className="mt-8 rounded-2xl" style={{ background: "#111111", border: "1px solid #2a2a2a" }}>
+                <div id="result" className="mt-8 rounded-2xl" style={{ background: "#111111", border: "1px solid #2a2a2a" }}>
               <video src="/globe-animation.mp4" width={1200} height={800} className="w-full object-cover rounded-2xl" autoPlay loop muted playsInline></video>
             </div>
               </section>
@@ -630,7 +697,7 @@ A new 3D Vector where x, y, and z are the Cartesian coordinates calculated above
 <br></br>
 Whenever you submit a product idea, the agent kicks into action by grabbing all the relevant persona profiles from our database (demographics, psychographics, past interactions, and more). It fetches related agent profiles by extracting a niche from the product idea and matching it with the personas' interests. For example, refer to how the Extraction identified a Financial Technology niche from the prompt.
 </p>
-<CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code4} defaultValue={code4[0].language}>
+<CodeBlock id="niche-extraction" className="border-none rounded-2xl mt-5 mb-5" data={code4} defaultValue={code4[0].language}>
     <CodeBlockBody>
       {(item) => (
         <CodeBlockItem key={item.language} value={item.language}>
@@ -659,7 +726,7 @@ Whenever you submit a product idea, the agent kicks into action by grabbing all 
     </CodeBlockBody>
   </CodeBlock>
 
-<p style={{ color: fadedText, fontSize: "0.9rem" }}>
+<p id="ranking" style={{ color: fadedText, fontSize: "0.9rem" }}>
 
   
 For every single simulation, it orchestrates multiple stages: first, it runs <span className="text-white">Cohere’s reranking</span> to figure out which personas actually care about this idea, then it generates tailored reactions using our AI pipelines. Each agent’s response isn’t generic—it’s built from the persona’s attributes, combined with pattern recognition and sentiment extraction, so every reply feels unique and grounded.
@@ -688,9 +755,27 @@ But we didn’t stop at just text. When you want to actually “call” a person
 <br></br>
 Everything the agent does happens in real-time, with results stored, tracked, and sent back to the user. This means you’re never stuck waiting or wondering if the system is keeping up. The end result is that every simulated persona feels alive, coherent, and actually grows over time, making the whole market simulation so much more real and useful.                </p>
               </section>
+
+
+              <section id="experience">
+                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Ending Remarks</h2>
+                <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
+                I walked into the hackathon with a brand new team (shoutout <a target="_blank" href="https://www.linkedin.com/in/krish-garg/" className="text-white">@Krish Garg</a>, <a target="_blank" href="https://www.linkedin.com/in/suneruperera/" className="text-white">@Suneru Perera</a> & <a target="_blank" href="https://www.linkedin.com/in/haresh-goyal/" className="text-white">@Haresh Goyal</a>), completely different ambitions, a Google Doc full of big ideas, and absolutely no sleep in sight. Being only one of the few hackers from a "non-target" university, it was definetely a whole different atmosphere. The ideas, the skill-level and execution was all on another level. Our group wasn’t shy about setting wild goals; actually, we were pretty loud about it. We wanted to win, yes, but more than that, we wanted to build something that felt genuinely new.
+<br></br>
+<br></br>
+
+
+We ended up pouring everything into Tunnel, a platform that helps makers validate product ideas and features in seconds with AI-driven, real-market personas. And the loss of sleep? Totally worth it. When they announced us for both the <span className="text-white">MLH Track</span> and <span className="text-white">Best use of Vapi - AI Voice Agent</span> awards, we were stunned into silence (something that rarely happened over the weekend).
+<br></br>
+<br></br>
+ The biggest plot twist? Out of the 100+ projects submitted towards the <span className="text-white">Y Combinator</span> track, we were shortlisted as one of the <span className="text-white">top 10</span> teams for an interview! We sat down with none other than <a href="https://www.ycombinator.com/people/nicolas-dessaigne" target="_blank"><span className="text-white">Nicolas Dessaigne</span></a> and <a href="https://www.ycombinator.com/people/andrew-miklas" target="_blank"><span className="text-white">Andrew Miklas</span></a> from <span className="text-white">Y Combinator</span> to talk about the future of our project. Having YC interviewers poke holes in your pitch is nerve-wracking and surreal: one moment you’re just a sleep-deprived student, the next you’re tossing ideas around with people who’ve seen a thousand startups rise and fall. Winning big, meeting genuine legends, and realizing how much is possible when you just show up and start buildaing—it made every hour totally, absolutely worth it.
+                </p>
+              </section>
+<div className="mt-52"></div>
             </article>
 
-            <section className="hidden lg:block mt-12 grid grid-cols-2 gap-6">
+
+            {/* <section className="hidden lg:block mt-12 grid grid-cols-2 gap-6">
               <div>
                 <h3 className="inline-flex items-center gap-2" style={{ color: fadedLabel, fontSize: "0.8rem", marginBottom: "0.5rem" }}>
                   <IconCalendar size={"0.8rem"} color={textColor} /> Details
@@ -712,7 +797,9 @@ Everything the agent does happens in real-time, with results stored, tracked, an
                   <li>Firestore</li>
                 </ul>
               </div>
-            </section>
+            </section> */}
+
+
             </div>
           </div>
         </div>
