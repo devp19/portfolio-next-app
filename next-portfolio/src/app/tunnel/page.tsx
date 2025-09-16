@@ -22,6 +22,7 @@ import {
   CodeBlockContent,
   CodeBlockItem,
 } from "@/components/ui/kibo-ui/code-block";
+import style from 'styled-jsx/style';
 
 const code = [
   {
@@ -434,7 +435,7 @@ export default function ResDexPage() {
                 </ul>
               </nav>
             </aside>
-            <div className="flex-1 w-full max-w-3xl">
+            <div className="flex-1 w-full max-w-3xl p-1" style={{ overflowX: "hidden" }}>
           
           <p style={{ fontSize: "0.6rem", color: fadedText }}>
               September 15th, 2025
