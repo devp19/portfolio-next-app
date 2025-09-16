@@ -405,10 +405,10 @@ export default function ResDexPage() {
         </div>
 
         <div className="flex-1 overflow-y-auto custom-scrollbar">
-          <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 pb-16 flex gap-8">
-            <aside className="hidden lg:block w-64 sticky top-20 self-start">
+        <div className="mx-auto w-full max-w-6xl px-2 sm:px-4 pb-16 flex flex-col lg:flex-row gap-0 lg:gap-8">
+        <aside className="hidden lg:block w-64 sticky top-20 self-start">
               <nav>
-                <h3 className="inline-flex items-center gap-2" style={{ color: fadedLabel, fontSize: "0.9rem", marginBottom: "1rem" }}>
+                <h3 className="inline-flex items-center gap-2" style={{ color: 'white', fontSize: "0.9rem", marginBottom: "1rem" }}>
                    Table of Contents
                 </h3>
                 <ul style={{ fontSize: "0.85rem" }} className="space-y-3">
@@ -434,7 +434,7 @@ export default function ResDexPage() {
                 </ul>
               </nav>
             </aside>
-            <div className="flex-1 max-w-3xl">
+            <div className="flex-1 w-full max-w-3xl">
           
           <p style={{ fontSize: "0.6rem", color: fadedText }}>
               September 15th, 2025
@@ -446,12 +446,12 @@ export default function ResDexPage() {
                 <a href="https://resdex.ca" target="_blank" rel="noopener noreferrer" aria-label="ResDex Website" style={{ paddingLeft: "0.75rem" }}>
                   <FaLink size={15} color={textColor} />
                 </a>
-                <a href="https://github.com/devp19/resdex" target="_blank" rel="noopener noreferrer" aria-label="ResDex GitHub">
+                {/* <a href="https://github.com/devp19/resdex" target="_blank" rel="noopener noreferrer" aria-label="ResDex GitHub">
                   <LiaGithub size={20} color={textColor} />
                 </a>
                 <a href="https://linkedin.com/company/resdex" target="_blank" rel="noopener noreferrer" aria-label="ResDex LinkedIn">
                   <FaLinkedin size={17} color={textColor} />
-                </a>
+                </a> */}
 
               </h1>
 
@@ -460,26 +460,37 @@ export default function ResDexPage() {
                 Tunnel is an advanced AI-powered market simulation platform designed to revolutionize how product ideas are validated and refined. Instead of relying solely on traditional market research methods (which are slow, expensive, and often inaccessible), Tunnel enables you to test your ideas instantly against a diverse array of intelligent personas, each modeled with unique demographics, psychographics, and behavioral traits.
               </p>
 
-              <Announcement style={{ border: "1px solid #3a3a3a"}}>
+              <div className="flex flex-col gap-2 sm:flex-row sm:gap-x-2 sm:gap-y-0">
+  <Announcement style={{ border: "1px solid #3a3a3a" }}>
     <AnnouncementTag>Latest update</AnnouncementTag>
     <AnnouncementTitle>
-    HackTheNorth – Vapi Track Winner
+      HackTheNorth – Vapi Track Winner
       <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
     </AnnouncementTitle>
   </Announcement>
 
-  <Announcement style={{ border: "1px solid #3a3a3a", marginLeft: '10px'}}>
+  <Announcement style={{ border: "1px solid #3a3a3a" }}>
     <AnnouncementTag>Latest update</AnnouncementTag>
     <AnnouncementTitle>
       HackTheNorth – MLH Track Winner
       <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
     </AnnouncementTitle>
   </Announcement>
+</div>
+
             
             </header>
 
-            <div className="mt-8 rounded-2xl" style={{ background: "#111111", border: "1px solid #2a2a2a" }}>
-              <video src="/vid.mp4" width={1200} height={800} className="w-full object-cover rounded-2xl" autoPlay loop muted playsInline></video>
+            <div className="mt-8 rounded-2xl" style={{ background: "#111111"}}>
+            <video
+  src="/vid.mp4"
+  className="w-full h-auto aspect-video object-cover rounded-2xl"
+  autoPlay
+  loop
+  muted
+  playsInline
+></video>
+
             </div>
 
             <nav className="mt-10 lg:hidden">
@@ -539,7 +550,14 @@ It’s fast, accessible, and built to help makers like us build smarter from day
                 <br></br>
                 <br></br>
                 <span className="flex justify-center mb-2">
-                  <video src='/loading.mov' className="rounded-2xl" width={900} autoPlay loop muted playsInline></video>
+                <video
+  src='/loading.mov'
+  className="w-full aspect-video object-cover rounded-2xl"
+  autoPlay
+  loop
+  muted
+  playsInline
+></video>
                 </span>
                 <span className="italic">Example: Loading screen built using Framer-motion</span>
                 <br></br>
@@ -683,8 +701,14 @@ A new 3D Vector where x, y, and z are the Cartesian coordinates calculated above
                 </p>
 
                 <div id="result" className="mt-8 rounded-2xl" style={{ background: "#111111", border: "1px solid #2a2a2a" }}>
-              <video src="/globe-animation.mp4" width={1200} height={800} className="w-full object-cover rounded-2xl" autoPlay loop muted playsInline></video>
-            </div>
+                <video
+  src="/globe-animation.mp4"
+  className="w-full aspect-video object-cover rounded-2xl"
+  autoPlay
+  loop
+  muted
+  playsInline
+></video>            </div>
               </section>
 
 

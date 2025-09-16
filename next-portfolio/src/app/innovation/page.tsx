@@ -89,7 +89,7 @@ export default function ResDexPage() {
       description:
         "An AI-powered market simulation platform that empowers you to test your product ideas against hundreds of dynamic, intelligent personas; providing real-time insights and feedback for smarter decision-making.",
       icon: <FaCircleNodes size={15} color={textColor} />,
-      // link: "/innovation/tunnel",
+      link: "/tunnel",
     },
     {
       title: "ResDex",
