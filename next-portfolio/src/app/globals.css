@@ -205,3 +205,18 @@ button, a, [role="button"] {
         .custom-scrollbar {
           scrollbar-gutter: stable;
         }
+
+
+        .shiki, .shiki span {
+          color: rgba(60, 60, 80, 0.6) !important; /* Adjust RGBA as needed */
+        }
+        
+        /* Example: for all text colors including inline styles */
+        .shiki span[style] {
+          color: rgba(60, 60, 80, 0.6) !important;
+        }
+
+
+
+
+        
