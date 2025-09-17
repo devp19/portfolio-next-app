@@ -1,5 +1,5 @@
-"use client";
 
+"use client";
 
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 import Image from "next/image";
