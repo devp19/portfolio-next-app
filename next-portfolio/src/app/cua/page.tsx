@@ -546,9 +546,24 @@ Now, initially, the task seemed daunting but yet fun as I had never worked with 
                 In hindsight, the requirements were pretty straightforward. Implement <span className="text-white font-mono bg-white/10 px-1 rounded">AndroidDockerProvider</span> (which extends <span className="text-white font-mono bg-white/10 px-1 rounded">BaseVMProvider</span>) and register it in <span className="text-white font-mono bg-white/10 px-1 rounded">VMProviderFactory</span>.
                 < br></br>
                 <br></br>
-                After getting familiar with the existing setup on how other providers were implemented like Lume, Lumier, Docker etc., it was merely a matter of following the same development pattern. 
+                After getting familiar with the existing setup on how other providers were implemented like Lume, Lumier, Docker etc., it was merely a matter of following the same development pattern. However it was obviously easier said than done. 
+                
                 <br></br>
                 <br></br>
+                Turns out, I had completely forgot about the specifications and requirements of the docker image and thought it would be a simple installation via Docker. Once again, having no clue how Android emulators work, I spent a ton of time reading through documentation for the actual image instead of Cua's (I probably spent more time getting the emulator to run than actually implementing the provider!!). Of course, this was the least of my struggles. Turns out, since I was working on a MacOS device with ARM64 instead of the old intel chips, there's something called <span className="text-white">KVM (Kernel-based Virtual Machine)</span> which is required to run the docker image.
+                <br></br>
+                <br></br>
+                Simply put, to run the Docker image itself, I had to be on a machine that had KVM support. That's where my first step into the rabbit hole came. I started off by installing <span className="text-white">VirtualBox</span> to run a Linux system, all so I could actually start visualizing the emulator...
+                <br></br>
+                <br></br>
+                That clearly didn't work. Although you can use a virtual machine to run a Linux system which I thought would have KVM enabled, a subproblem was that nested virtualization wasn't supported on my machine. That's the first time I learned about nested virtualization and how it works! 
+                <br></br>
+                <br></br>
+                <span className="italic text-white">Learning 1: If you're running a Linux VM on a physical machine and want to use KVM to host additional VMs inside that guest, the physical host must support and enable nested virtualization. </span>
+                <br></br>
+          
+                <br></br>
+                Now after experimenting with VirtualBox, Parallels and even a Remote Connection to a Windows machine which Franceso had given me, none of those worked. It was not until I was given access to a Linux VM which Franceso had provisioned for me that I was able to run the Docker image via NoVNC.<br></br>
                 <br></br>
                 <span className="flex justify-center mb-2">
                 <video
