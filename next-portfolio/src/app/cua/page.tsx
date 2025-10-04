@@ -464,9 +464,9 @@ export default function ResDexPage() {
             <header className="space-y-4 mt-3">
                             <h1 style={{ fontSize: "1.8rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 Cua – Computer Use Agent Infrastructure
-                <a href="https://www.linkedin.com/posts/krish-garg_we-won-hack-the-north-twice-in-the-same-day-activity-7373128956130033664-vpse?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESdXuYB0L4oy78G6IDR6GZO4HCCkvrnPuM" target="_blank" rel="noopener noreferrer" aria-label="ResDex Website" style={{ paddingLeft: "0.75rem" }}>
+                {/* <a href="https://www.linkedin.com/posts/krish-garg_we-won-hack-the-north-twice-in-the-same-day-activity-7373128956130033664-vpse?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESdXuYB0L4oy78G6IDR6GZO4HCCkvrnPuM" target="_blank" rel="noopener noreferrer" aria-label="ResDex Website" style={{ paddingLeft: "0.75rem" }}>
                   <FaLink size={15} color={textColor} />
-                </a>
+                </a> */}
                 {/* <a href="https://github.com/devp19/resdex" target="_blank" rel="noopener noreferrer" aria-label="ResDex GitHub">
                   <LiaGithub size={20} color={textColor} />
                 </a>
