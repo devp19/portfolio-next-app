@@ -92,6 +92,14 @@ export default function ResDexPage() {
       link: "/tunnel",
     },
     {
+      title: "Cua",
+      tags: ["AI","Full-Stack", "Agents"],
+      description:
+        "Open-source infrastructure for Computer-Use Agents. [ Android Docker Emulator ]",
+      icon: <img src="/cua_logo_black.svg" width={27} />,
+      link: "/cua",
+    },
+    {
       title: "ResDex",
       tags: ["Full-Stack"],
       description:
@@ -191,9 +199,7 @@ export default function ResDexPage() {
               Intersection of Innovation & Research
             </h1>
             <p style={{ fontSize: "0.8rem", color: fadedText }}>
-              My contributions to making the world of technology more accessible
-              and impactful, showcasing projects that simplify complex problems
-              and drive positive change.
+              My directory of projects, showcasing my work in innovation and research throughout AI, Full-Stack, Research and more! 
               <br />
               <br />
             </p>
