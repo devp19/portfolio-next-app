@@ -186,7 +186,7 @@ export default function ResDexPage() {
 
   const sections = [
     { id: 'introduction', label: 'Introduction' },
-    { id: 'tech-stack-selection', label: 'Building for Scale and Security' },
+    { id: 'tech-stack-selection', label: 'Initial Outlook' },
     { 
       id: 'globe', 
       label: 'The Globe',
@@ -438,12 +438,12 @@ export default function ResDexPage() {
             <div className="flex-1 w-full max-w-3xl p-1" style={{ overflowX: "hidden" }}>
           
           <p style={{ fontSize: "0.6rem", color: fadedText }}>
-              September 15th, 2025
+              September 18th, 2025
               </p>
 
             <header className="space-y-4 mt-3">
                             <h1 style={{ fontSize: "1.8rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                Tunnel – AI Agent Simulation
+                Cua – Computer Use Agent Infrastructure
                 <a href="https://www.linkedin.com/posts/krish-garg_we-won-hack-the-north-twice-in-the-same-day-activity-7373128956130033664-vpse?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESdXuYB0L4oy78G6IDR6GZO4HCCkvrnPuM" target="_blank" rel="noopener noreferrer" aria-label="ResDex Website" style={{ paddingLeft: "0.75rem" }}>
                   <FaLink size={15} color={textColor} />
                 </a>
@@ -458,22 +458,22 @@ export default function ResDexPage() {
 
               
               <p style={{ fontSize: "0.9rem", color: fadedText }}>
-                Tunnel is an advanced AI-powered market simulation platform designed to revolutionize how product ideas are validated and refined. Instead of relying solely on traditional market research methods (which are slow, expensive, and often inaccessible), Tunnel enables you to test your ideas instantly against a diverse array of intelligent personas, each modeled with unique demographics, psychographics, and behavioral traits.
+              Cua is an open-source infrastructure for Computer-Use Agents which utilizes Sandboxes, SDKs, and benchmarks to train and evaluate AI agents that can control full desktops (macOS, Linux, Windows).
               </p>
 
               <div className="flex flex-col gap-2 sm:flex-row sm:gap-x-2 sm:gap-y-0">
   <Announcement style={{ border: "1px solid #3a3a3a" }}>
-    <AnnouncementTag>Latest update</AnnouncementTag>
+    <AnnouncementTag>GitHub</AnnouncementTag>
     <AnnouncementTitle>
-      HackTheNorth – Vapi Track Winner
+      9.8k+ Stars
       <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
     </AnnouncementTitle>
   </Announcement>
 
   <Announcement style={{ border: "1px solid #3a3a3a" }}>
-    <AnnouncementTag>Latest update</AnnouncementTag>
+    <AnnouncementTag>Y Combinator</AnnouncementTag>
     <AnnouncementTitle>
-      HackTheNorth – MLH Track Winner
+      X25
       <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
     </AnnouncementTitle>
   </Announcement>
@@ -483,14 +483,15 @@ export default function ResDexPage() {
             </header>
 
             <div className="mt-8 rounded-2xl" style={{ background: "#111111"}}>
-            <video
+              <img src="/og-cua.png" className="w-full h-auto aspect-video object-cover rounded-2xl"></img>
+            {/* <video
   src="/vid.mp4"
   className="w-full h-auto aspect-video object-cover rounded-2xl"
   autoPlay
   loop
   muted
   playsInline
-></video>
+></video> */}
 
             </div>
 
@@ -526,27 +527,26 @@ export default function ResDexPage() {
                 <h2 style={{ fontSize: "1.5rem" }}>Introduction</h2>
                 <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
                
-                Have you ever spent months building something you believed in, only to launch and realize... no one actually wanted it? I’ve been there, and it’s a brutal feeling. Turns out, we're not alone—most startups fail, and the number one reason is building something with no real market need.
+                Cua is an open-source infrastructure for Computer-Use Agents which utilizes Sandboxes, SDKs, and benchmarks to train and evaluate AI agents that can control full desktops (macOS, Linux, Windows). After getting reached out to by <span className="text-white italic underline mr-1"><a target="_blank" href="https://www.linkedin.com/in/francesco-bonacci-70428a121/">@Franceso Bonacci</a></span> (Founder of Cua YC X25), my task was to build an Android Docker provider for the Cua Computer SDK. This would give the ability to run Android devices and control them using the existing Cua agent framework.
 <br></br>
 <br></br>
-We looked at the usual ways to validate ideas; surveys, focus groups, user interviews...but they’re slow, expensive, and often miss the mark. At <a href="https://hackthenorth.com/" target="_blank"><span className="text-white italic">HackTheNorth</span></a>, our team set out to find a better way. That’s how Tunnel was created.
-<br></br>
-<br></br>
-Tunnel is an AI-powered market simulation platform that lets you test product and feature ideas instantly directly with your userbase. You can interact with hundreds <span className="italic">( or even a thousand if you have a strong machine which I clearly don't... )</span> of realistic, personality-driven personas that represent your target market. Instead of guessing what people might think, you can see real-time reactions and insights, all before writing a single line of code.
-
-It’s fast, accessible, and built to help makers like us build smarter from day one.                </p>
+Now, initially, the task seemed daunting but yet fun as I had never worked with Android emulators moreover an Android itself. On top of that, it was my first time working with an existing codebase that I had to understand before I could start working on it.
+         </p>
               </section>
 
             
 
               <section id="tech-stack-selection">
-                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Building for Scale and Security</h2>
+                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Initial Outlook</h2>
                 <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                When we set out to build Tunnel, we wanted every piece of the architecture to feel seamless, responsive, and as dynamic as the market simulations themselves. On the frontend, we chose a modern stack, <span className="text-white">Next.js</span>, <span className="text-white">TypeScript</span>, <span className="text-white">Tailwind</span>, and <span className="text-white">Shadcn UI Primitives</span> <i>(my absolute favourite)</i> ! 
+                Going into the project, I had no idea what I was getting into. All I knew was that I had to use an existing docker image <a target="_blank" href="https://github.com/budtmo/docker-android"><span className="text-white underline">(https://github.com/budtmo/docker-android)</span></a> and build an Android Docker provider for the Cua Computer SDK.
                 
+                <br></br>
+                <br></br>
+                In hindsight, the requirements were pretty straightforward. Implement <span className="text-white font-mono bg-white/10 px-1 rounded">AndroidDockerProvider</span> (which extends <span className="text-white font-mono bg-white/10 px-1 rounded">BaseVMProvider</span>) and register it in <span className="text-white font-mono bg-white/10 px-1 rounded">VMProviderFactory</span>.
                 < br></br>
                 <br></br>
-                Additionally, we created a real-time 3D globe <i>(which ended up being a fan favourite from all the feedback we got!)</i> powered by <span className="text-white">Three.js</span> and <span className="text-white">React Three Fiber</span>. All the UI logic lives alongside beautifully animated transitions, thanks to <span className="text-white">Framer Motion</span>, while Tailwind CSS and Radix UI handle styling and accessibility for every component. 
+                After getting familiar with the existing setup on how other providers were implemented like Lume, Lumier, Docker etc., it was merely a matter of following the same development pattern. 
                 <br></br>
                 <br></br>
                 <br></br>
