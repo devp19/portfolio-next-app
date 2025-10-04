@@ -50,51 +50,72 @@ const code2 = [
   }
 ];
 
+const code10 = [
+  {
+    language: "bash",
+    filename: "docker.sh",
+    code: ` system_prompt = f"""You are an Android automation assistant. Convert user requests into ADB commands.
+
+You can SEE the Android screen in the image provided. Analyze what's visible and determine the correct actions.
+
+Available ADB functions (call these directly):
+- home() - Go to home screen
+- back() - Press back button
+- recents() - Show recent apps
+- open_app(package) - Open app by package name (e.g., "com.android.settings")
+- open_url(url) - Open URL in browser (automatically adds https:// if missing)
+- tap(x, y) - Tap at coordinates (screen is {screen_width}x{screen_height})
+- swipe(x1, y1, x2, y2, duration) - Swipe gesture (screen is {screen_width}x{screen_height})
+- type_text(text) - Type text
+- key_event(keycode) - Send key event (66=Enter, 67=Backspace)
+
+IMPORTANT: Look at the image to find UI elements. The screen resolution is {screen_width}x{screen_height}. When you see UI elements in the image, provide coordinates that match this resolution. If user says "tap the 3 dots top right", look at the image, find the 3 dots icon, estimate its coordinates relative to {screen_width}x{screen_height}, and tap there.
+
+Common package names:
+- Settings: com.android.settings
+- Chrome: com.android.chrome
+- Calculator: com.android.calculator2
+
+For URLs: You can use domain names directly (e.g., "nvidia.com" or "www.nvidia.com"). The system will add https:// automatically.
+
+You can execute MULTIPLE commands in sequence! For example, "open chrome and go to nvidia website":
+[
+  {{"function": "open_app", "args": {{"package": "com.android.chrome"}}}},
+  {{"function": "open_url", "args": {{"url": "nvidia.com"}}}}
+]
+
+Another example with navigation:
+[
+  {{"function": "home"}},
+  {{"function": "open_app", "args": {{"package": "com.android.settings"}}}},
+  {{"function": "tap", "args": {{"x": 640, "y": 360}}}}
+]
+
+Respond with a JSON array of commands to execute. Only return the JSON array, nothing else."""
+
+  `
+  
+  }
+];
+
 
 const code3 = [
   {
-    language: "json",
+    language: "python",
     filename: "sample_raw_metadata.json",
-    code: ` "location": {
-            "city": "Toronto",
-            "country": "Canada",
-            "coordinates": {
-                "longitude": -79.3832,
-                "latitude": 43.6532
-            }
-        },
-        "demographics": {
-            "generation": "Gen X",
-            "gender": "Male",
-            "ageRange": "45-50"
-        },
-        "professional": {
-            "seniority": "C-Level",
-            "primaryIndustry": "Fintech",
-            "secondaryIndustry": "Leadership",
-            "companySize": "100-500",
-            "yearsExperience": 22
-        },
-        "psychographics": {
-            "techAdoption": 7,
-            "riskTolerance": 9,
-            "priceSensitivity": 3,
-            "influenceScore": 9,
-            "brandLoyalty": 8
-        },
-        "interests": [
-            "Strategy",
-            "Innovation",
-            "Golf",
-            "Investing"
-        ],
-        "personality": {
-            "openness": 0.7,
-            "conscientiousness": 0.9,
-            "extraversion": 0.8,
-            "agreeableness": 0.6,
-            "neuroticism": 0.2
-        },
+    code: ` def __init__(
+        self,
+        port: int = 8000,
+        host: str = "localhost",
+        image: str = "budtmo/docker-android:emulator_11.0",
+        verbose: bool = False,
+        storage: Optional[str] = None,
+        ephemeral: bool = True,
+        vnc_port: int = 6080,
+        adb_port: int = 5555,
+        device_profile: str = "Samsung Galaxy S10",
+        **kwargs
+    ):
   `
   
   }
@@ -102,21 +123,26 @@ const code3 = [
 
 const code4 = [
   {
-    language: "txt",
-    filename: "terminal.txt",
-    code: ` ✓ Compiled /api/extract-niche in 536ms (1820 modules)
- [EXTRACT-NICHE] API endpoint called
- [EXTRACT-NICHE] Request body: { 'create genx app related to fintech in canada' }
- [EXTRACT-NICHE] Processing idea: create genx app related to fintech in canada...
- [EXTRACT-NICHE] Starting niche analysis for idea length: 44
- [EXTRACT-NICHE] Lowercase idea: create genx app related to fintech in canada
- [EXTRACT-NICHE] Analyzing 15 potential niches...
- [EXTRACT-NICHE] Financial Technology: score=1.50, keywords=[fintech]
- [EXTRACT-NICHE] Productivity & Business Tools: score=0.45, keywords=[app]
- [EXTRACT-NICHE] Best match: { name: 'Financial Technology', score: 1.5 }
- [EXTRACT-NICHE] Successfully identified niche: Financial Technology
- POST /api/extract-niche 200 in 597ms
-  `
+    language: "python",
+    filename: "__init__.py",
+    code: `"""
+verify docker and adb dependencies are instaleld
+set has_android bool flag to true if both are installed (further used in factory 
+to check if provider is available)
+"""
+
+try:
+    import subprocess
+    # Only check for Docker - ADB is inside the container, not needed on host
+    subprocess.run(["docker", "--version"], capture_output=True, check=True)
+    HAS_ANDROID = True
+except (subprocess.SubprocessError, FileNotFoundError):
+    HAS_ANDROID = False
+
+from .provider import AndroidDockerProvider
+
+__all__ = ["AndroidDockerProvider", "HAS_ANDROID"]
+`
   
   }
 ];
@@ -126,24 +152,47 @@ const code5 = [
   language: "txt",
   filename: "terminal.txt",
   code: ` 
-  [SELECT-NICHE-USERS] Cohere rerank completed, got 25 results
-  [SELECT-NICHE-USERS] Relevance scores: {
-      count: 25,
-      average: '0.341',
-      max: '0.866',
-      min: '0.249',
-      highRelevance: 1,
-      mediumRelevance: 2,
-      lowRelevance: 22
-    }
+  // base.py 
 
-  [SELECT-NICHE-USERS] Top 5 selected users:
-  1. James Wilson (0.866) - CEO
-  2. Derek Ward (0.759) - Learning Experience Designer
-  3. Michelle Nelson (0.561) - Financial Analyst
-  4. Tessa Watson (0.392) - Policy Analyst
-  5. Jared Bishop (0.336) - Regulatory Compliance Officer
-  `
+  class VMProviderType(StrEnum):
+    """Enum of supported VM provider types."""
+    LUME = "lume"
+    LUMIER = "lumier"
+    CLOUD = "cloud"
+    WINSANDBOX = "winsandbox"
+    DOCKER = "docker"
+    ANDROID = "android"
+    UNKNOWN = "unknown"
+ 
+
+
+  // factory.py
+  .
+  .
+  .
+  elif provider_type == VMProviderType.ANDROID:
+    try:
+        from .androiddocker import AndroidDockerProvider, HAS_ANDROID
+        if not HAS_ANDROID:
+            raise ImportError(
+                "AndroidDockerProvider requires Docker to be installed and running. "
+                "Please ensure Docker is installed and the Docker daemon is running."
+            )
+        return AndroidDockerProvider(
+            port=port,
+            host=host,
+            image=image or "budtmo/docker-android:emulator_11.0",
+            verbose=verbose,
+            **kwargs
+        )
+    except ImportError as e:
+        logger.error(f"Failed to import AndroidDockerProvider: {e}")
+        raise ImportError(
+            "Cannot use AndroidDockerProvider: Docker is required. "
+            "Please install Docker and ensure the Docker daemon is running."
+        ) from e
+         
+        `
 
   
 }
@@ -167,10 +216,10 @@ export default function ResDexPage() {
         { id: 'Execution', label: 'Execution Command' }
       ]
     },
-    { id: 'runtime-agent', label: 'Runtime Agent',
+    { id: 'Cua Implementation', label: 'Cua Implementation',
       subSections: [
-        { id: 'niche-extraction', label: 'Niche Extraction' },
-        { id: 'ranking', label: 'Cohere Ranking' }]
+        { id: 'Computer SDK', label: 'Computer SDK' },
+        { id: 'Agent Workaround', label: 'Agent Workaround' }]
    },
      { id: 'experience', label: 'Ending Remarks' },
 
@@ -652,92 +701,21 @@ Now you'll see that there are a few commands in the docker execution command. Th
    <img src="/emulator.png" className="w-full aspect-video rounded-2xl"></img>
    <br></br>
    <br></br>
-   <span className="text-white">Input Parameters</span>
-   <br></br>
-      <code className="text-white bg-white/10 p-1 rounded ml-5 inline-flex mt-2">lat</code> = Latitude (in degrees), where 0 is the equator and ±90 are the poles.
-      <br></br>
-      <code className="text-white bg-white/10 p-1 rounded ml-5 inline-flex mt-2">lon</code> = Longitude (in degrees), where 0 is the Greenwich meridian, ±180 is the International Date Line.
-      <br></br>
-      <code className="text-white bg-white/10 p-1 rounded ml-5 inline-flex mt-2">radius</code> = The radius of the sphere (globe) on which the point lies.
-      <br></br>
-
-<br></br>
-      <span className="text-white">Conversion Math</span>
-   <br></br>
-   <br></br>
-   <span className="text-white">1. Convert latitude and longitude to radians:</span>
-   <MathJaxContext>
-
-   <MathJax className="text-white text-2xl mt-3 mb-3">{<MathJax>{"\\( \\theta = (-\\text{lon} + 180) \\cdot \\frac{\\pi}{180} \\)"}</MathJax>
-  }</MathJax>
-   </MathJaxContext>
-   Shifts latitude so that 0° is the North Pole and 180° is the South Pole, which matches the convention for spherical coordinates in 3D graphics.
-
-   <br></br>
-   <MathJaxContext>
-
-   <MathJax className="text-white text-2xl mt-3">{'\\( \\phi = (90 - \\varphi) \\cdot \\frac{\\pi}{180} \\)'}</MathJax>
-   </MathJaxContext>
-   Negates longitude to correct for inversion (Three.js uses a left-handed coordinate system), then shifts by 180° so that 0° is at the front.
-
-<br></br>
-<br></br>
-   <span className="text-white">2. Calculate Cartesian Coordinates:</span>
-   <MathJaxContext>
-
-   <MathJax className="text-white text-2xl mt-3 mb-3">{`\\( x = \\text{radius} \\cdot \\sin(\\phi) \\cdot \\cos(\\theta) \\)`}</MathJax>
-<MathJax className="text-white text-2xl mt-3 mb-3">{`\\( y = \\text{radius} \\cdot \\cos(\\phi) \\)`}</MathJax>
-<MathJax className="text-white text-2xl mt-3 mb-3">{`\\( z = \\text{radius} \\cdot \\sin(\\phi) \\cdot \\sin(\\theta) \\)`}</MathJax>
-
-</MathJaxContext>
- This mapping aligns the poles and the equator correctly in a 3D scene.
-
-<br></br>
-<br></br>
-   <span className="text-white">3. Return Value:</span>
    
-  <MathJaxContext>
-
-   <MathJax className="text-white text-2xl mt-3 mb-3">
-  {`\\( \\mathrm{THREE.Vector3}(x, y, z) \\)`}
-</MathJax>
-
-A new 3D Vector where x, y, and z are the Cartesian coordinates calculated above—this represents the position in 3D space for given (lat, lon) on a sphere.
-
-
-
-
-
-
-</MathJaxContext>
-
-
-   <br></br>
 
 
      
                 </p>
-
-                <div id="result" className="mt-8 rounded-2xl" style={{ background: "#111111", border: "1px solid #2a2a2a" }}>
-                <video
-  src="/globe-animation.mp4"
-  className="w-full aspect-video object-cover rounded-2xl"
-  autoPlay
-  loop
-  muted
-  playsInline
-></video>            </div>
               </section>
 
 
-              <section id="runtime-agent">
-                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Runtime Agent</h2>
-                <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                One of the other things I worked on was the runtime agent powering all the <span className="text-white">AI personas</span> inside Tunnel, so I wanted to break down how it actually works behind the scenes. The runtime agent is basically the heart of our persona simulation—it’s the thing that lets each persona have unique, consistent opinions, behaviors, and even voice conversations with users.
-
+              <section id="Cua Implementation">
+                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Cua Implementation</h2>
+                <p id="Computer SDK" style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
+                After setting up the emulator, the next step was to implement the provider into the existing factory method. This was pretty straightforward as I had already done the hard testing with execution commands above when I tried running the emulator.
+                <br></br>
 <br></br>
-<br></br>
-Whenever you submit a product idea, the agent kicks into action by grabbing all the relevant persona profiles from our database (demographics, psychographics, past interactions, and more). It fetches related agent profiles by extracting a niche from the product idea and matching it with the personas' interests. For example, refer to how the Extraction identified a Financial Technology niche from the prompt.
+I started off with the dependency check and availability flag <span className="text-white font-mono bg-white/10 px-1 rounded">androiddocker/__init__.py</span>, mimicking that of the previous implementations that were already built.
 </p>
 <CodeBlock id="niche-extraction" className="border-none rounded-2xl mt-5 mb-5" data={code4} defaultValue={code4[0].language}>
     <CodeBlockBody>
@@ -752,7 +730,7 @@ Whenever you submit a product idea, the agent kicks into action by grabbing all 
   </CodeBlock>
   <p style={{ color: fadedText, fontSize: "0.9rem" }}>
 
- From there, we filter through ALL the agents that are created using a quick search algorithm. This algorithm matches the niche with the agents' interests via <span className="text-white">Cohere's ranker</span>. You can see a small snippet of an agent's  persona below which we generate and store as metadata for each agent. We store these as 'users' in the <span className="text-white">Auth0 user database</span>.
+ From there, I created the provider class <span className="text-white font-mono bg-white/10 px-1 rounded">androiddocker/provider.py</span>. In specific, I added a snippet below for the constructor to talk about the parameters that are needed to run the emulator.
 
   </p>
 
@@ -770,9 +748,21 @@ Whenever you submit a product idea, the agent kicks into action by grabbing all 
 
 <p id="ranking" style={{ color: fadedText, fontSize: "0.9rem" }}>
 
-  
-For every single simulation, it orchestrates multiple stages: first, it runs <span className="text-white">Cohere’s reranking</span> to figure out which personas actually care about this idea, then it generates tailored reactions using our AI pipelines. Each agent’s response isn’t generic—it’s built from the persona’s attributes, combined with pattern recognition and sentiment extraction, so every reply feels unique and grounded.
+You'll see some of the parameters are preset to default values, and some are optional. Most of these come from the way providers are to be setup in the factory method. In specific I wanted to talk about the port mappings. 
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">6080 (noVNC):</span> Browser-based VNC viewers like noVNC typically serve via an HTTP endpoint that upgrades to WebSockets and forward to a VNC server on 5900+x; 6080 is the widely adopted default listen port for that websockify/noVNC endpoint, making it easy to remember and consistent across tooling.
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">5555 (ADB over TCP):</span> Android Debug Bridge uses TCP 5555 by convention for networked devices/emulators; most Android tooling assumes 5555 unless specified, simplifying adb connect :5555 workflows.
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">8000 (service HTTP API/UI):</span> Lightweight development servers frequently default to 8000 for local APIs and dashboards, avoiding collisions with 80/443 and staying familiar to developers; many Python frameworks use 8000 by default.
 
+<br></br>
+<br></br>
+
+Additionally, I registed AndroidDocker into the supported VMProvider types and listed it in the factory implementation.
 </p>
 
 <CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code5} defaultValue={code5[0].language}>
@@ -788,32 +778,61 @@ For every single simulation, it orchestrates multiple stages: first, it runs <sp
   </CodeBlock>
 
 <br></br>
+</section>
 
+<section id="Agent Workaround">    
 <p style={{ color: fadedText, fontSize: "0.9rem" }}>
-
-But we didn’t stop at just text. When you want to actually “call” a persona, the runtime agent passes all their context; personality, history, specific feedback—into <span style={{ color: textColor }}>Vapi (AI Voice Agent)</span>, which then transforms that into a real-time, dynamic voice call right in the browser. All the state, conversation transcripts, and even evolving feedback are instantly synced, so the agent can remember what’s happened before and respond accordingly in future sessions.
+Now this is where the fun begins, actually implementing the actions! This definetely turned out to be much more difficult then intended as initially, the exisiting computer agent was supposed to be able to handle it directly but due to the docker image not being preloaded with pyautogui (which is the basis of what the Cua computer agent utilizes to perform actions), there needed to be a way to convert natural language that the agent can read and convert it into ABD commands that can be executed on the emulator.
 
 <br></br>
 <br></br>
-Everything the agent does happens in real-time, with results stored, tracked, and sent back to the user. This means you’re never stuck waiting or wondering if the system is keeping up. The end result is that every simulated persona feels alive, coherent, and actually grows over time, making the whole market simulation so much more real and useful.                </p>
-              </section>
+Initally, the idea was to create some sort of websocket bridge that would intercept the request and convert it into ADB commands. This turned out to be a challenge because of how the ports are exposed.
+<br></br>
+<br></br>
+In containerized Android environments like budtmo/docker-android, the VNC port structure becomes particularly problematic. These containers typically expose multiple ports - VNC on 5900, noVNC WebSocket proxy on 6080, and ADB on 5555. The issue is that each VNC session requires its own dedicated port (5900+N pattern), and mapping these dynamically through a WebSocket bridge becomes complex when you need to maintain session isolation and handle multiple concurrent connections.
+<br></br>
+<br></br>
+That's where I got the idea to just bypass the websocket implementation. Although this is a quick fix, it's not the most secure or scalable solution, but it gets the job done. How it works is that it uses direct Docker exec commands to comunicate with the android container. Instead of trying to establish a websocket bridge between the appication and the containers VNC/ADB services, the code directly executes ADB commands inside the running container using subprocess calls.
+<br></br>
+<br></br>
+This pipeline is something similar that I currently use for my work over at Fidelity Investments for automating script calls utilizing nlp. 
+
+
+</p>              
+<CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code10} defaultValue={code10[0].language}>
+                      <CodeBlockBody>
+                        {(item) => (
+                          <CodeBlockItem key={item.language} value={item.language}>
+                            <CodeBlockContent language={item.language as BundledLanguage} syntaxHighlighting={false} style={{ marginBottom: '10px' }}>
+                              {item.code}
+                            </CodeBlockContent>
+                          </CodeBlockItem>
+                        )}
+                      </CodeBlockBody>
+                    </CodeBlock>
+
+                    Here's a quick demo below!
+
+
+                    <video
+  src="/test.mp4"
+  className="w-full aspect-video rounded-2xl"
+  autoPlay
+  loop
+  muted
+  playsInline
+></video>    
+
+</section>
 
 
               <section id="experience">
                 <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Ending Remarks</h2>
                 <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                I walked into the hackathon with a brand new team (shoutout <a target="_blank" href="https://www.linkedin.com/in/krish-garg/" className="text-white">@Krish Garg</a>, <a target="_blank" href="https://www.linkedin.com/in/suneruperera/" className="text-white">@Suneru Perera</a> & <a target="_blank" href="https://www.linkedin.com/in/haresh-goyal/" className="text-white">@Haresh Goyal</a>), completely different ambitions, a Google Doc full of big ideas, and absolutely no sleep in sight. Being only one of the few hackers from a "non-target" university, it was definetely a whole different atmosphere. The ideas, the skill-level and execution was all on another level. Our group wasn’t shy about setting wild goals; actually, we were pretty loud about it. We wanted to win, yes, but more than that, we wanted to build something that felt genuinely new.
-<br></br>
-<br></br>
-
-
-We ended up pouring everything into Tunnel, a platform that helps makers validate product ideas and features in seconds with AI-driven, real-market personas. And the loss of sleep? Totally worth it. When they announced us for both the <span className="text-white">MLH Track</span> and <span className="text-white">Best use of Vapi - AI Voice Agent</span> awards, we were stunned into silence (something that rarely happened over the weekend).
-<br></br>
-<br></br>
- The biggest plot twist? Out of the 100+ projects submitted towards the <span className="text-white">Y Combinator</span> track, we were shortlisted as one of the <span className="text-white">top 10</span> teams for an interview! We sat down with none other than <a href="https://www.ycombinator.com/people/nicolas-dessaigne" target="_blank"><span className="text-white">Nicolas Dessaigne</span></a> and <a href="https://www.ycombinator.com/people/andrew-miklas" target="_blank"><span className="text-white">Andrew Miklas</span></a> from <span className="text-white">Y Combinator</span> to talk about the future of our project. Having YC interviewers poke holes in your pitch is nerve-wracking and surreal: one moment you’re just a sleep-deprived student, the next you’re tossing ideas around with people who’ve seen a thousand startups rise and fall. Winning big, meeting genuine legends, and realizing how much is possible when you just show up and start buildaing—it made every hour totally, absolutely worth it.
+                Wrapping up this project, I’ve honestly learned a ton by getting the Android Docker system up and running. Messing around with container setup, emulator stuff, and figuring out all the quirks along the way was challenging, but actually pretty fun. I picked up a lot about how everything fits together under the hood, and now I feel way more confident dealing with this kind of tech. Overall, it’s been a great hands-on experience, diving into computer use agents and Cua in general!
                 </p>
               </section>
-<div className="mt-52"></div>
+<div className="mt-90"></div>
             </article>
 
 
