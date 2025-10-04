@@ -26,54 +26,25 @@ import style from 'styled-jsx/style';
 
 const code = [
   {
-    language: "tsx",
-    filename: "threejs-globe.tsx",
-    code: ` const wireframeMaterial = new THREE.MeshBasicMaterial({
-      color: color,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.6
-    });
-
-    // Create wireframe sphere
-    const wireframeSphere = new THREE.Mesh(sphereGeometry, wireframeMaterial);
-    globeGroup.add(wireframeSphere);
-
-    // Create latitude lines
-    const createLatitudeLines = () => {
-      const latitudes = [];
-      for (let i = -80; i <= 80; i += 20) {
-        const phi = (90 - i) * (Math.PI / 180);
-        const radius = Math.sin(phi);
-        const y = Math.cos(phi);
-        
-        const curve = new THREE.EllipseCurve(
-          0, 0,
-          radius, radius,
-          0, 2 * Math.PI,
-          false,
-          0
-        );`,
+    language: "bash",
+    filename: "terminal.sh",
+    code: `vmuser@dev-linux:~$ lsmod | grep kvm
+kvm_intel             479232  0
+kvm                  1388544  1 kvm_intel
+`,
   }
 ];
 
 
 const code2 = [
   {
-    language: "txt",
-    filename: "continents.json",
-    code: ` {
-"type": "FeatureCollection",
-                                                                                
-"features": [
+    language: "bash",
+    filename: "docker.sh",
+    code: ` docker run --privileged -d \ -p 6080:6080 \ -p 5554:5554 \ 
+    -p 5555:5555 \ -p 5900:5900 \ -e EMULATOR_DEVICE="Samsung Galaxy S10" 
+    \ -e WEB_VNC=true \ --device /dev/kvm \ --name android-container \ 
+    budtmo/docker-android:emulator_11.0
 
-{ "type": "Feature", "properties": { "CONTINENT": "Asia" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 93.275543212890625, 80.26361083984375 ], [ 93.148040771484375, 80.313873291015625 ], [ 91.424911499023438, 80.31011962890625 ], ......... million more},
-{ "type": "Feature", "properties": { "CONTINENT": "North America" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -25.281669616699219, 71.39166259765625 ], [ -25.623889923095703, 71.537200927734375 ], [ -26.950275421142578, 71.578598022460938 ], [ -27.693889617919922, 71.930267333984375 ] }
-{ "type": "Feature", "properties": { "CONTINENT": "Europe" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 58.061378479003906, 81.687759399414062 ], [ 57.889858245849609, 81.709854125976562 ], [ 59.435546875, 81.819297790527344 ], [ 59.159713745117188, 81.728866577148438 ], [ 58.061378479003906 ] };
-{ rest of africa, south america, oceania, australia, antartica}
-
-]
-  }
   `
   
   }
@@ -188,12 +159,12 @@ export default function ResDexPage() {
     { id: 'introduction', label: 'Introduction' },
     { id: 'tech-stack-selection', label: 'Initial Outlook' },
     { 
-      id: 'globe', 
-      label: 'The Globe',
+      id: 'Emulator', 
+      label: 'Android Emulator',
       subSections: [
-        { id: 'sphere-wireframe', label: 'Sphere Wireframe' },
-        { id: 'vector-coords', label: 'Vector Coords' },
-        { id: 'result', label: 'Result' }
+        { id: 'Docker', label: 'Docker Setup' },
+        { id: 'Android Emulator', label: 'Android Emulator' },
+        { id: 'Execution', label: 'Execution Command' }
       ]
     },
     { id: 'runtime-agent', label: 'Runtime Agent',
@@ -563,49 +534,39 @@ Now, initially, the task seemed daunting but yet fun as I had never worked with 
                 <br></br>
           
                 <br></br>
-                Now after experimenting with VirtualBox, Parallels and even a Remote Connection to a Windows machine which Franceso had given me, none of those worked. It was not until I was given access to a Linux VM which Franceso had provisioned for me that I was able to run the Docker image via NoVNC.<br></br>
+                Now after experimenting with VirtualBox, Parallels and even a Remote Connection to a Windows machine which Franceso had given me, none of those worked. It was not until I was given access to a Linux VM which Franceso had provisioned for me that I was able to finally check for KVM support and it was enabled!<br></br>
                 <br></br>
-                <span className="flex justify-center mb-2">
-                <video
-  src='/loading.mov'
-  className="w-full aspect-video object-cover rounded-2xl"
+                </p>
+                    <CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code} defaultValue={code[0].language}>
+                      <CodeBlockBody>
+                        {(item) => (
+                          <CodeBlockItem key={item.language} value={item.language}>
+                            <CodeBlockContent language={item.language as BundledLanguage} syntaxHighlighting={false} style={{ marginBottom: '10px' }}>
+                              {item.code}
+                            </CodeBlockContent>
+                          </CodeBlockItem>
+                        )}
+                      </CodeBlockBody>
+                    </CodeBlock>
+              </section>
+
+              <section id="Remote Connection">
+                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>Remote Connection</h2>
+                <p id="Docker" style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
+                Now that I was finally in an environment where I could start the actual development work, I had to make sure that the emulator atleast showed up, disregarding the fact that I had no idea how to do it. I did think ahead and saw that the actual Cua implementation was built on 3 OSes, Linux, Windows and MacOS. I figured it would be smart to just run a linux docker container and use that as my environment to run the docker image. So using docker, I just pulled the budtmo docker image and started it up.
+                
+  </p>
+
+  <video
+  src="/vncdocker.mp4"
+  className="w-full aspect-video rounded-2xl"
   autoPlay
   loop
   muted
   playsInline
-></video>
-                </span>
-                <span className="italic">Example: Loading screen built using Framer-motion</span>
-                <br></br>
-                <br></br>
-                <br></br>
-                The heart of Tunnel is our custom API layer, built with <span className="text-white">Next.js API routes</span>, that orchestrates persona generation, project analysis, voice session bridging, and session management. Intelligence flows from <span className="text-white">Cohere's</span> suite of AI tools, which handles everything from <span className="text-white">semantic understanding</span> and <span className="text-white">ranking algorithms</span> to nuanced conversation generation. 
-                
-                <br></br>
-                <br></br>
-                
-                For voice, we use <span className="text-white">Vapi</span> with an <span className="text-white">MCP server</span> to provide instant, realistic phone-like interactions with each persona directly from the browser.
+></video>    
 
-All user sessions are managed in <span className="text-white">MongoDB Atlas</span>, which allows users to pick up on their iterations at anytime. We utilized <span className="text-white">Auth0</span> for authentication and our <span className="text-white italic">world's first</span> AI agent profiles which are created on run-time.
-<br></br> 
-<br></br>
-
-This offers the flexibility to store evolving persona profiles [ with nested demographic, psychographic, and behavioral data ] plus full records of simulations, feedback, and voice transcripts. We use compound indexing and partitioning to make sure data retrieval stays fast, even when scaling to hundreds of concurrent users. Live updates come in via fast polling mechanisms and optimistic UI updates, so users never wait for feedback, and all session data auto-saves in the background using a debounce system to prevent data loss. 
-<br></br>
-<br></br>Everything runs on Vercel, which enables near-instant deployments and ensures that our app stays globally available and performant. The result is our full-fledged platform that combines next-gen AI, interactive graphics, and robust backend systems, all put together to deliver instant, actionable market insights.
-</p>
-              </section>
-
-              <section id="globe">
-                <h2 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>The Globe</h2>
-                <p style={{ color: fadedText, fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                Thought I’d do a separate writeup on the globe itself, as a lot of people were curious about it! Building the interactive 3D globe for Tunnel was honestly one of my favorite parts of the project. I wanted users to instantly visualize how their product idea resonated with different personas around the world, so I designed the globe using <span className="text-white">Three.js</span> and <span className="text-white">React Three Fiber</span> for rendering and interactivity. Each persona is represented as a point on the globe, color-coded by their reaction—green for interested, yellow for neutral, red for not interested—so you can see global trends and outliers at a glance.
-                
-                
-  
-  </p>
-               
-  <CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code} defaultValue={code[0].language}>
+  {/* <CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code} defaultValue={code[0].language}>
     <CodeBlockBody>
       {(item) => (
         <CodeBlockItem key={item.language} value={item.language}>
@@ -615,14 +576,18 @@ This offers the flexibility to store evolving persona profiles [ with nested dem
         </CodeBlockItem>
       )}
     </CodeBlockBody>
-  </CodeBlock>
+  </CodeBlock> */}
                
-                <p id="sphere-wireframe" style={{ color: fadedText, fontSize: "0.9rem" }}>
-                  Wireframe Sphere Creation (Code Snippet)
+                <p id="Android Emulator" style={{ color: fadedText, fontSize: "0.9rem" }}>
 
                   <br></br>
                   <br></br>
-                  A lot of people have also asked about how the outlines for the continents were rendered on the globe, so here’s how it works. I found a very and I mean very large .json file which maps thousands of coordinates to create a polygonial shape of the continent. Refer below for a basic structure. </p>
+                  This is where another issue came up. Although the docker android image was running as seen above, the emulator itself was not showing up. I had no idea what was going on, but I did know that I had to use VNC to connect to the docker image and run the emulator. Up till this point, I have yet to integrate the Cua provider but I knew if I had the emulator running, I could start working on the provider easily as that would just be a change to the docker execution command.
+                  <br></br>
+                  <br></br>
+                  Although multiple emulators were available via the docker image, I saw that the docker image when running, it needed a default emulator/device had to be set on runtime. That's where I figured out the basis of how the docker execution command would fit into the provider.
+                
+                 </p>
                   
                   <CodeBlock className="border-none rounded-2xl mt-5 mb-5" data={code2} defaultValue={code2[0].language}>
     <CodeBlockBody>
@@ -639,17 +604,54 @@ This offers the flexibility to store evolving persona profiles [ with nested dem
   
   <p style={{ color: fadedText, fontSize: "0.9rem" }}>
 
-   Using this json file, I created a <span className="text-white">loadGeoJsonData()</span> function which is basically responsible for loading up the continent borders in <span className="text-white">GeoJSON format</span>. When the app starts or needs to render the globe, it calls this function, which reads the continents.json sitting on the server. If everything goes smoothly, it parses and returns the JSON data, which contains all the coordinates needed to draw those outlines on the 3D globe. 
-   
+Now you'll see that there are a few commands in the docker execution command. This was specifically curated so that the emulator would appear in the NoVNC web interface and would give control to a few ports which was later used for abd connections and VNC clients.   
    <br></br>
    <br></br>
-   <span id="vector-coords">The next step, and probably the most complex part, is to map coordinates to actual vector coordinates because the globe is round, not flat....
+   <span id="Execution">I've put together a detailed list on what each paramter to the docker execution command does and what the usage of it is.
+    <br></br>
+    <br></br>
+    <span className="text-white font-mono bg-white/10 px-1 rounded">docker run</span> | Create and start a new container from an image
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">--privileged</span> | Grant the container extended Linux capabilities needed for the emulator and nested virtualization features
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">-d</span> | Run the container detached in the background
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">-p 6080:6080</span> | Map host port 6080 to container 6080 to access the web VNC UI in a browser
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">-p 5554:5554</span> | Map the emulator console port for emulator control connections
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">-p 5555:5555</span> | Map the ADB over TCP port to connect adb from the host to the emulator
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">-p 5900:5900</span> | Map native VNC port for standard VNC clients
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">-e EMULATOR_DEVICE="Samsung Galaxy S10"</span> | Set the emulator device profile to a Galaxy S10 preset inside the image
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">-e WEB_VNC=true</span> | Enable the noVNC web interface served on port 6080 for browser-based viewing
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">--device /dev/kvm</span> | Pass through the host's KVM device so the emulator can use hardware virtualization acceleration
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">--name android-container</span> | Assign a readable name to the container instance
+<br></br>
+<br></br>
+<span className="text-white font-mono bg-white/10 px-1 rounded">budtmo/docker-android:emulator_11.0</span> | Use the budtmo/docker-android image variant preconfigured with Android 11 emulator
+
    </span>
    <br></br>
    <br></br>
-   To do that, I used a simple conversion algorithm. The <span className="text-white">latLonToVector3()</span> function converts a point on a sphere given by geographic coordinates (latitude, longitude, and radius) into a 3D Cartesian coordinate (x, y, z) as used in 3D engines like Three.js. Here's the breakdown below:
-<br></br>
-<br></br>
+
+   <img src="/emulator.png" className="w-full aspect-video rounded-2xl"></img>
+   <br></br>
+   <br></br>
    <span className="text-white">Input Parameters</span>
    <br></br>
       <code className="text-white bg-white/10 p-1 rounded ml-5 inline-flex mt-2">lat</code> = Latitude (in degrees), where 0 is the equator and ±90 are the poles.
