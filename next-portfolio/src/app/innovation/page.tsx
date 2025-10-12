@@ -22,6 +22,15 @@ import { IoBookOutline, IoQrCode } from "react-icons/io5";
 import Example from "@/components/contribution";
 import { getCachedContributions } from "@/lib/github-contributions";
 import { Skeleton } from "@/components/ui/skeleton";
+import { SiF1 } from "react-icons/si";
+import { GiArchiveResearch } from "react-icons/gi";
+import { TbBuildingTunnel } from "react-icons/tb";
+import {
+  Announcement,
+  AnnouncementTag,
+  AnnouncementTitle,
+} from "@/components/ui/kibo-ui/announcement";
+import { ArrowUpRightIcon } from "lucide-react";
 
 import CustomCursor from "../CustomCursor";
 
@@ -85,26 +94,50 @@ export default function ResDexPage() {
   const projects = [
     {
       title: "Tunnel",
-      tags: ["AI","Full-Stack", "Research"],
+      tags: ["AI", "Full-Stack", "Voice", "Agents"],
       description:
         "An AI-powered market simulation platform that empowers you to test your product ideas against hundreds of dynamic, intelligent personas; providing real-time insights and feedback for smarter decision-making.",
-      icon: <FaCircleNodes size={15} color={textColor} />,
+      icon: <TbBuildingTunnel size={15} color={textColor} />,
       link: "/tunnel",
+      announcements: [
+        {
+          tag: "HTN Winner",
+          title: "",
+        },
+      ],
     },
     {
-      title: "Cua",
+      title: "Cua (YC X25)",
       tags: ["AI","Full-Stack", "Agents"],
       description:
-        "Open-source infrastructure for Computer-Use Agents. [ Android Docker Emulator ]",
+        "Open-source infrastructure for Computer-Use Agents. Built the android-docker system for CUA.",
       icon: <img src="/cua_logo_black.svg" width={27} />,
       link: "/cua",
+      announcements: [
+        {
+          tag: "YC",
+          title: "Backed by Y Combinator",
+        },
+        {
+          tag: "Open Source",
+          title: "Available on GitHub",
+        },
+      ],
+    },
+    {
+      title: "Adrian",
+      tags: ["AI", "RAG", "Agents", "Voice"],
+      description:
+      "A voice-powered F1 race engineer that combines RAG over FIA regulations with real-time championship calculations. Built with LiveKit, LangChain, and OpenAI.",
+      icon: <SiF1 size={15} color={textColor} />,
+      link: "/innovation/resdex",
     },
     {
       title: "ResDex",
-      tags: ["Full-Stack"],
+      tags: ["Full-Stack", "Research"],
       description:
         "A centralized research hub that empowers students to showcase their work, build academic portfolios, and connect with peers and institutions.",
-      icon: <IoBookOutline size={15} color={textColor} />,
+      icon: <img src="/resdex-logo.png" width={27} />,
       link: "/innovation/resdex",
     },
     {
@@ -141,7 +174,7 @@ export default function ResDexPage() {
     },
     {
       title: "MyBuddy",
-      tags: ["AI"],
+      tags: ["AI", "Voice"],
       description:
         "A generative AI wellness assistant that combines NLP and real-time speech-to-text to simulate therapeutic conversations.",
       icon: <MdOutlineSmartToy size={15} color={textColor} />,
@@ -224,7 +257,7 @@ export default function ResDexPage() {
             className="relative flex gap-2"
             style={{ fontSize: "0.85rem", color: fadedText }}
           >
-            {["All", "Research", "Full-Stack", "AI"].map((tab) => (
+            {["All", "Agents", "Research", "Full-Stack", "AI", "Voice"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -272,19 +305,23 @@ export default function ResDexPage() {
               >
                 <div className="mb-3">{project.icon}</div>
 
-                <h3
-                  className="font-regular"
-                  style={{
-                    fontSize: "1rem",
-                    color: textColor,
-                    cursor: "pointer",
-                  }}
-                >
-                  {project.title}
-                </h3>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3
+                    className="font-regular"
+                    style={{
+                      fontSize: "1rem",
+                      color: textColor,
+                      cursor: "pointer",
+                    }}
+                  >
+                    {project.title}
+                  </h3>
+
+               
+                </div>
 
                 <p
-                  className="font-regular mt-2 mb-20"
+                  className="font-regular mt-2"
                   style={{
                     fontSize: "0.85rem",
                     color: fadedLabel,
@@ -293,6 +330,7 @@ export default function ResDexPage() {
                 >
                   {project.description}
                 </p>
+
 
                 <p
                   style={{
