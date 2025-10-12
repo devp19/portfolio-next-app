@@ -321,7 +321,7 @@ export const ContributionGraphCalendar = ({
   );
   return (
     <div
-      className={cn('max-w-full overflow-x-auto overflow-y-hidden', className)}
+      className={cn('max-w-full overflow-x-auto overflow-y-hidden pb-3 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-none', className)}
       {...props}
     >
       <svg

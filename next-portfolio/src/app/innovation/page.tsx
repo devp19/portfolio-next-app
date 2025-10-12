@@ -101,8 +101,8 @@ export default function ResDexPage() {
       link: "/tunnel",
       announcements: [
         {
-          tag: "HTN Winner",
-          title: "",
+          tag: "Winner",
+          title: "HackTheNorth 25",
         },
       ],
     },
@@ -116,12 +116,8 @@ export default function ResDexPage() {
       announcements: [
         {
           tag: "YC",
-          title: "Backed by Y Combinator",
-        },
-        {
-          tag: "Open Source",
-          title: "Available on GitHub",
-        },
+          title: "Offer Recieved",
+        }
       ],
     },
     {
@@ -139,6 +135,12 @@ export default function ResDexPage() {
         "A centralized research hub that empowers students to showcase their work, build academic portfolios, and connect with peers and institutions.",
       icon: <img src="/resdex-logo.png" width={27} />,
       link: "/innovation/resdex",
+      announcements: [
+        {
+          tag: "Beta",
+          title: "500+ Pre-Signups",
+        }
+      ],
     },
     {
       title: "HotSpots AI",
@@ -171,6 +173,12 @@ export default function ResDexPage() {
         "QonnectR is a platform designed to simplify networking and project collaboration through QR code identification.",
       note: "DeltaHacks XI Winner",
       icon: <IoQrCode size={15} color={textColor} />,
+      announcements: [
+        {
+          tag: "Winner",
+          title: "DeltaHacks XI",
+        }
+      ],
     },
     {
       title: "MyBuddy",
@@ -272,18 +280,15 @@ export default function ResDexPage() {
                 {activeTab === tab && (
                   <motion.span
                     layoutId="pill"
-                    className="absolute -z-99 inset-0 rounded-full"
+                    className="absolute -z-99 inset-0 rounded-full bg-gray-200"
                     transition={{
                       type: "spring",
                       stiffness: 500,
                       damping: 30,
                     }}
-                    style={{
-                      background: lightMode ? "#e5e7eb" : "#d1d5db",
-                    }}
                   />
                 )}
-                <span className={activeTab === tab ? "text-black" : ""}>
+                <span className={activeTab === tab ? "" : ""}>
                   {tab}
                 </span>
               </button>
@@ -303,7 +308,21 @@ export default function ResDexPage() {
                   }
                 }}
               >
-                <div className="mb-3">{project.icon}</div>
+                <div className="flex items-center justify-between mb-3">
+                  <div>{project.icon}</div>
+                  {project.announcements && project.announcements.length > 0 && (
+                    <Announcement themed className="bg-gray-100 border border-gray-200 shadow-none">
+                      <AnnouncementTag className="!text-gray-700 !bg-gray-200">
+                        {project.announcements[0].tag}
+                      </AnnouncementTag>
+                      {project.announcements[0].title && (
+                        <AnnouncementTitle className="!text-gray-700">
+                          {project.announcements[0].title}
+                        </AnnouncementTitle>
+                      )}
+                    </Announcement>
+                  )}
+                </div>
 
                 <div className="flex items-center gap-2 flex-wrap">
                   <h3
