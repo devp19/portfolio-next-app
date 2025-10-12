@@ -116,7 +116,7 @@ export default function ResDexPage() {
       announcements: [
         {
           tag: "YC",
-          title: "Offer Recieved",
+          title: "Offer Received",
         }
       ],
     },
