@@ -257,7 +257,7 @@ export default function ResDexPage() {
             className="relative flex gap-2"
             style={{ fontSize: "0.85rem", color: fadedText }}
           >
-            {["All", "Agents", "Research", "Full-Stack", "AI", "Voice"].map((tab) => (
+            {["All", "Research", "Agents", "Full-Stack", "AI", "Voice"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
