@@ -130,7 +130,7 @@ export default function ResDexPage() {
       description:
       "A voice-powered F1 race engineer that combines RAG over FIA regulations with real-time championship calculations. Built with LiveKit, LangChain, and OpenAI.",
       icon: <SiF1 size={15} color={textColor} />,
-      link: "/innovation/resdex",
+      link: "/innovation/adrian",
     },
     {
       title: "ResDex",
