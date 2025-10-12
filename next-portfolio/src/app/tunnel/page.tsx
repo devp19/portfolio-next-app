@@ -7,7 +7,7 @@ import { IconCalendar, IconStack2, IconInfoCircle } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { LiaGithub } from "react-icons/lia";
-import { FaLink, FaLinkedin } from "react-icons/fa6";
+import { FaLink, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import {
   Announcement,
@@ -444,13 +444,13 @@ export default function ResDexPage() {
             <header className="space-y-4 mt-3">
                             <h1 style={{ fontSize: "1.8rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 Tunnel – AI Agent Simulation
-                <a href="https://www.linkedin.com/posts/krish-garg_we-won-hack-the-north-twice-in-the-same-day-activity-7373128956130033664-vpse?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESdXuYB0L4oy78G6IDR6GZO4HCCkvrnPuM" target="_blank" rel="noopener noreferrer" aria-label="ResDex Website" style={{ paddingLeft: "0.75rem" }}>
+                <a href="https://www.linkedin.com/posts/devp19_everyones-talking-about-tunnel-and-thats-activity-7373715926178803712-4NAM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESdXuYB0L4oy78G6IDR6GZO4HCCkvrnPuM" target="_blank" rel="noopener noreferrer" aria-label="ResDex Website" style={{ paddingLeft: "0.75rem" }}>
                   <FaLink size={15} color={textColor} />
                 </a>
-                {/* <a href="https://github.com/devp19/resdex" target="_blank" rel="noopener noreferrer" aria-label="ResDex GitHub">
-                  <LiaGithub size={20} color={textColor} />
+                <a href="https://x.com/krishgarg09/status/1967713537821675541" target="_blank" rel="noopener noreferrer" aria-label="ResDex GitHub">
+                  <FaXTwitter size={15} color={textColor} />
                 </a>
-                <a href="https://linkedin.com/company/resdex" target="_blank" rel="noopener noreferrer" aria-label="ResDex LinkedIn">
+                {/* <a href="https://linkedin.com/company/resdex" target="_blank" rel="noopener noreferrer" aria-label="ResDex LinkedIn">
                   <FaLinkedin size={17} color={textColor} />
                 </a> */}
 
