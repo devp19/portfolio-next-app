@@ -131,9 +131,22 @@ useEffect(() => {
             </h1>
 
   <p style={{ color: fadedText, fontSize: "0.8rem" }}>
-                Details Coming Soon!
+                As an AI Developer at Fidelity, I worked closely with different teams to build AI-integrated solutions to streamline research, reporting, and data analysis workflows. By utilizing FILxGPT (an in-house custom LLM built on OpenAI's GPT model) and other tools such as Python, Numpy, PerplexitySearch API's, AI Builder and etc, I was able to make a large impact in across multiple departments ranging from HR, Marketing, Compliance, and more.
+                
+                <br></br>
+                <br></br>
+                I also participated in an internal discovery project, seeing which new and existing AI tools we can adopt to improve our workflows and processes across the SDLC. Working closely with the Vice President of Data, Technology & Transformation, Nazia S., I was able to explore how we can leverage AI to improve project discovery and kickoff through transcripts.
+                <br></br>
+                <br></br>
+                Additionally, I also took part in an AI hackathon across Fidelity which included teams from across the world, where we wanted to help phase together different parts of the SDLC, primarilty focusing on pre-development (project intake and kickoff meetings) and post-development practices such as documentation, userguide creation and etc.
+                {/* I lead end-to-end
+                development of cloud workflows using Power Automate and the Azure Registry. I
+                work closely with stakeholders to gather requirements, design
+                solutions, and manage the full software development lifecycle;
+                from planning and building to testing and deployment. My work
+                helps teams automate tasks, improve efficiency, and reduce
+                manual effort. */}
               </p>
-
 
               <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7365836092371107840?collapsed=1" height="600" width="100%" frameBorder="0" allowFullScreen={true} title="Embedded post"></iframe>
           
@@ -145,7 +158,7 @@ useEffect(() => {
 
             <p style={{ color: fadedText, fontSize: "0.8rem" }}>
                 As an Automation Analyst at Fidelity, I lead end-to-end
-                development of cloud workflows using Power Automate and Azure. I
+                development of cloud workflows using Power Automate and the Azure Registry. I
                 work closely with stakeholders to gather requirements, design
                 solutions, and manage the full software development lifecycle;
                 from planning and building to testing and deployment. My work
@@ -189,9 +202,8 @@ useEffect(() => {
               </h3>
               <ul style={{ color: fadedText, fontSize: "0.8rem" }}>
                 <li>Python</li>
-                <li>Jupyter</li>
-                <li>FilxGPT (Custom LLM)</li>
-                <li>Python</li>
+                <li>Power Automate</li>
+                <li>Power BI</li>
                 <li>Power Apps</li>
               </ul>
             </div>
