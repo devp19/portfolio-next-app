@@ -240,8 +240,7 @@ export default function ResDexPage() {
               Intersection of Innovation & Research
             </h1>
             <p style={{ fontSize: "0.8rem", color: fadedText }}>
-              My directory of projects, showcasing my work in innovation and research throughout AI, Full-Stack, Research and more! 
-              <br />
+A curated collection of my projects, highlighting creativity and real-world impact across AI, full-stack development, and research. Explore how innovation and practical solutions drive my work in technology!             <br />
               <br />
             </p>
 
