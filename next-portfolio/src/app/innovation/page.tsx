@@ -94,6 +94,20 @@ export default function ResDexPage() {
 
   const projects = [
     {
+      title: "Mesh",
+      tags: ["AI", "Full-Stack"],
+      description:
+        "An AI-powered 3D model processing platform that automates mesh component extraction, identification, and educational visualization with physical hardware control.",
+      icon: <TbCube3dSphere size={15} color={textColor} />,
+      link: "/mesh",
+      announcements: [
+        {
+          tag: "Latest",
+          title: "Release",
+        },
+      ],
+    },
+    {
       title: "Tunnel",
       tags: ["AI", "Full-Stack", "Voice", "Agents"],
       description:
@@ -150,14 +164,6 @@ export default function ResDexPage() {
         "Exploring urban heat vulnerability and tree planting priorities in Toronto for sustainable development through machine-learning for data-driven insights.",
       icon: <MdLocationSearching size={15} color={textColor} />,
       link: "/innovation/hotspots",
-    },
-    {
-      title: "Mesh",
-      tags: ["AI", "Full-Stack"],
-      description:
-        "An AI-powered 3D model processing platform that automates mesh component extraction, identification, and educational visualization with physical hardware control.",
-      icon: <TbCube3dSphere size={15} color={textColor} />,
-      link: "/mesh",
     },
     {
       title: "Lyra",

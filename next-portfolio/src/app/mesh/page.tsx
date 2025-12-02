@@ -570,21 +570,25 @@ export default function MeshPage() {
                </p>
 
               <div className="flex flex-col gap-2 sm:flex-row sm:gap-x-2 sm:gap-y-0">
-  <Announcement themed className="bg-gray-100 border border-gray-200 shadow-none">
-    <AnnouncementTag className="!text-gray-700 !bg-gray-200">LinkedIn</AnnouncementTag>
-    <AnnouncementTitle className="!text-gray-700">
-      View Post
-      <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
-    </AnnouncementTitle>
-  </Announcement>
+  <a href="https://www.linkedin.com/posts/devp19_bringing-jarvis-from-ironman-into-the-real-activity-7399168149784297472-krtQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESdXuYB0L4oy78G6IDR6GZO4HCCkvrnPuM" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+    <Announcement themed className="bg-gray-100 border border-gray-200 shadow-none hover:bg-gray-200 transition-colors cursor-pointer">
+      <AnnouncementTag className="!text-gray-700 !bg-gray-200">LinkedIn</AnnouncementTag>
+      <AnnouncementTitle className="!text-gray-700">
+        View Post
+        <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
+      </AnnouncementTitle>
+    </Announcement>
+  </a>
 
-  <Announcement themed className="bg-gray-100 border border-gray-200 shadow-none">
-    <AnnouncementTag className="!text-gray-700 !bg-gray-200">Live Demo</AnnouncementTag>
-    <AnnouncementTitle className="!text-gray-700">
-      mesh3d.vercel.app
-      <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
-    </AnnouncementTitle>
-  </Announcement>
+  <a href="https://mesh3d.vercel.app" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+    <Announcement themed className="bg-gray-100 border border-gray-200 shadow-none hover:bg-gray-200 transition-colors cursor-pointer">
+      <AnnouncementTag className="!text-gray-700 !bg-gray-200">Live Demo</AnnouncementTag>
+      <AnnouncementTitle className="!text-gray-700">
+        mesh3d.vercel.app
+        <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
+      </AnnouncementTitle>
+    </Announcement>
+  </a>
 </div>
 
             
