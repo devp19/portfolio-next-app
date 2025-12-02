@@ -566,7 +566,7 @@ export default function MeshPage() {
               Mesh is an AI-powered 3D model processing platform that automates mesh component extraction, identification, and educational visualization... without the complex pipelines. Upload a GLB file or generate a 3D model and have AI automatically identify, annotate, and explain every part, while controlling 3D visualizations (just like IronMan) with physical hardware.
               </p>
                <p style={{ fontSize: "0.9rem", color: fadedText }}>
-                 <a href="https://www.linkedin.com/in/devp19/" target="_blank" rel="noopener noreferrer" style={{ color: fadedText, textDecoration: "underline" }}>Dev Patel</a> · <a href="https://www.linkedin.com/in/fenilshah05/" target="_blank" rel="noopener noreferrer" style={{ color: fadedText, textDecoration: "underline" }}>Fenil Shah</a> · <a href="https://www.linkedin.com/in/kushp4444/" target="_blank" rel="noopener noreferrer" style={{ color: fadedText, textDecoration: "underline" }}>Kush Patel</a>
+                 <a href="https://www.linkedin.com/in/devp19/" target="_blank" rel="noopener noreferrer" style={{ color: fadedText, textDecoration: "underline" }}>Dev Patel</a> / <a href="https://www.linkedin.com/in/fenilshah05/" target="_blank" rel="noopener noreferrer" style={{ color: fadedText, textDecoration: "underline" }}>Fenil Shah</a> / <a href="https://www.linkedin.com/in/kushp4444/" target="_blank" rel="noopener noreferrer" style={{ color: fadedText, textDecoration: "underline" }}>Kush Patel</a>
                </p>
 
               <div className="flex flex-col gap-2 sm:flex-row sm:gap-x-2 sm:gap-y-0">
