@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mesh - The Coordination Layer for GeoSpatial Data",
     description: "AI-powered 3D model processing platform with automated component identification and hardware control",
-    images: ["/mesh.png"],
+    images: ["/og-image.png"],
   },
 };
 
