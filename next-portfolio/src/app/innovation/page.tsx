@@ -17,6 +17,7 @@ import {
   MdOutlineSmartToy,
   MdArrowRightAlt,
 } from "react-icons/md";
+import { TbCube3dSphere } from "react-icons/tb";
 import { SlGraph } from "react-icons/sl";
 import { IoBookOutline, IoQrCode } from "react-icons/io5";
 import Example from "@/components/contribution";
@@ -149,6 +150,14 @@ export default function ResDexPage() {
         "Exploring urban heat vulnerability and tree planting priorities in Toronto for sustainable development through machine-learning for data-driven insights.",
       icon: <MdLocationSearching size={15} color={textColor} />,
       link: "/innovation/hotspots",
+    },
+    {
+      title: "Mesh",
+      tags: ["AI", "Full-Stack"],
+      description:
+        "An AI-powered 3D model processing platform that automates mesh component extraction, identification, and educational visualization with physical hardware control.",
+      icon: <TbCube3dSphere size={15} color={textColor} />,
+      link: "/mesh",
     },
     {
       title: "Lyra",
