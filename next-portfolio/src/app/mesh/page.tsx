@@ -1029,42 +1029,42 @@ The end result? A seamless, intuitive way to explore 3D models. You literally ju
                 <br></br>
                 • <span style={{ color: textColor }}>Next.js 16 & React 19</span> // As with most of my projects...
                 <br></br>
-                • <span style={{ color: textColor }}>Three.js + React Three Fiber</span> — for all the WebGL rendering with post-processing effects (bloom, shadows, the works)
+                • <span style={{ color: textColor }}>Three.js + React Three Fiber</span> // for all the WebGL rendering with post-processing effects (bloom, shadows, the works)
                 <br></br>
-                • <span style={{ color: textColor }}>Framer Motion</span> — For everyone asking about animations
+                • <span style={{ color: textColor }}>Framer Motion</span> // For everyone asking about animations
                 <br></br>
                 • <span style={{ color: textColor }}>Tailwind CSS</span>
                 <br></br>
                 <br></br>
                 <span style={{ color: textColor, fontWeight: 500 }}>AI/ML</span>
                 <br></br>
-                • <span style={{ color: textColor }}>OpenRouter API</span> — unified access to both Gemini Pro and GPT-4
+                • <span style={{ color: textColor }}>OpenRouter API</span> // unified access to both Gemini Pro and GPT-4
                 <br></br>
-                • <span style={{ color: textColor }}>Gemini Pro Vision</span> — handles the 3D component identification and image annotation
+                • <span style={{ color: textColor }}>Gemini Pro Vision</span> // handles the 3D component identification and image annotation
                 <br></br>
-                • <span style={{ color: textColor }}>GPT-4</span> — generates all the educational content
+                • <span style={{ color: textColor }}>GPT-4</span> // generates all the educational content
                 <br></br>
-                • <span style={{ color: textColor }}>Sketchfab API</span> — for model search and download functionality
+                • <span style={{ color: textColor }}>Sketchfab API</span> // for model search and download functionality
                 <br></br>
                 <br></br>
                 <span style={{ color: textColor, fontWeight: 500 }}>Hardware</span>
                 <br></br>
-                • <span style={{ color: textColor }}>Arduino M5StickCPlus2</span> — ESP32-based with a 6-axis IMU
+                • <span style={{ color: textColor }}>Arduino M5StickCPlus2</span> // ESP32-based with a 6-axis IMU
                 <br></br>
-                • <span style={{ color: textColor }}>NimBLE-Arduino</span> — for efficient BLE communication
+                • <span style={{ color: textColor }}>NimBLE-Arduino</span> // for efficient BLE communication
                 <br></br>
-                • <span style={{ color: textColor }}>Madgwick AHRS Filter</span> — the secret sauce for sensor fusion
+                • <span style={{ color: textColor }}>Madgwick AHRS Filter</span> // the secret sauce for sensor fusion
                 <br></br>
-                • <span style={{ color: textColor }}>Web Bluetooth API</span> — browser-native BLE integration (works in Chrome/Edge)
+                • <span style={{ color: textColor }}>Web Bluetooth API</span> // browser-native BLE integration (works in Chrome/Edge)
                 <br></br>
                 <br></br>
                 <span style={{ color: textColor, fontWeight: 500 }}>Infrastructure</span>
                 <br></br>
-                • <span style={{ color: textColor }}>Vercel</span> — deployment and hosting (because it just works)
+                • <span style={{ color: textColor }}>Vercel</span> // deployment and hosting (because it just works)
                 <br></br>
-                • <span style={{ color: textColor }}>Next.js API Routes</span> — backend processing
+                • <span style={{ color: textColor }}>Next.js API Routes</span> // backend processing
                 <br></br>
-                • <span style={{ color: textColor }}>Dynamic Imports</span> — code-splitting and SSR optimization to keep things fast
+                • <span style={{ color: textColor }}>Dynamic Imports</span> // code-splitting and SSR optimization to keep things fast
                 </p>
               </section>
 
@@ -1081,7 +1081,7 @@ The most rewarding part? Watching everything come together. Seeing Gemini Pro ac
 This project pushed me to learn a ton of new stuff, Three.js, React Three Fiber, Arduino firmware development, BLE protocols, sensor fusion algorithms. Each piece was a challenge, but that's what made it exciting. The end result is a platform that actually makes 3D model analysis accessible to anyone, no specialized software or years of CAD experience required.
 <br></br>
 <br></br>
-This probably concludes my project works for this year with huge ambitions to get into the LLM research space in 2026. This year was definitely a lot of fun and I'm looking forward to next year in San Francisco!
+This wraps up my project work for 2025. Looking ahead to 2026, I'm aiming to dive deeper into LLM research and the field of Voice AI. This year has been incredible, and I can't wait to see what San Francisco has in store for me next year!
                 </p>
               </section>
 <div className="mt-90"></div>
