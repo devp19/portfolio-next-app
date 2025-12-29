@@ -127,7 +127,7 @@
                         </div>
                         <div className={styles.listItemText}>
                         <div className={styles.primaryText}>software engineer</div>
-                        <div className={styles.secondaryText}>bluejay (yc x25)</div>
+                        <div className={styles.secondaryText}>bluejay (yc x25) / internship</div>
                         </div>
                         <a href="#" className={styles.readMore}>[→]</a>
                     </div>
@@ -169,8 +169,9 @@
                 </div>
                 <div className={styles.listItemText}>
                 <div className={styles.primaryText}>ai developer</div>
-                <div className={styles.secondaryText}>fidelity investments</div>
+                <div className={styles.secondaryText}>fidelity investments / internship</div>
                 </div>
+                <span className={styles.dateText}>sept - dec '25</span>
                 <a href="#" className={styles.readMore}>[→]</a>
             </li>
             <li className={styles.listItem}>
@@ -183,8 +184,9 @@
                 </div>
                 <div className={styles.listItemText}>
                 <div className={styles.primaryText}>software automation engineer</div>
-                <div className={styles.secondaryText}>fidelity investments</div>
+                <div className={styles.secondaryText}>fidelity investments / internship</div>
                 </div>
+                <span className={styles.dateText}>may - aug '25</span>
                 <a href="#" className={styles.readMore}>[→]</a>
             </li>
             <li className={styles.listItem}>
@@ -199,6 +201,7 @@
                 <div className={styles.primaryText}>co-founder & founding engineer</div>
                 <div className={styles.secondaryText}>resdex</div>
                 </div>
+                <span className={styles.dateText}>aug '24 - may '25</span>
                 <a href="#" className={styles.readMore}>[→]</a>
             </li>
             </ul>
@@ -238,34 +241,48 @@
             </div>
 
             {activeTab === "cool things i've built" && (
-                <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
-                <li className={styles.listItem}>
-                    <div className={styles.icon}>
+                <ul className={styles.listGrid} style={{ marginTop: "1.5rem" }}>
+                <li className={styles.projectCard}>
+                    <div className={styles.coverImage}>
                     <img 
-                        src="/v2/v2_fidelity.png" 
-                        alt="Project" 
-                        className={styles.iconImage}
+                        src="/v2/meshlarge.png" 
+                        alt="Mesh" 
+                        className={styles.coverImg}
                     />
                     </div>
-                    <div className={styles.listItemText}>
-                    <div className={styles.primaryText}>mesh</div>
-                    <div className={styles.secondaryText}>the coordination layer for geo spatial data</div>
+                    <div className={styles.projectContent}>
+                        <div className={styles.projectTitle}>mesh</div>
+                        <div className={styles.projectDescription}>built the coordination layer for 3d geospatial data</div>
+                        <a href="#" className={styles.projectLink}>[read more]</a>
                     </div>
-                    <a href="#" className={styles.readMore}>[→]</a>
                 </li>
-                <li className={styles.listItem}>
-                    <div className={styles.icon}>
+                <li className={styles.projectCard}>
+                    <div className={styles.coverImage}>
                     <img 
-                        src="/v2/v2_fidelity.png" 
-                        alt="Project" 
-                        className={styles.iconImage}
+                        src="/v2/tunnel.png" 
+                        alt="Tunnel" 
+                        className={styles.coverImg}
                     />
                     </div>
-                    <div className={styles.listItemText}>
-                    <div className={styles.primaryText}>tunnel</div>
-                    <div className={styles.secondaryText}>using ai to power product market simulations</div>
+                    <div className={styles.projectContent}>
+                        <div className={styles.projectTitle}>tunnel</div>
+                        <div className={styles.projectDescription}>ai agents for accurate pmf (product market fit) simulations</div>
+                        <a href="#" className={styles.projectLink}>[read more]</a>
                     </div>
-                    <a href="#" className={styles.readMore}>[→]</a>
+                </li>
+                <li className={styles.projectCard}>
+                    <div className={styles.coverImage}>
+                    <img 
+                        src="/v2/cualarge.png" 
+                        alt="CUA" 
+                        className={styles.coverImg}
+                    />
+                    </div>
+                    <div className={styles.projectContent}>
+                        <div className={styles.projectTitle}>cua (yc x25)</div>
+                        <div className={styles.projectDescription}>android docker provider for computer use agents</div>
+                        <a href="#" className={styles.projectLink}>[read more]</a>
+                    </div>
                 </li>
                 </ul>
             )}

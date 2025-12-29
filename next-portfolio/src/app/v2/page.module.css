@@ -73,6 +73,72 @@
   gap: 1rem;
 }
 
+.listGrid {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.projectCard:hover {
+  background-color: #404140;
+}
+
+.coverImage {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.projectTitle {
+  color: #c6cdce;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.projectDescription {
+  color: #656765;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.projectLink {
+  color: #656765;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  margin-top: 0.25rem;
+}
+
+.projectLink:hover {
+  color: #c6cdce;
+}
+
 .listItem {
   display: flex;
   align-items: center;
@@ -89,13 +155,20 @@
   gap: 0.25rem;
 }
 
+.dateText {
+  color: #656765;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: 0.75rem;
+}
+
 .readMore {
   color: #656765;
   font-size: 0.8rem;
   text-decoration: none;
   transition: color 0.2s ease;
   white-space: nowrap;
-  margin-left: auto;
   margin-right: 0.5rem;
 }
 
@@ -320,6 +393,15 @@
 
   .listTwoColumn {
     grid-template-columns: 1fr;
+  }
+
+  .listGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .coverImage {
+    height: 160px;
   }
 
   .icon {
