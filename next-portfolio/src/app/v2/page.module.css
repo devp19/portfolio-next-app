@@ -142,6 +142,105 @@
   line-height: 1.2;
 }
 
+.contributionWrapper {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.contributionWrapper svg text {
+  fill: #656765 !important;
+  font-size: 0.75rem;
+}
+
+.contributionBlock {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.contributionBlock:hover {
+  opacity: 0.8;
+}
+
+/* Override Tailwind classes for contribution blocks */
+.contributionWrapper svg rect[data-level="0"] {
+  fill: #1b1b1b !important;
+  rx: 0 !important;
+  ry: 0 !important;
+}
+
+.contributionWrapper svg rect[data-level="1"] {
+  fill: #2a2d2d !important;
+  rx: 0 !important;
+  ry: 0 !important;
+}
+
+.contributionWrapper svg rect[data-level="2"] {
+  fill: #3a3f3f !important;
+  rx: 0 !important;
+  ry: 0 !important;
+}
+
+.contributionWrapper svg rect[data-level="3"] {
+  fill: #4a5050 !important;
+  rx: 0 !important;
+  ry: 0 !important;
+}
+
+.contributionWrapper svg rect[data-level="4"] {
+  fill: #5a6161 !important;
+  rx: 0 !important;
+  ry: 0 !important;
+}
+
+/* Remove border radius from all contribution blocks */
+.contributionWrapper svg rect {
+  rx: 0 !important;
+  ry: 0 !important;
+}
+
+.contributionFooter {
+  margin-top: 0.5rem;
+  color: #656765;
+  font-size: 0.8rem;
+  line-height: 1.25rem;
+}
+
+.tooltipContent {
+  background-color: #1a1a1a !important;
+  border: 1px solid #656765 !important;
+  border-radius: 0px !important;
+  color: #656765 !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.8rem !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.tooltipContent p {
+  margin: 0 !important;
+  color: #656765 !important;
+  font-size: 0.8rem !important;
+  line-height: 1.4 !important;
+}
+
+.tooltipContent p:first-child {
+  font-weight: 500 !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Style the tooltip arrow */
+.tooltipContent + [data-radix-tooltip-arrow],
+.contributionWrapper [data-slot="tooltip-content"] + [data-radix-tooltip-arrow] {
+  fill: #191b1b !important;
+  /* border: 1px solid #65676567 !important; */
+  border-top: none !important;
+  border-left: none !important;
+}
+
+.tooltipText {
+  color: #c6cdce !important;
+  font-size: 0.8rem;
+}
+
 .divider {
   width: 100%;
   height: 1px;

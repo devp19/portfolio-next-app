@@ -1,10 +1,45 @@
     "use client";
 
-    import { useState } from "react";
+    import { useState, useEffect } from "react";
     import styles from "./page.module.css";
+    import {
+      ContributionGraph,
+      ContributionGraphBlock,
+      ContributionGraphCalendar,
+      ContributionGraphFooter,
+    } from '@/components/ui/kibo-ui/contribution-graph';
+    import {
+      Tooltip,
+      TooltipContent,
+      TooltipProvider,
+      TooltipTrigger,
+    } from '@/components/ui/tooltip';
+    import { getCachedContributions } from "@/lib/github-contributions";
+
+    export type Activity = {
+      date: string;
+      count: number;
+      level: number;
+    };
 
     export default function V2Page() {
     const [activeTab, setActiveTab] = useState("cool things i've built");
+    const [contributions, setContributions] = useState<Activity[]>([]);
+    const [total, setTotal] = useState<number>(0);
+    const [loadingContrib, setLoadingContrib] = useState(true);
+
+    useEffect(() => {
+      const load = async () => {
+        try {
+          const { contributions, total } = await getCachedContributions();
+          setContributions(contributions);
+          setTotal(total);
+        } finally {
+          setLoadingContrib(false);
+        }
+      };
+      load();
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -20,6 +55,62 @@
             <p style={{ color: "#656765", fontSize: "0.8rem"}}>
             small space on the internet where i write about myself, code, projects, and a lot of random other things.
             </p>
+
+            {!loadingContrib && contributions.length > 0 && (
+                <>
+                    <style>{`
+                        .contribution-scrollable div[class*="overflow-x-auto"] {
+                            scrollbar-width: thin !important;
+                            scrollbar-color: #656765 #1a1a1a !important;
+                        }
+                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar {
+                            height: 4px !important;
+                            display: block !important;
+                        }
+                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-track {
+                            background: #1a1a1a !important;
+                            border-radius: 2px;
+                        }
+                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb {
+                            background: #656765 !important;
+                            border-radius: 2px;
+                        }
+                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb:hover {
+                            background: #7a7d7d !important;
+                        }
+                    `}</style>
+                    <div className={`${styles.contributionWrapper} contribution-scrollable`}>
+                        <TooltipProvider>
+                            <ContributionGraph data={contributions} totalCount={total} style={{ marginTop: '1rem' }} blockRadius={0}>
+                                <ContributionGraphCalendar>
+                                {({ activity, dayIndex, weekIndex }) => (
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <g>
+                                                <ContributionGraphBlock
+                                                    activity={activity}
+                                                    className={styles.contributionBlock}
+                                                    dayIndex={dayIndex}
+                                                    weekIndex={weekIndex}
+                                                />
+                                            </g>
+                                        </TooltipTrigger>
+                                        <TooltipContent className={styles.tooltipContent}>
+                                            <p className={styles.tooltipText}>{activity.date}</p>
+                                            <p className={styles.tooltipText}>{activity.count} contributions</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                )}
+                            </ContributionGraphCalendar>
+                            <ContributionGraphFooter />
+                        </ContributionGraph>
+                        <div className={styles.contributionFooter}>
+                            {total} contributions in {new Date().getFullYear()}
+                        </div>
+                    </TooltipProvider>
+                    </div>
+                </>
+            )}
 
             <div className={styles.twoColumnSection}>
                 <div className={styles.sectionWithLabel}>
@@ -157,8 +248,22 @@
                     />
                     </div>
                     <div className={styles.listItemText}>
-                    <div className={styles.primaryText}>project name</div>
-                    <div className={styles.secondaryText}>project description</div>
+                    <div className={styles.primaryText}>mesh</div>
+                    <div className={styles.secondaryText}>the coordination layer for geo spatial data</div>
+                    </div>
+                    <a href="#" className={styles.readMore}>[→]</a>
+                </li>
+                <li className={styles.listItem}>
+                    <div className={styles.icon}>
+                    <img 
+                        src="/v2/v2_fidelity.png" 
+                        alt="Project" 
+                        className={styles.iconImage}
+                    />
+                    </div>
+                    <div className={styles.listItemText}>
+                    <div className={styles.primaryText}>tunnel</div>
+                    <div className={styles.secondaryText}>using ai to power product market simulations</div>
                     </div>
                     <a href="#" className={styles.readMore}>[→]</a>
                 </li>
