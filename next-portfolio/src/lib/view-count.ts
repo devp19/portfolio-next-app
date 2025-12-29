@@ -39,7 +39,7 @@ export async function getViewCount(): Promise<number> {
   
   if (client) {
     try {
-      const count = await client.get<number>(VIEW_COUNT_KEY);
+      const count = await client.get(VIEW_COUNT_KEY) as number | null;
       return count ?? startingCount;
     } catch (error) {
       console.error('Error reading from Redis:', error);
