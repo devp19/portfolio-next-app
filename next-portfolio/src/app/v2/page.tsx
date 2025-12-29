@@ -1,6 +1,7 @@
     "use client";
 
     import { useState, useEffect } from "react";
+    import Link from "next/link";
     import styles from "./page.module.css";
     import {
       ContributionGraph,
@@ -86,152 +87,21 @@
                 </div>
             </div>
             <p style={{ color: "#656765", fontSize: "0.8rem"}}>
-            swe intern @ bluejay (yc x25), prev ai @ fidelity, cs @ tmu
+            swe intern @ <span className={styles.highlightedText}>bluejay (yc x25)</span>, prev ai @ <span className={styles.highlightedText}>fidelity</span>, cs @ <span className={styles.highlightedText}>tmu</span>
             </p>
             <p style={{ color: "#656765", fontSize: "0.8rem"}}>
-            small space on the internet where i write about myself, code, projects, and a lot of random other things.
+            welcome to my small space on the internet where i write about myself, code, projects, and a lot of random other things.
             </p>
             <p style={{ color: "#656765", fontSize: "0.8rem"}}>
             exploring san francisco for the time being...
             </p>
 
-            <div className={styles.tabs}>
-                <button 
-                    className={styles.tab}
-                    onClick={() => setActiveTab("cool things i've built")}
-                    data-active={activeTab === "cool things i've built"}
-                >
-                    <span className={styles.tabBracket}>[</span>
-                    <span className={styles.tabText}>cool things i've built</span>
-                    <span className={styles.tabBracket}>]</span>
-                </button>
-                <span className={styles.tabSeparator}>/</span>
-                <button 
-                    className={styles.tab}
-                    onClick={() => setActiveTab("writeups")}
-                    data-active={activeTab === "writeups"}
-                >
-                    <span className={styles.tabBracket}>[</span>
-                    <span className={styles.tabText}>writeups</span>
-                    <span className={styles.tabBracket}>]</span>
-                </button>
-                <span className={styles.tabSeparator}>/</span>
-                <button 
-                    className={styles.tab}
-                    onClick={() => setActiveTab("blogs")}
-                    data-active={activeTab === "blogs"}
-                >
-                    <span className={styles.tabBracket}>[</span>
-                    <span className={styles.tabText}>blogs</span>
-                    <span className={styles.tabBracket}>]</span>
-                </button>
-            </div>
-
-            {activeTab === "cool things i've built" && (
-                <ul className={styles.listGrid} style={{ marginTop: "1.5rem" }}>
-                <li className={styles.projectCard}>
-                    <div className={styles.coverImage}>
-                    <img 
-                        src="/v2/meshlarge.png" 
-                        alt="Mesh" 
-                        className={styles.coverImg}
-                    />
-                    </div>
-                    <div className={styles.projectContent}>
-                        <div className={styles.projectTitle}>mesh</div>
-                        <div className={styles.projectDescription}>built the coordination layer for 3d geospatial data</div>
-                        <a href="#" className={styles.projectLink}>[read more]</a>
-                    </div>
-                </li>
-                <li className={styles.projectCard}>
-                    <div className={styles.coverImage}>
-                    <img 
-                        src="/v2/tunnellarge.png" 
-                        alt="Tunnel" 
-                        className={styles.coverImg}
-                    />
-                    </div>
-                    <div className={styles.projectContent}>
-                        <div className={styles.projectTitle}>tunnel</div>
-                        <div className={styles.projectDescription}>ai agents for accurate pmf (product market fit) simulations</div>
-                        <a href="#" className={styles.projectLink}>[read more]</a>
-                    </div>
-                </li>
-                <li className={styles.projectCard}>
-                    <div className={styles.coverImage}>
-                    <img 
-                        src="/v2/cualarge.png" 
-                        alt="CUA" 
-                        className={styles.coverImg}
-                    />
-                    </div>
-                    <div className={styles.projectContent}>
-                        <div className={styles.projectTitle}>cua (yc x25)</div>
-                        <div className={styles.projectDescription}>android docker provider for computer use agents</div>
-                        <a href="#" className={styles.projectLink}>[read more]</a>
-                    </div>
-                </li>
-                <li className={styles.projectCard}>
-                    <div className={styles.coverImage}>
-                    <img 
-                        src="/v2/hotspotslarge.png" 
-                        alt="hotspots" 
-                        className={styles.coverImg}
-                    />
-                    </div>
-                    <div className={styles.projectContent}>
-                        <div className={styles.projectTitle}>hotspots</div>
-                        <div className={styles.projectDescription}>machine learning data visualization for urban heat vulnerability</div>
-                        <a href="#" className={styles.projectLink}>[read more]</a>
-                    </div>
-                </li>
-                </ul>
-            )}
-
-            {activeTab === "writeups" && (
-                <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
-                <li className={styles.listItem}>
-                    <div className={styles.icon}>
-                    <img 
-                        src="/v2/v2_fidelity.png" 
-                        alt="Writeup" 
-                        className={styles.iconImage}
-                    />
-                    </div>
-                    <div className={styles.listItemText}>
-                    <div className={styles.primaryText}>writeup title</div>
-                    <div className={styles.secondaryText}>writeup description</div>
-                    </div>
-                    <a href="#" className={styles.readMore}>[→]</a>
-                </li>
-                </ul>
-            )}
-
-            {activeTab === "blogs" && (
-                <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
-                <li className={styles.listItem}>
-                    <div className={styles.icon}>
-                    <img 
-                        src="/v2/v2_fidelity.png" 
-                        alt="Blog" 
-                        className={styles.iconImage}
-                    />
-                    </div>
-                    <div className={styles.listItemText}>
-                    <div className={styles.primaryText}>blog title</div>
-                    <div className={styles.secondaryText}>blog description</div>
-                    </div>
-                    <a href="#" className={styles.readMore}>[→]</a>
-                </li>
-                </ul>
-            )}
-
-            <div className={styles.divider}></div>
+            
 
             {!loadingContrib && contributions.length > 0 && (
                 <>
                     <p style={{ color: "#c6cdce", fontSize: "0.8rem", marginTop: "1.5rem", fontStyle: "italic" }}>
-                    contribution graph
+                    
                     </p>
                     <style>{`
                         .contribution-scrollable div[class*="overflow-x-auto"] {
@@ -287,6 +157,147 @@
                     <div className={styles.divider}></div>
                 </>
             )}
+
+<div className={styles.tabs}>
+                <button 
+                    className={styles.tab}
+                    onClick={() => setActiveTab("cool things i've built")}
+                    data-active={activeTab === "cool things i've built"}
+                >
+                    <span className={styles.tabBracket}>[</span>
+                    <span className={styles.tabText}>cool things i've built</span>
+                    <span className={styles.tabBracket}>]</span>
+                </button>
+                <span className={styles.tabSeparator}>/</span>
+                <button 
+                    className={styles.tab}
+                    onClick={() => setActiveTab("writeups")}
+                    data-active={activeTab === "writeups"}
+                >
+                    <span className={styles.tabBracket}>[</span>
+                    <span className={styles.tabText}>writeups</span>
+                    <span className={styles.tabBracket}>]</span>
+                </button>
+                <span className={styles.tabSeparator}>/</span>
+                <button 
+                    className={styles.tab}
+                    onClick={() => setActiveTab("blogs")}
+                    data-active={activeTab === "blogs"}
+                >
+                    <span className={styles.tabBracket}>[</span>
+                    <span className={styles.tabText}>blogs</span>
+                    <span className={styles.tabBracket}>]</span>
+                </button>
+            </div>
+            {activeTab === "cool things i've built" && (
+                <ul className={styles.listGrid} style={{ marginTop: "1.5rem" }}>
+                <li className={styles.projectCard}>
+                    <Link href="/v2/mesh" style={{ textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className={styles.coverImage}>
+                        <img 
+                            src="/v2/meshlarge.png" 
+                            alt="Mesh" 
+                            className={styles.coverImg}
+                        />
+                        </div>
+                        <div className={styles.projectContent}>
+                            <div className={styles.projectTitle}>mesh</div>
+                            <div className={styles.projectDescription}>built the coordination layer for 3d geospatial data</div>
+                            <span className={styles.projectLink}>[read more]</span>
+                        </div>
+                    </Link>
+                </li>
+                <li className={styles.projectCard}>
+                    <Link href="/v2/tunnel" style={{ textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className={styles.coverImage}>
+                        <img 
+                            src="/v2/tunnel_v2.png" 
+                            alt="Tunnel" 
+                            className={styles.coverImg}
+                        />
+                        </div>
+                        <div className={styles.projectContent}>
+                            <div className={styles.projectTitle}>tunnel</div>
+                            <div className={styles.projectDescription}>ai agents for accurate pmf (product market fit) simulations</div>
+                            <span className={styles.projectLink}>[read more]</span>
+                        </div>
+                    </Link>
+                </li>
+                <li className={styles.projectCard}>
+                    <Link href="/v2/cua" style={{ textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className={styles.coverImage}>
+                        <img 
+                            src="/v2/cua_v2.png" 
+                            alt="CUA" 
+                            className={styles.coverImg}
+                        />
+                        </div>
+                        <div className={styles.projectContent}>
+                            <div className={styles.projectTitle}>cua (yc x25)</div>
+                            <div className={styles.projectDescription}>android docker provider for computer use agents</div>
+                            <span className={styles.projectLink}>[read more]</span>
+                        </div>
+                    </Link>
+                </li>
+                <li className={styles.projectCard}>
+                    <Link href="/v2/hotspots" style={{ textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div className={styles.coverImage}>
+                        <img 
+                            src="/v2/hotspots_v2.png" 
+                            alt="hotspots" 
+                            className={styles.coverImg}
+                        />
+                        </div>
+                        <div className={styles.projectContent}>
+                            <div className={styles.projectTitle}>hotspots</div>
+                            <div className={styles.projectDescription}>machine learning data visualization for urban heat vulnerability</div>
+                            <span className={styles.projectLink}>[read more]</span>
+                        </div>
+                    </Link>
+                </li>
+                </ul>
+            )}
+
+            {activeTab === "writeups" && (
+                <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
+                <li className={styles.listItem}>
+                    <div className={styles.icon}>
+                    <img 
+                        src="/v2/v2_fidelity.png" 
+                        alt="Writeup" 
+                        className={styles.iconImage}
+                    />
+                    </div>
+                    <div className={styles.listItemText}>
+                    <div className={styles.primaryText}>writeup title</div>
+                    <div className={styles.secondaryText}>writeup description</div>
+                    </div>
+                    <a href="#" className={styles.readMore}>[→]</a>
+                </li>
+                </ul>
+            )}
+
+            {activeTab === "blogs" && (
+                <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
+                <li className={styles.listItem}>
+                    <div className={styles.icon}>
+                    <img 
+                        src="/v2/v2_fidelity.png" 
+                        alt="Blog" 
+                        className={styles.iconImage}
+                    />
+                    </div>
+                    <div className={styles.listItemText}>
+                    <div className={styles.primaryText}>blog title</div>
+                    <div className={styles.secondaryText}>blog description</div>
+                    </div>
+                    <a href="#" className={styles.readMore}>[→]</a>
+                </li>
+                </ul>
+            )}
+
+<div className={styles.divider}></div>
+
 
             <div className={styles.twoColumnSection}>
                 <div className={styles.sectionWithLabel}>
