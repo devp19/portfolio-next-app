@@ -284,6 +284,20 @@
                         <a href="#" className={styles.projectLink}>[read more]</a>
                     </div>
                 </li>
+                <li className={styles.projectCard}>
+                    <div className={styles.coverImage}>
+                    <img 
+                        src="/v2/hotspotslarge.png" 
+                        alt="hotspots" 
+                        className={styles.coverImg}
+                    />
+                    </div>
+                    <div className={styles.projectContent}>
+                        <div className={styles.projectTitle}>hotspots</div>
+                        <div className={styles.projectDescription}>machine learning data visualization for urban heat vulnerability</div>
+                        <a href="#" className={styles.projectLink}>[read more]</a>
+                    </div>
+                </li>
                 </ul>
             )}
 
