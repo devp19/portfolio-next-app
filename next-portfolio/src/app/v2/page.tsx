@@ -87,7 +87,7 @@
                 </div>
             </div>
             <p style={{ color: "#656765", fontSize: "0.8rem"}}>
-            swe intern @ <span className={styles.highlightedText}>bluejay (yc x25)</span>, prev ai @ <span className={styles.highlightedText}>fidelity</span>, cs @ <span className={styles.highlightedText}>tmu</span>
+            swe @ <span className={styles.highlightedText}>bluejay (yc x25)</span>, prev ai @ <span className={styles.highlightedText}>fidelity</span>, cs @ <span className={styles.highlightedText}>tmu</span>
             </p>
             <p style={{ color: "#656765", fontSize: "0.8rem"}}>
             welcome to my small space on the internet where i write about myself, code, projects, and a lot of random other things.
