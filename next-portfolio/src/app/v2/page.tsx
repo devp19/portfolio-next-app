@@ -27,6 +27,7 @@
     const [contributions, setContributions] = useState<Activity[]>([]);
     const [total, setTotal] = useState<number>(0);
     const [loadingContrib, setLoadingContrib] = useState(true);
+    const [viewerCount, setViewerCount] = useState<string>("");
 
     useEffect(() => {
       const load = async () => {
@@ -39,6 +40,38 @@
         }
       };
       load();
+    }, []);
+
+    useEffect(() => {
+      const handleViewCount = async () => {
+        try {
+          // Increment the view count
+          const incrementResponse = await fetch('/api/increment-views', {
+            method: 'POST',
+          });
+          const incrementData = await incrementResponse.json();
+          
+          if (incrementData.count) {
+            // Format the number with commas
+            const formatted = incrementData.count.toLocaleString();
+            setViewerCount(formatted);
+          }
+        } catch (error) {
+          console.error('Failed to handle view count:', error);
+          // Fallback: try to just get the count
+          try {
+            const response = await fetch('/api/get-views');
+            const data = await response.json();
+            if (data.count) {
+              const formatted = data.count.toLocaleString();
+              setViewerCount(formatted);
+            }
+          } catch (e) {
+            console.error('Failed to fetch view count:', e);
+          }
+        }
+      };
+      handleViewCount();
     }, []);
 
     return (
@@ -350,6 +383,13 @@
             </ul>
 
             <div className={styles.divider}></div>
+
+            <div className={styles.footer}>
+                <span className={styles.viewerCount}>
+                    {viewerCount ? `${viewerCount} views` : ''}
+                </span>
+                <span className={styles.footerDate}>last updated: 12/28/2025</span>
+            </div>
 
         </main>
         </div>
