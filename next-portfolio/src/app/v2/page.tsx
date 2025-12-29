@@ -53,160 +53,14 @@
                 </div>
             </div>
             <p style={{ color: "#656765", fontSize: "0.8rem"}}>
+            swe intern @ bluejay (yc x25), prev ai @ fidelity, cs @ tmu
+            </p>
+            <p style={{ color: "#656765", fontSize: "0.8rem"}}>
             small space on the internet where i write about myself, code, projects, and a lot of random other things.
             </p>
-
-            {!loadingContrib && contributions.length > 0 && (
-                <>
-                    <style>{`
-                        .contribution-scrollable div[class*="overflow-x-auto"] {
-                            scrollbar-width: thin !important;
-                            scrollbar-color: #656765 #1a1a1a !important;
-                        }
-                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar {
-                            height: 4px !important;
-                            display: block !important;
-                        }
-                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-track {
-                            background: #1a1a1a !important;
-                            border-radius: 2px;
-                        }
-                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb {
-                            background: #656765 !important;
-                            border-radius: 2px;
-                        }
-                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb:hover {
-                            background: #7a7d7d !important;
-                        }
-                    `}</style>
-                    <div className={`${styles.contributionWrapper} contribution-scrollable`}>
-                        <TooltipProvider>
-                            <ContributionGraph data={contributions} totalCount={total} style={{ marginTop: '1rem' }} blockRadius={0}>
-                                <ContributionGraphCalendar>
-                                {({ activity, dayIndex, weekIndex }) => (
-                                    <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            <g>
-                                                <ContributionGraphBlock
-                                                    activity={activity}
-                                                    className={styles.contributionBlock}
-                                                    dayIndex={dayIndex}
-                                                    weekIndex={weekIndex}
-                                                />
-                                            </g>
-                                        </TooltipTrigger>
-                                        <TooltipContent className={styles.tooltipContent}>
-                                            <p className={styles.tooltipText}>{activity.date}</p>
-                                            <p className={styles.tooltipText}>{activity.count} contributions</p>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                )}
-                            </ContributionGraphCalendar>
-                            <ContributionGraphFooter />
-                        </ContributionGraph>
-                        <div className={styles.contributionFooter}>
-                            {total} contributions in {new Date().getFullYear()}
-                        </div>
-                    </TooltipProvider>
-                    </div>
-                </>
-            )}
-
-            <div className={styles.twoColumnSection}>
-                <div className={styles.sectionWithLabel}>
-                    <p style={{ color: "#c6cdce", fontSize: "0.8rem", margin: 0, marginBottom: "0.5rem", fontStyle: "italic" }}>
-                    currently
-                    </p>
-                    <div className={styles.listItem}>
-                        <div className={styles.icon}>
-                        <img 
-                            src="/v2/v2_bluejay.jpeg" 
-                            alt="Bluejay" 
-                            className={styles.iconImage}
-                        />
-                        </div>
-                        <div className={styles.listItemText}>
-                        <div className={styles.primaryText}>software engineer</div>
-                        <div className={styles.secondaryText}>bluejay (yc x25) / internship</div>
-                        </div>
-                        <a href="#" className={styles.readMore}>[→]</a>
-                    </div>
-                </div>
-                <div className={styles.sectionWithLabel}>
-                    <p style={{ color: "#c6cdce", fontSize: "0.8rem", margin: 0, marginBottom: "0.5rem", fontStyle: "italic" }}>
-                    studying
-                    </p>
-                    <div className={styles.listItem}>
-                        <div className={styles.icon}>
-                        <img 
-                            src="/v2/v2_tmu.jpg" 
-                            alt="Toronto Metropolitan University" 
-                            className={styles.iconImage}
-                        />
-                        </div>
-                        <div className={styles.listItemText}>
-                        <div className={styles.primaryText}>computer science '27</div>
-                        <div className={styles.secondaryText}>toronto metropolitan university</div>
-                        </div>
-                        <a href="#" className={styles.readMore}>[→]</a>
-                    </div>
-                </div>
-            </div>
-            
-
-            <p style={{ color: "#c6cdce", fontSize: "0.8rem", marginTop: "1.5rem", fontStyle: "italic" }}>
-            previously
+            <p style={{ color: "#656765", fontSize: "0.8rem"}}>
+            exploring san francisco for the time being...
             </p>
-
-            <ul className={styles.list}>
-            <li className={styles.listItem}>
-                <div className={styles.icon}>
-                <img 
-                    src="/v2/v2_fidelity.png" 
-                    alt="Fidelity Investments" 
-                    className={styles.iconImage}
-                />
-                </div>
-                <div className={styles.listItemText}>
-                <div className={styles.primaryText}>ai developer</div>
-                <div className={styles.secondaryText}>fidelity investments / internship</div>
-                </div>
-                <span className={styles.dateText}>sept - dec '25</span>
-                <a href="#" className={styles.readMore}>[→]</a>
-            </li>
-            <li className={styles.listItem}>
-                <div className={styles.icon}>
-                <img 
-                    src="/v2/v2_fidelity.png" 
-                    alt="Fidelity Investments" 
-                    className={styles.iconImage}
-                />
-                </div>
-                <div className={styles.listItemText}>
-                <div className={styles.primaryText}>software automation engineer</div>
-                <div className={styles.secondaryText}>fidelity investments / internship</div>
-                </div>
-                <span className={styles.dateText}>may - aug '25</span>
-                <a href="#" className={styles.readMore}>[→]</a>
-            </li>
-            <li className={styles.listItem}>
-                <div className={styles.icon}>
-                <img 
-                    src="/v2/v2_resdex.jpeg" 
-                    alt="ResDex" 
-                    className={styles.iconImage}
-                />
-                </div>
-                <div className={styles.listItemText}>
-                <div className={styles.primaryText}>co-founder & founding engineer</div>
-                <div className={styles.secondaryText}>resdex</div>
-                </div>
-                <span className={styles.dateText}>aug '24 - may '25</span>
-                <a href="#" className={styles.readMore}>[→]</a>
-            </li>
-            </ul>
-
-            <div className={styles.divider}></div>
 
             <div className={styles.tabs}>
                 <button 
@@ -338,6 +192,164 @@
                 </li>
                 </ul>
             )}
+
+            <div className={styles.divider}></div>
+
+            {!loadingContrib && contributions.length > 0 && (
+                <>
+                    <p style={{ color: "#c6cdce", fontSize: "0.8rem", marginTop: "1.5rem", fontStyle: "italic" }}>
+                    contribution graph
+                    </p>
+                    <style>{`
+                        .contribution-scrollable div[class*="overflow-x-auto"] {
+                            scrollbar-width: thin !important;
+                            scrollbar-color: #656765 #1a1a1a !important;
+                        }
+                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar {
+                            height: 4px !important;
+                            display: block !important;
+                        }
+                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-track {
+                            background: #1a1a1a !important;
+                            border-radius: 2px;
+                        }
+                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb {
+                            background: #656765 !important;
+                            border-radius: 2px;
+                        }
+                        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb:hover {
+                            background: #7a7d7d !important;
+                        }
+                    `}</style>
+                    <div className={`${styles.contributionWrapper} contribution-scrollable`} style={{ marginTop: "0.5rem" }}>
+                        <TooltipProvider>
+                            <ContributionGraph data={contributions} totalCount={total} style={{ marginTop: '1rem' }} blockRadius={0}>
+                                <ContributionGraphCalendar>
+                                {({ activity, dayIndex, weekIndex }) => (
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <g>
+                                                <ContributionGraphBlock
+                                                    activity={activity}
+                                                    className={styles.contributionBlock}
+                                                    dayIndex={dayIndex}
+                                                    weekIndex={weekIndex}
+                                                />
+                                            </g>
+                                        </TooltipTrigger>
+                                        <TooltipContent className={styles.tooltipContent}>
+                                            <p className={styles.tooltipText}>{activity.date}</p>
+                                            <p className={styles.tooltipText}>{activity.count} contributions</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                )}
+                            </ContributionGraphCalendar>
+                            <ContributionGraphFooter />
+                        </ContributionGraph>
+                        <div className={styles.contributionFooter}>
+                            {total} contributions in {new Date().getFullYear()}
+                        </div>
+                    </TooltipProvider>
+                    </div>
+                    <div className={styles.divider}></div>
+                </>
+            )}
+
+            <div className={styles.twoColumnSection}>
+                <div className={styles.sectionWithLabel}>
+                    <p style={{ color: "#c6cdce", fontSize: "0.8rem", margin: 0, marginBottom: "0.5rem", fontStyle: "italic" }}>
+                    currently
+                    </p>
+                    <div className={styles.listItem}>
+                        <div className={styles.icon}>
+                        <img 
+                            src="/v2/v2_bluejay.jpeg" 
+                            alt="Bluejay" 
+                            className={styles.iconImage}
+                        />
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>software engineer</div>
+                        <div className={styles.secondaryText}>bluejay (yc x25) / internship</div>
+                        </div>
+                        <a href="#" className={styles.readMore}>[→]</a>
+                    </div>
+                </div>
+                <div className={styles.sectionWithLabel}>
+                    <p style={{ color: "#c6cdce", fontSize: "0.8rem", margin: 0, marginBottom: "0.5rem", fontStyle: "italic" }}>
+                    studying
+                    </p>
+                    <div className={styles.listItem}>
+                        <div className={styles.icon}>
+                        <img 
+                            src="/v2/v2_tmu.jpg" 
+                            alt="Toronto Metropolitan University" 
+                            className={styles.iconImage}
+                        />
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>computer science '27</div>
+                        <div className={styles.secondaryText}>toronto metropolitan university</div>
+                        </div>
+                        <a href="#" className={styles.readMore}>[→]</a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <p style={{ color: "#c6cdce", fontSize: "0.8rem", marginTop: "1.5rem", fontStyle: "italic" }}>
+            previously
+            </p>
+
+            <ul className={styles.list}>
+            <li className={styles.listItem}>
+                <div className={styles.icon}>
+                <img 
+                    src="/v2/v2_fidelity.png" 
+                    alt="Fidelity Investments" 
+                    className={styles.iconImage}
+                />
+                </div>
+                <div className={styles.listItemText}>
+                <div className={styles.primaryText}>ai developer</div>
+                <div className={styles.secondaryText}>fidelity investments / internship</div>
+                </div>
+                <span className={styles.dateText}>sept - dec '25</span>
+                <a href="#" className={styles.readMore}>[→]</a>
+            </li>
+            <li className={styles.listItem}>
+                <div className={styles.icon}>
+                <img 
+                    src="/v2/v2_fidelity.png" 
+                    alt="Fidelity Investments" 
+                    className={styles.iconImage}
+                />
+                </div>
+                <div className={styles.listItemText}>
+                <div className={styles.primaryText}>software automation engineer</div>
+                <div className={styles.secondaryText}>fidelity investments / internship</div>
+                </div>
+                <span className={styles.dateText}>may - aug '25</span>
+                <a href="#" className={styles.readMore}>[→]</a>
+            </li>
+            <li className={styles.listItem}>
+                <div className={styles.icon}>
+                <img 
+                    src="/v2/v2_resdex.jpeg" 
+                    alt="ResDex" 
+                    className={styles.iconImage}
+                />
+                </div>
+                <div className={styles.listItemText}>
+                <div className={styles.primaryText}>co-founder & founding engineer</div>
+                <div className={styles.secondaryText}>resdex</div>
+                </div>
+                <span className={styles.dateText}>aug '24 - may '25</span>
+                <a href="#" className={styles.readMore}>[→]</a>
+            </li>
+            </ul>
+
+            <div className={styles.divider}></div>
 
         </main>
         </div>
