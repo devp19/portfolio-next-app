@@ -1,0 +1,135 @@
+.container {
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+  padding-top: 2rem;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  color: #c6cdce;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 2px solid red;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.iconImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.iconSymbol {
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.listItemText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.primaryText {
+  color: #c6cdce;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.secondaryText {
+  color: #656765;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .mainContent {
+    padding: 1.5rem;
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .iconSymbol {
+    font-size: 1rem;
+  }
+
+  .primaryText {
+    font-size: 0.85rem;
+  }
+
+  .secondaryText {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .mainContent {
+    padding: 1rem;
+  }
+
+  .list {
+    gap: 0.75rem;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .iconSymbol {
+    font-size: 0.9rem;
+  }
+
+  .primaryText {
+    font-size: 0.8rem;
+  }
+
+  .secondaryText {
+    font-size: 0.75rem;
+  }
+}
+
