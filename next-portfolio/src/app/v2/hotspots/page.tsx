@@ -17,13 +17,20 @@ export default function HotspotsPage() {
             background: "none",
             border: "none",
             cursor: "pointer",
-            padding: 0,
+            padding: "0.25rem 0.5rem",
             marginBottom: "1.5rem",
             textDecoration: "none",
-            transition: "color 0.2s ease",
+            transition: "all 0.2s ease",
+            borderRadius: "2px",
           }}
-          onMouseOver={(e) => (e.currentTarget.style.color = "#c6cdce")}
-          onMouseOut={(e) => (e.currentTarget.style.color = "#656765")}
+          onMouseOver={(e) => {
+            e.currentTarget.style.color = "#c6cdce";
+            e.currentTarget.style.backgroundColor = "#404140";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.color = "#656765";
+            e.currentTarget.style.backgroundColor = "transparent";
+          }}
         >
           ← back
         </button>
