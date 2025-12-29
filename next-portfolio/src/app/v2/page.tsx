@@ -259,7 +259,7 @@
                 <li className={styles.projectCard}>
                     <div className={styles.coverImage}>
                     <img 
-                        src="/v2/tunnel.png" 
+                        src="/v2/tunnellarge.png" 
                         alt="Tunnel" 
                         className={styles.coverImg}
                     />
