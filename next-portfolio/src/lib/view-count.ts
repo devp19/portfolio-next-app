@@ -17,15 +17,17 @@ async function getRedis() {
   
   try {
     // Try to use @upstash/redis if available
+    // Redis.fromEnv() automatically reads from environment variables:
+    // - UPSTASH_REDIS_REST_URL
+    // - UPSTASH_REDIS_REST_TOKEN
+    // - KV_REST_API_URL (Vercel KV)
+    // - KV_REST_API_TOKEN (Vercel KV)
     const { Redis } = await import('@upstash/redis');
-    redis = new Redis({
-      url: process.env.UPSTASH_REDIS_REST_URL!,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-    });
+    redis = Redis.fromEnv();
     return redis;
   } catch (error) {
     // If Upstash is not configured, return null
-    console.warn('Upstash Redis not configured, using in-memory fallback');
+    console.warn('Upstash Redis not configured, using in-memory fallback:', error);
     return null;
   }
 }
@@ -42,7 +44,9 @@ export async function getViewCount(): Promise<number> {
       const count = await client.get(VIEW_COUNT_KEY) as number | null;
       return count ?? startingCount;
     } catch (error) {
-      console.error('Error reading from Redis:', error);
+      console.error('Error reading from Redis, falling back to in-memory:', error);
+      // Reset redis client on error so it can retry next time
+      redis = null;
       return inMemoryCount;
     }
   }
@@ -65,7 +69,9 @@ export async function incrementViewCount(): Promise<number> {
       }
       return newCount;
     } catch (error) {
-      console.error('Error incrementing in Redis:', error);
+      console.error('Error incrementing in Redis, falling back to in-memory:', error);
+      // Reset redis client on error so it can retry next time
+      redis = null;
       // Fallback to in-memory
       inMemoryCount += 1;
       return inMemoryCount;
