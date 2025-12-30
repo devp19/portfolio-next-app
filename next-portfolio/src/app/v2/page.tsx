@@ -364,6 +364,21 @@
             <li className={styles.listItem}>
                 <div className={styles.icon}>
                 <img 
+                    src="/v2/v2_bluejay.jpeg" 
+                    alt="Fidelity Investments" 
+                    className={styles.iconImage}
+                />
+                </div>
+                <div className={styles.listItemText}>
+                <div className={styles.primaryText}>software engineer</div>
+                <div className={styles.secondaryText}>bluejay (yc x25) / contract (part-time)</div>
+                </div>
+                <span className={styles.dateText}>oct - dec '25</span>
+                <a href="#" className={styles.readMore}>[→]</a>
+            </li>
+            <li className={styles.listItem}>
+                <div className={styles.icon}>
+                <img 
                     src="/v2/v2_fidelity.png" 
                     alt="Fidelity Investments" 
                     className={styles.iconImage}
@@ -374,6 +389,21 @@
                 <div className={styles.secondaryText}>fidelity investments / internship</div>
                 </div>
                 <span className={styles.dateText}>may - aug '25</span>
+                <a href="#" className={styles.readMore}>[→]</a>
+            </li>
+            <li className={styles.listItem}>
+                <div className={styles.icon}>
+                <img 
+                    src="/v2/elections.jpeg" 
+                    alt="Ontario Elections" 
+                    className={styles.iconImage}
+                />
+                </div>
+                <div className={styles.listItemText}>
+                <div className={styles.primaryText}>technical support specialist</div>
+                <div className={styles.secondaryText}>elections ontario / contract</div>
+                </div>
+                <span className={styles.dateText}>apr - may '25</span>
                 <a href="#" className={styles.readMore}>[→]</a>
             </li>
             <li className={styles.listItem}>
