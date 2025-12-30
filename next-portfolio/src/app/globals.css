@@ -216,6 +216,46 @@ button, a, [role="button"] {
           color: rgba(60, 60, 80, 0.6) !important;
         }
 
+        /* Custom scrollbar for v2 contribution graph */
+        .contribution-scrollable div[class*="overflow-x-auto"] {
+          scrollbar-width: thin !important;
+          scrollbar-color: #656765 #1a1a1a !important;
+        }
+
+        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar {
+          height: 4px !important;
+          display: block !important;
+        }
+
+        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-track {
+          background: #1a1a1a !important;
+          border-radius: 2px;
+        }
+
+        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb {
+          background: #656765 !important;
+          border-radius: 2px;
+        }
+
+        .contribution-scrollable div[class*="overflow-x-auto"]::-webkit-scrollbar-thumb:hover {
+          background: #7a7d7d !important;
+        }
+
+        /* Tooltip styling for v2 contribution graph */
+        .contributionWrapper [data-slot="tooltip-content"] {
+          background-color: #1a1a1a !important;
+          border: 1px solid #656765 !important;
+          color: #656765 !important;
+        }
+
+        /* Style the tooltip arrow - it's a rotated square div inside the tooltip */
+        .contributionWrapper [data-slot="tooltip-content"] div[class*="Arrow"],
+        .contributionWrapper [data-slot="tooltip-content"] > div {
+          background-color: #1a1a1a !important;
+          border-right: 1px solid #656765 !important;
+          border-bottom: 1px solid #656765 !important;
+        }
+
 
 
 
