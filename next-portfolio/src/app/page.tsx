@@ -626,7 +626,10 @@
                 <span className={styles.viewerCount}>
                     {viewerCount ? `${viewerCount} views` : ''}
                 </span>
-                <span className={styles.footerDate}>last updated: 12/31/2025</span>
+                <span className={styles.footerDate}>
+                    <span className={styles.pulsingDot}></span>
+                    last updated: 12/31/2025
+                </span>
             </div>
 
         </main>
