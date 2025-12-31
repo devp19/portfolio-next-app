@@ -15,6 +15,7 @@
       TooltipProvider,
       TooltipTrigger,
     } from '@/components/ui/tooltip';
+    import { Skeleton } from '@/components/ui/skeleton';
     import { getCachedContributions } from "@/lib/github-contributions";
 
     export type Activity = {
@@ -98,7 +99,45 @@
 
             
 
-            {!loadingContrib && contributions.length > 0 && (
+            {loadingContrib ? (
+                <>
+                    <p style={{ color: "#c6cdce", fontSize: "0.8rem", marginTop: "1.5rem", fontStyle: "italic" }}>
+                    
+                    </p>
+                    <div style={{ marginTop: "0.5rem" }}>
+                        <div style={{ 
+                            display: "grid", 
+                            gridTemplateColumns: "repeat(53, 1fr)", 
+                            gap: "3px",
+                            width: "100%",
+                            overflowX: "auto",
+                            paddingBottom: "0.5rem"
+                        }}>
+                            {Array.from({ length: 371 }).map((_, i) => (
+                                <Skeleton 
+                                    key={i}
+                                    style={{ 
+                                        width: "11px", 
+                                        height: "11px", 
+                                        backgroundColor: "#2a2a2a",
+                                        borderRadius: "0",
+                                        minWidth: "11px"
+                                    }} 
+                                />
+                            ))}
+                        </div>
+                        <Skeleton 
+                            style={{ 
+                                width: "200px", 
+                                height: "16px", 
+                                marginTop: "0.5rem",
+                                backgroundColor: "#2a2a2a"
+                            }} 
+                        />
+                    </div>
+                    <div className={styles.divider}></div>
+                </>
+            ) : contributions.length > 0 && (
                 <>
                     <p style={{ color: "#c6cdce", fontSize: "0.8rem", marginTop: "1.5rem", fontStyle: "italic" }}>
                     
@@ -262,15 +301,44 @@
                 <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
                 <li className={styles.listItem}>
                     <div className={styles.icon}>
-                    <img 
-                        src="/v2/v2_fidelity.png" 
-                        alt="Writeup" 
-                        className={styles.iconImage}
-                    />
+                    <svg 
+                        width="40" 
+                        height="40" 
+                        viewBox="0 0 40 40" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ width: "100%", height: "100%" }}
+                    >
+                        <path 
+                            d="M20 6C14 6 8 10 6 16C6 22 10 26 14 28C18 30 20 32 20 34C20 32 22 30 26 28C30 26 34 22 34 16C32 10 26 6 20 6Z" 
+                            fill="#656765"
+                            opacity="0.3"
+                        />
+                        <path 
+                            d="M20 6C14 6 8 10 6 16C6 22 10 26 14 28C18 30 20 32 20 34C20 32 22 30 26 28C30 26 34 22 34 16C32 10 26 6 20 6Z" 
+                            stroke="#656765"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <path 
+                            d="M20 6L20 34" 
+                            stroke="#656765"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                        />
+                        <path 
+                            d="M14 20L20 24L26 20" 
+                            stroke="#656765"
+                            strokeWidth="1"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                    </svg>
                     </div>
                     <div className={styles.listItemText}>
-                    <div className={styles.primaryText}>writeup title</div>
-                    <div className={styles.secondaryText}>writeup description</div>
+                    <div className={styles.primaryText}>coming soon</div>
+                    <div className={styles.secondaryText}>coming soon</div>
                     </div>
                     <a href="#" className={styles.readMore}>[→]</a>
                 </li>
@@ -281,15 +349,65 @@
                 <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
                 <li className={styles.listItem}>
                     <div className={styles.icon}>
-                    <img 
-                        src="/v2/v2_fidelity.png" 
-                        alt="Blog" 
-                        className={styles.iconImage}
-                    />
+                    <svg 
+                        width="40" 
+                        height="40" 
+                        viewBox="0 0 40 40" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ width: "100%", height: "100%" }}
+                    >
+                        <rect 
+                            x="10" 
+                            y="8" 
+                            width="20" 
+                            height="24" 
+                            rx="1" 
+                            fill="#656765"
+                            opacity="0.2"
+                            stroke="#656765"
+                            strokeWidth="1.5"
+                        />
+                        <line 
+                            x1="14" 
+                            y1="14" 
+                            x2="26" 
+                            y2="14" 
+                            stroke="#656765"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                        />
+                        <line 
+                            x1="14" 
+                            y1="18" 
+                            x2="26" 
+                            y2="18" 
+                            stroke="#656765"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                        />
+                        <line 
+                            x1="14" 
+                            y1="22" 
+                            x2="22" 
+                            y2="22" 
+                            stroke="#656765"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                        />
+                        <path 
+                            d="M10 12L14 8L18 12" 
+                            stroke="#656765"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            fill="none"
+                        />
+                    </svg>
                     </div>
                     <div className={styles.listItemText}>
-                    <div className={styles.primaryText}>blog title</div>
-                    <div className={styles.secondaryText}>blog description</div>
+                    <div className={styles.primaryText}>coming soon</div>
+                    <div className={styles.secondaryText}>coming soon</div>
                     </div>
                     <a href="#" className={styles.readMore}>[→]</a>
                 </li>
