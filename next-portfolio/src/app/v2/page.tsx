@@ -105,37 +105,16 @@
                     
                     </p>
                     <div style={{ marginTop: "0.5rem" }}>
-                        <div style={{ 
-                            display: "grid", 
-                            gridTemplateColumns: "repeat(53, 1fr)", 
-                            gap: "3px",
-                            width: "100%",
-                            overflowX: "auto",
-                            paddingBottom: "0.5rem"
-                        }}>
-                            {Array.from({ length: 371 }).map((_, i) => (
-                                <Skeleton 
-                                    key={i}
-                                    style={{ 
-                                        width: "11px", 
-                                        height: "11px", 
-                                        backgroundColor: "#2a2a2a",
-                                        borderRadius: "0",
-                                        minWidth: "11px"
-                                    }} 
-                                />
-                            ))}
-                        </div>
                         <Skeleton 
                             style={{ 
-                                width: "200px", 
-                                height: "16px", 
-                                marginTop: "0.5rem",
-                                backgroundColor: "#2a2a2a"
+                                width: "100%", 
+                                height: "120px", 
+                                backgroundColor: "#2a2a2a",
+                                borderRadius: "0"
                             }} 
                         />
                     </div>
-                    <div className={styles.divider}></div>
+            <div className={styles.divider}></div>
                 </>
             ) : contributions.length > 0 && (
                 <>
