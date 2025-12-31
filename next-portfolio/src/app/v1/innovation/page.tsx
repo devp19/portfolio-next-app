@@ -33,7 +33,6 @@ import {
 } from "@/components/ui/kibo-ui/announcement";
 import { ArrowUpRightIcon } from "lucide-react";
 
-import CustomCursor from "../CustomCursor";
 
 export default function ResDexPage() {
   const [isMobile, setIsMobile] = useState(false);
