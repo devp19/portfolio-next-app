@@ -208,6 +208,7 @@
                 </button>
             </div>
             {activeTab === "cool things i've built" && (
+                <>
                 <ul className={styles.listGrid} style={{ marginTop: "1.5rem" }}>
                 <li className={styles.projectCard}>
                     <Link href="/v2/mesh" style={{ textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", height: "100%" }}>
@@ -241,39 +242,138 @@
                         </div>
                     </Link>
                 </li>
-                <li className={styles.projectCard}>
-                    <Link href="/v2/cua" style={{ textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", height: "100%" }}>
-                        <div className={styles.coverImage}>
+                </ul>
+                <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
+                <li className={styles.listItem}>
+                    <Link href="/v2/cua" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
                         <img 
                             src="/v2/cua_v2.png" 
                             alt="CUA" 
-                            className={styles.coverImg}
+                            className={styles.iconImage}
                         />
                         </div>
-                        <div className={styles.projectContent}>
-                            <div className={styles.projectTitle}>cua (yc x25)</div>
-                            <div className={styles.projectDescription}>android docker provider for computer use agents</div>
-                            <span className={styles.projectLink}>[read more]</span>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>cua (yc x25)</div>
+                        <div className={styles.secondaryText}>android docker provider for computer use agents</div>
                         </div>
+                        <span className={styles.readMore}>[→]</span>
                     </Link>
                 </li>
-                <li className={styles.projectCard}>
-                    <Link href="/v2/hotspots" style={{ textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column", height: "100%" }}>
-                        <div className={styles.coverImage}>
+                <li className={styles.listItem}>
+                    <Link href="/v2/hotspots" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
                         <img 
                             src="/v2/hotspots_v2.png" 
                             alt="hotspots" 
-                            className={styles.coverImg}
+                            className={styles.iconImage}
                         />
                         </div>
-                        <div className={styles.projectContent}>
-                            <div className={styles.projectTitle}>hotspots</div>
-                            <div className={styles.projectDescription}>machine learning data visualization for urban heat vulnerability</div>
-                            <span className={styles.projectLink}>[read more]</span>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>hotspots</div>
+                        <div className={styles.secondaryText}>machine learning data visualization for urban heat vulnerability</div>
                         </div>
+                        <span className={styles.readMore}>[→]</span>
+                    </Link>
+                </li>
+                <li className={styles.listItem}>
+                    <Link href="/innovation/adrian" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
+                        <img 
+                            src="/v2/adrian.png" 
+                            alt="Adrian" 
+                            className={styles.iconImage}
+                        />
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>adrian</div>
+                        <div className={styles.secondaryText}>voice-powered f1 race engineer with rag over fia regulations</div>
+                        </div>
+                        <span className={styles.readMore}>[→]</span>
+                    </Link>
+                </li>
+                <li className={styles.listItem}>
+                    <Link href="/innovation/lyra" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
+                        <img 
+                            src="/v2/sample.png" 
+                            alt="Lyra" 
+                            className={styles.iconImage}
+                        />
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>lyra</div>
+                        <div className={styles.secondaryText}>privacy-first, open-source cloud ide with ai and live code execution</div>
+                        </div>
+                        <span className={styles.readMore}>[→]</span>
+                    </Link>
+                </li>
+                <li className={styles.listItem}>
+                    <Link href="/innovation/percepta" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
+                        <img 
+                            src="/v2/sample.png" 
+                            alt="Percepta" 
+                            className={styles.iconImage}
+                        />
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>percepta</div>
+                        <div className={styles.secondaryText}>heat-map based identification for documents with keyword injection</div>
+                        </div>
+                        <span className={styles.readMore}>[→]</span>
+                    </Link>
+                </li>
+                <li className={styles.listItem}>
+                    <Link href="#" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
+                        <img 
+                            src="/v2/sample.png" 
+                            alt="QonnectR" 
+                            className={styles.iconImage}
+                        />
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>qonnectr</div>
+                        <div className={styles.secondaryText}>platform for networking and project collaboration through qr code identification</div>
+                        </div>
+                        <span className={styles.readMore}>[→]</span>
+                    </Link>
+                </li>
+                <li className={styles.listItem}>
+                    <Link href="#" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
+                        <img 
+                            src="/v2/sample.png" 
+                            alt="MyBuddy" 
+                            className={styles.iconImage}
+                        />
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>mybuddy</div>
+                        <div className={styles.secondaryText}>generative ai wellness assistant with nlp and real-time speech-to-text</div>
+                        </div>
+                        <span className={styles.readMore}>[→]</span>
+                    </Link>
+                </li>
+                <li className={styles.listItem}>
+                    <Link href="#" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
+                        <img 
+                            src="/v2/sample.png" 
+                            alt="Citco" 
+                            className={styles.iconImage}
+                        />
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>citco</div>
+                        <div className={styles.secondaryText}>research analytics platform examining public funding and academic impact</div>
+                        </div>
+                        <span className={styles.readMore}>[→]</span>
                     </Link>
                 </li>
                 </ul>
+                </>
             )}
 
             {activeTab === "writeups" && (
