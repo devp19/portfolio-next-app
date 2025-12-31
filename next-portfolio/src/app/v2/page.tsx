@@ -526,7 +526,7 @@
                 <span className={styles.viewerCount}>
                     {viewerCount ? `${viewerCount} views` : ''}
                 </span>
-                <span className={styles.footerDate}>last updated: 12/28/2025</span>
+                <span className={styles.footerDate}>last updated: 12/30/2025</span>
             </div>
 
         </main>
