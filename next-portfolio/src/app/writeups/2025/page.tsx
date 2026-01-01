@@ -78,11 +78,11 @@ export default function WriteupPage() {
                 <br></br>
                 <br></br>
                 <ul style={{ borderLeft: "2px solid #656765", paddingLeft: "1rem" }}>
-                  <li style={{ color: "#c6cdce" }}>phase 1: not sure what im even doing at this point...but it seems to be working?</li>
+                  <li style={{ color: "#c6cdce" }}><span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 1:</span> not sure what im even doing at this point...but it seems to be working?</li>
                   <br></br>
-                  <li style={{ color: "#c6cdce" }}>phase 2: internship? trying to reach self-satisfaction?</li>
+                  <li style={{ color: "#c6cdce" }}><span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 2:</span> internship? trying to reach self-satisfaction?</li>
                   <br></br>
-                  <li style={{ color: "#c6cdce" }}>phase 3: how did this happen? wow.</li>
+                  <li style={{ color: "#c6cdce" }}><span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 3:</span> how did this happen? wow.</li>
                 </ul>
                 <br></br>
                 <br></br>
