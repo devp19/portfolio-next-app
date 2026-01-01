@@ -379,47 +379,49 @@
             {activeTab === "writeups" && (
                 <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
                 <li className={styles.listItem}>
-                    <div className={styles.icon}>
-                    <svg 
-                        width="40" 
-                        height="40" 
-                        viewBox="0 0 40 40" 
-                        fill="none" 
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{ width: "100%", height: "100%" }}
-                    >
-                        <path 
-                            d="M20 6C14 6 8 10 6 16C6 22 10 26 14 28C18 30 20 32 20 34C20 32 22 30 26 28C30 26 34 22 34 16C32 10 26 6 20 6Z" 
-                            fill="#656765"
-                            opacity="0.3"
-                        />
-                        <path 
-                            d="M20 6C14 6 8 10 6 16C6 22 10 26 14 28C18 30 20 32 20 34C20 32 22 30 26 28C30 26 34 22 34 16C32 10 26 6 20 6Z" 
-                            stroke="#656765"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <path 
-                            d="M20 6L20 34" 
-                            stroke="#656765"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                        />
-                        <path 
-                            d="M14 20L20 24L26 20" 
-                            stroke="#656765"
-                            strokeWidth="1"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                    </div>
-                    <div className={styles.listItemText}>
-                    <div className={styles.primaryText}>coming soon</div>
-                    <div className={styles.secondaryText}>coming soon</div>
-                    </div>
-                    <a href="#" className={styles.readMore}>[→]</a>
+                    <Link href="/" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                        <div className={styles.icon}>
+                        <svg 
+                            width="40" 
+                            height="40" 
+                            viewBox="0 0 40 40" 
+                            fill="none" 
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{ width: "100%", height: "100%" }}
+                        >
+                            <path 
+                                d="M20 6C14 6 8 10 6 16C6 22 10 26 14 28C18 30 20 32 20 34C20 32 22 30 26 28C30 26 34 22 34 16C32 10 26 6 20 6Z" 
+                                fill="#656765"
+                                opacity="0.3"
+                            />
+                            <path 
+                                d="M20 6C14 6 8 10 6 16C6 22 10 26 14 28C18 30 20 32 20 34C20 32 22 30 26 28C30 26 34 22 34 16C32 10 26 6 20 6Z" 
+                                stroke="#656765"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                            <path 
+                                d="M20 6L20 34" 
+                                stroke="#656765"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                            />
+                            <path 
+                                d="M14 20L20 24L26 20" 
+                                stroke="#656765"
+                                strokeWidth="1"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                        </div>
+                        <div className={styles.listItemText}>
+                        <div className={styles.primaryText}>a year in review</div>
+                        <div className={styles.secondaryText}>2025 put into a page</div>
+                        </div>
+                        <span className={styles.readMore}>[→]</span>
+                    </Link>
                 </li>
                 </ul>
             )}
