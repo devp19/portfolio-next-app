@@ -55,11 +55,11 @@ export default function WriteupPage() {
 
         <article style={{ marginTop: "2rem" }}>
           <div style={{ marginBottom: "2rem" }}>
-            <img 
+            {/* <img 
               src="/placeholder-cover.png" 
               alt="Cover" 
               style={{ width: "100%", height: "auto", borderRadius: "4px" }}
-            />
+            /> */}
           </div>
 
           <div style={{ color: "#c6cdce", fontSize: "0.9rem", lineHeight: "1.6" }}>
@@ -68,13 +68,13 @@ export default function WriteupPage() {
                 introduction
               </h2>
               <p style={{ color: "#656765", marginBottom: "2rem" }}>
-                okay so im not going to lie, this is bit of a stretch but i'm going to try to put my 2025 into a single page. got inspired by a few people who posted theirs and after reading them, seems like a good personal reflection thing to do every year. i'm going to try to be as honest and transparent as possible about my year especially with this being the first sort of personal reflection i put up.
+                bit of a stretch but i'm going to try to put my 2025 into a single page. got inspired by a few people who posted theirs and after reading them, seems like a good personal reflection thing to do every year. i'm going to try to be as honest and transparent as possible about my year especially with this being the first sort of personal reflection i put up. hopefully inspires whoever reads this in some way or another.
                 <br></br>
                 <br></br>
                 to begin and probably the most corniest opening to a reflection, <span style={{color: "#c6cdce", fontStyle: "italic" }}>2025 was definetely not what i expected it to be.</span> i feel like everyone says this in hindsight of a year but you know those <span style={{ opacity: 1, color: "#c6cdce", fontStyle: "italic" }}>"where do you see yourself in 5 years"</span> type of questions? well yeah definetely did not see myself here.
                 <br></br>
                 <br></br>
-                anyways, to make this a bit easier to read and write, i've split into 3 phases of 2025.
+                anyways, to make this a bit easier to read and write, i've split it into 3 phases of 2025.
                 <br></br>
                 <br></br>
                 <ul style={{ borderLeft: "2px solid #656765", paddingLeft: "1rem" }}>
@@ -107,11 +107,36 @@ export default function WriteupPage() {
               but anyways, i compared myself in every single aspect of my life. i was comparing myself to the people i looked up to and the people i thought were successful. now everyone has their own definition of success but as self-loathing as that sounds, turns out these same successful people had one common trait. and it was to not even care about what other people had to say and could put their head down and just work. and i dont mean work as in 9-5 but i mean work like their <span style={{color: "#c6cdce", fontStyle: "italic" }}>"tomorrow"</span> depended on it. i'll talk more about this later on but i kept this in my mind all of 2025.
               <br></br>
               <br></br>
-              now onto what i actually took apart from this mentality within the first week of january, probably nothing. it became apparent it was one of those "things i'll do when i'm bored" type of things. managing school work, was definetely something that pushed me back and that's when i started to realize i was wasting time.
+              now onto what i actually took apart from this mentality within the first week of january, probably nothing. it became apparent it was one of those <span style={{color: "#c6cdce", fontStyle: "italic" }}>"new year new me only for a few days"</span> type of thing. managing school work, was definetely something that pushed me back and that's when i started to realize i was wasting time.
               <br></br>
               <br></br>
               so what did i do? as like any lost cs student, jumped into a hackathon. <span style={{color: "#c6cdce", fontStyle: "italic" }}>deltahacks</span>.
+              <br></br>
+              <br></br>
+              now this is where life i guess took a turn. first hackathon, and not just any hackathon but a pretty big one. mind you, this is <span style={{color: "#c6cdce", fontStyle: "italic" }}>"pre-cursor"</span> and pretty much before "vibe coding" started getting hype. (also i didnt even know cursor existed back then but that's a whole other story). 
+              <br></br>
+              <br></br>
+              so i was with my team, <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ Fenil, Aryan and Sapna ]</span> and we built <span style={{color: "#c6cdce", fontStyle: "italic" }}>qonnectr</span>. 
+              <br></br>
+              <br></br>
+              <img src="/v2/qonnectr.png" alt="qonnectr" style={{ width: "100%", height: "auto", borderRadius: "4px" }} />
+              <br></br>
+              we built it to bridge the gap for individuals struggling to bring their project ideas to life by connecting them with like-minded collaborators. the project was built in 24 hours and we won the <span style={{color: "#c6cdce", fontStyle: "italic" }}>best use of auth0 mlh track</span>.
+              <br></br>
+              <br></br>
+              looking back on it, it was honestly such a bad project. of course when we were actually building it we thought we had solved cancer or something lol but if there's something that i took away from it, it was that UI matters alot. like ALOT. it was the main reason as to why we won i'd say.
+              <br></br>
+              <br></br>
+              <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>if ui didn't matter, then why isn't everything just done in your terminal?</span>
+              <br></br>
+              <br></br>
+              <img src="/v2/auth0.jpeg" alt="qonnectr" style={{ width: "100%", height: "auto", borderRadius: "4px" }} />
+              here's a picture of us winning (im in the black mcmaster hoodie which i took from my brother...)
+              <br></br>
+              <br></br>
+              after this hackathon things started to i guess fall into place. started to realize there were a lot of things outside just school work. the level of competition is tenfold in a hackathon setting and this was a place where i felt like i could actually apply myself. it was also a good place for my ego to be because i was actually competing with people who were actually good at what they did. it was like perfecting my craft because when you surround yourself with people who are better than you, objectively speaking your bar of success is raised.
               </p>
+
               <p style={{ color: "#656765", marginBottom: "2rem" }}>
                 [content]
               </p>
