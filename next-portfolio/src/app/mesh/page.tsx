@@ -265,7 +265,7 @@ export default function MeshPage() {
             ← back
           </button>
           <p style={{ color: "#656765", fontSize: "0.6rem", margin: 0, marginBottom: "0.5rem" }}>
-            november 25th, 2025 · 15min read
+            november 25th, 2025
           </p>
           <header style={{ marginBottom: "2rem" }}>
             <div className={styles.header}>

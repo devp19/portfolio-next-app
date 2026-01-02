@@ -230,7 +230,7 @@ export default function CuaPage() {
             ← back
           </button>
           <p style={{ color: "#656765", fontSize: "0.6rem", margin: 0, marginBottom: "0.5rem" }}>
-            october 4th, 2025 · 12min read
+            october 4th, 2025
           </p>
           <header style={{ marginBottom: "2rem" }}>
             <div className={styles.header}>

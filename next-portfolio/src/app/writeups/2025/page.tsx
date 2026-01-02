@@ -35,7 +35,7 @@ export default function WriteupPage() {
           ← back
         </button>
         <p style={{ color: "#656765", fontSize: "0.6rem", margin: 0, marginBottom: "0.5rem" }}>
-          december 31, 2025 · 25mins
+          december 31, 2025
         </p>
         <header style={{ marginBottom: "2rem" }}>
           <div className={styles.header}>
@@ -134,9 +134,24 @@ export default function WriteupPage() {
               here's a picture of us winning (im in the black mcmaster hoodie which i took from my brother...)
               <br></br>
               <br></br>
-              after this hackathon things started to i guess fall into place. started to realize there were a lot of things outside just school work. the level of competition is tenfold in a hackathon setting and this was a place where i felt like i could actually apply myself. it was also a good place for my ego to be because i was actually competing with people who were actually good at what they did. it was like perfecting my craft because when you surround yourself with people who are better than you, objectively speaking your bar of success is raised.
+              after this hackathon things started to i guess fall into place. started to realize there were a lot of things outside just school work. the level of competition is tenfold in a hackathon setting and this was a place where i felt like i could actually apply myself. it was also a good place for my ego to be because i was actually competing with people who were actually good at what they did. it was like perfecting my craft because <span style={{color: "#c6cdce", fontStyle: "italic" }}>"when you surround yourself with people who are better than you, objectively speaking your bar of success is raised."</span>
+              <br></br>
+              <br></br>
+              now around this time the pressure of finding a summer internship started to build up. now with a hackathon win under my belt and alot of other stuff going on, i realized that with no prior experience i had no chance competing against other candidates. i had to build my credibility and start building my portfolio. this is when me and <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>[fenil]</span> really started to work on <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>resdex</span> again.
+              <br></br>
+              <br></br>
+              resdex was something i had been working on for a while but never really gave it the attention it deserved. it was a project that i was really passionate about and i wanted to build it into something past just text on a page. for those of you that don't know, resdex is a research discovery platform that allows students to discover research opportunities and connect with other students who are interested in the same research. not only this but as computer science and eng students, a big part of our portfolios are our projects and where we put them (github). this is the exact issue we wanted to solve. research students don't have any portfolio of their own and they are left to their own devices to showcase their work.
+              <br></br>
+              <br></br>
+              over the next month or so i'd say i put more time into resdex than i did for my courses and exam season. this grind definetely paid off since we ended up partnering with different undergrad research labs from <span style={{color: "#c6cdce", fontStyle: "italic" }}>mcmaster university, university of toronto, university of waterloo, laurier university and a few more</span>!
+              <br></br>
+              <br></br>
+              <img src="/v2/resdex.png" alt="resdex" style={{ width: "100%", height: "auto", borderRadius: "4px" }} />
+              <br></br>
+              <br></br>
+              alot of people saw the potential in this project not just via the mission but also the complex technical challenges we were tackling. in essence we were recreating a mixture of linkedin and github from the ground up. this experience is something that will stick with me forever. as the primary founding engineer, i was working across all aspects of the project from the frontend to the backend to the database to the ai capabilities. learned a crazy amount of system design and architecture skills that i wouldnt have learned otherwise (things like supabase, jwt tokens, authentication, websockets, etc.) -- which school was def not teaching me.
               </p>
-
+             
               <p style={{ color: "#656765", marginBottom: "2rem" }}>
                 [content]
               </p>

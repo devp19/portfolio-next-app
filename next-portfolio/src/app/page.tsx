@@ -167,9 +167,9 @@
                             </ContributionGraphCalendar>
                             <ContributionGraphFooter />
                         </ContributionGraph>
-                        <div className={styles.contributionFooter}>
+                        {/* <div className={styles.contributionFooter}>
                             {total} contributions in {new Date().getFullYear()}
-                        </div>
+                        </div> */}
                     </TooltipProvider>
                     </div>
                     <div className={styles.divider}></div>

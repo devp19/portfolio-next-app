@@ -214,7 +214,7 @@ export default function TunnelPage() {
             ← back
           </button>
           <p style={{ color: "#656765", fontSize: "0.6rem", margin: 0, marginBottom: "0.5rem" }}>
-            september 15th, 2025 · 18min read
+            september 15th, 2025
           </p>
           <header style={{ marginBottom: "2rem" }}>
             <div className={styles.header}>
