@@ -68,7 +68,7 @@ export default function WriteupPage() {
                 introduction
               </h2>
               <p style={{ color: "#656765", marginBottom: "2rem" }}>
-                bit of a stretch but i'm going to try to put my 2025 into a single page. got inspired by a few people who posted theirs and after reading them, seems like a good personal reflection thing to do every year. i'm going to try to be as honest and transparent as possible about my year especially with this being the first sort of personal reflection i put up. hopefully inspires whoever reads this in some way or another.
+                bit of a stretch but i'm going to try to put my 2025 into a single page. (or atleast what i can put online lol) -- got inspired by a few people who posted theirs and after reading them, seems like a good personal reflection thing to do every year. i'm going to try to be as honest and transparent as possible about my year especially with this being the first sort of personal reflection i put up. met a ton of cool people this year so you'll see a lot of names mentioned in this writeup, hopefully inspires whoever reads this in some way or another.
                 <br></br>
                 <br></br>
                 to begin and probably the most corniest opening to a reflection, <span style={{color: "#c6cdce", fontStyle: "italic" }}>2025 was definetely not what i expected it to be.</span> i feel like everyone says this in hindsight of a year but you know those <span style={{ opacity: 1, color: "#c6cdce", fontStyle: "italic" }}>"where do you see yourself in 5 years"</span> type of questions? well yeah definetely did not see myself here.
@@ -101,30 +101,31 @@ export default function WriteupPage() {
               weird description of phase 1 but honestly that's the best way to describe it. heading into a fresh year, i was really unsure of what was in store. all i knew was i was comparing myself with all the <span style={{color: "#c6cdce", fontStyle: "italic" }}>"cracked"</span> people. 
               <br></br>
               <br></br>
-              as funny or however you want to put it sounds, it's something i learned fairly quickly about myself and that's my sense of ego. but it's a good ego. the way i like to put it is in a simple sentence. <span style={{color: "#c6cdce", fontStyle: "italic" }}>"if he can. why can't i?"</span> (this is a bit of foreshadowing bc for those of you that know me, this is what i say all the time -- and im the living proof of it). 
+              as funny as that sounds, something i learned fairly quickly about myself was my sense of ego. but it's a good ego. the way i always put it was something like <span style={{color: "#c6cdce", fontStyle: "italic" }}>"if he can. why can't i?"</span>
               <br></br>
               <br></br>
-              but anyways, i compared myself in every single aspect of my life. i was comparing myself to the people i looked up to and the people i thought were successful. now everyone has their own definition of success but as self-loathing as that sounds, turns out these same successful people had one common trait. and it was to not even care about what other people had to say and could put their head down and just work. and i dont mean work as in 9-5 but i mean work like their <span style={{color: "#c6cdce", fontStyle: "italic" }}>"tomorrow"</span> depended on it. i'll talk more about this later on but i kept this in my mind all of 2025.
+              but anyways, i compared myself in every single aspect of my life. i was comparing myself to the people i looked up to and the people that i thought were successful. everyone has their own definition of success but as self-loathing as that sounds, turns out these same successful people had one common trait. it was to not give a shit about what other people had to say and could put their head down and just work. and i dont mean work as in 9-5 but i mean work like their <span style={{color: "#c6cdce", fontStyle: "italic" }}>"tomorrow"</span> depended on it. that's the mentality i wanted to embody in 2025. i'll talk more about this later on but i kept this in my mind throughout the year. 
               <br></br>
               <br></br>
-              now onto what i actually took apart from this mentality within the first week of january, probably nothing. it became apparent it was one of those <span style={{color: "#c6cdce", fontStyle: "italic" }}>"new year new me only for a few days"</span> type of thing. managing school work, was definetely something that pushed me back and that's when i started to realize i was wasting time.
+              a quote that i've made for myself is: <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>the next 5 years will dictate the next 50 years of my life.</span> it's hard to convey this to a lot of people that don't realize it but these 5 or so years of undergrad will shape the rest of your life. whether that's on a personal or professional level, it's a lot of pressure to live up to and you just have to make the most of it.
+              it's a bit of foreshadowing but it's the main reason as to why i've grown and shaped into the person i am today.
+              <br></br>
+             <br></br>
+             now besides the motivation, i was lost. i was lost in the sense of what i wanted to do with my life, my career, my future, everything. so what did i do? as like any lost cs student, jumped into a hackathon. <span style={{color: "#c6cdce", fontStyle: "italic" }}>deltahacks</span>.
               <br></br>
               <br></br>
-              so what did i do? as like any lost cs student, jumped into a hackathon. <span style={{color: "#c6cdce", fontStyle: "italic" }}>deltahacks</span>.
+              now this is where life i guess took a turn. first hackathon, and not just any hackathon but a pretty big one. this was also last minute, ended up taking <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ kush ]</span>'s spot (someone i got very close with this year). mind you, this is <span style={{color: "#c6cdce", fontStyle: "italic" }}>"pre-cursor"</span> and pretty much before "vibe coding" started getting hype. (also i didnt even know cursor existed back then but that's a whole other story). 
               <br></br>
               <br></br>
-              now this is where life i guess took a turn. first hackathon, and not just any hackathon but a pretty big one. mind you, this is <span style={{color: "#c6cdce", fontStyle: "italic" }}>"pre-cursor"</span> and pretty much before "vibe coding" started getting hype. (also i didnt even know cursor existed back then but that's a whole other story). 
-              <br></br>
-              <br></br>
-              so i was with my team, <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ Fenil, Aryan and Sapna ]</span> and we built <span style={{color: "#c6cdce", fontStyle: "italic" }}>qonnectr</span>. 
+              anyways, together our very makeshift last minute yet very capable team, <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ fenil, aryan and sapna ]</span> built <span style={{color: "#c6cdce", fontStyle: "italic" }}>qonnectr</span>. 
               <br></br>
               <br></br>
               <img src="/v2/qonnectr.png" alt="qonnectr" style={{ width: "100%", height: "auto", borderRadius: "4px" }} />
               <br></br>
-              we built it to bridge the gap for individuals struggling to bring their project ideas to life by connecting them with like-minded collaborators. the project was built in 24 hours and we won the <span style={{color: "#c6cdce", fontStyle: "italic" }}>best use of auth0 mlh track</span>.
+              qonnectr (khun-nect-ur) was built to bridge the gap for individuals struggling to bring their project ideas to life by connecting them with like-minded collaborators. the project was built in 24 hours and we won the <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>best use of auth0 mlh track</span>.
               <br></br>
               <br></br>
-              looking back on it, it was honestly such a bad project. of course when we were actually building it we thought we had solved cancer or something lol but if there's something that i took away from it, it was that UI matters alot. like ALOT. it was the main reason as to why we won i'd say.
+              you might ask why the explanation was just 2 sentences long for something as big as a hackathon win and it's because looking back on it, it was honestly such a bad project. of course when we were actually building it we thought we had solved cancer or something lol but if there's something that i took away from it, it was that ui matters alot. like alot. it was the main reason as to why we won i'd say.
               <br></br>
               <br></br>
               <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>if ui didn't matter, then why isn't everything just done in your terminal?</span>
@@ -134,38 +135,71 @@ export default function WriteupPage() {
               here's a picture of us winning (im in the black mcmaster hoodie which i took from my brother...)
               <br></br>
               <br></br>
-              after this hackathon things started to i guess fall into place. started to realize there were a lot of things outside just school work. the level of competition is tenfold in a hackathon setting and this was a place where i felt like i could actually apply myself. it was also a good place for my ego to be because i was actually competing with people who were actually good at what they did. it was like perfecting my craft because <span style={{color: "#c6cdce", fontStyle: "italic" }}>"when you surround yourself with people who are better than you, objectively speaking your bar of success is raised."</span>
+              after this hackathon things started to i guess fall into place. started to realize there were a lot of things outside just school work. i was never one to care about credit or recognition but i guess this acheivement put me under the spotlight a bit more so it felt good but nevertheless was not something i was proud of because i knew there was a lot more to come. something valuable that i did take away from this was that the level of competition is tenfold in a hackathon setting and this was a place where i felt like i could actually apply myself. it was also a good place for my ego to be because i was actually competing with people who were actually good at what they did. i was perfecting my craft because <span style={{color: "#c6cdce", fontStyle: "italic" }}>"when you surround yourself with people who are better than you, objectively speaking your bar of success is raised."</span>
               <br></br>
               <br></br>
-              now around this time the pressure of finding a summer internship started to build up. now with a hackathon win under my belt and alot of other stuff going on, i realized that with no prior experience i had no chance competing against other candidates. i had to build my credibility and start building my portfolio. this is when me and <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>[fenil]</span> really started to work on <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>resdex</span> again.
+              now around this time the pressure of finding a summer internship started to build up. now with a hackathon win under my belt and alot of other stuff going on, i realized that with no prior experience i had no chance competing against other candidates. i had to build my credibility and start building my portfolio. something i highly encourage everyone is to build your own experience if you don't have any! this started off with me, <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>[ fenil (co-founder and pm), deep (outreach) and bhavi (outreach) ]</span> to really start working on <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>resdex</span> again.
               <br></br>
               <br></br>
-              resdex was something i had been working on for a while but never really gave it the attention it deserved. it was a project that i was really passionate about and i wanted to build it into something past just text on a page. for those of you that don't know, resdex is a research discovery platform that allows students to discover research opportunities and connect with other students who are interested in the same research. not only this but as computer science and eng students, a big part of our portfolios are our projects and where we put them (github). this is the exact issue we wanted to solve. research students don't have any portfolio of their own and they are left to their own devices to showcase their work.
+              resdex was something i had been working on for a while but never really gave it the attention it deserved. it was a project (which turned into a startup) that i was really passionate about and i wanted to build it into something past just text on a page. for those of you that don't know, resdex is a research discovery platform that allows students to discover research opportunities and connect with other students who are interested in the same research. not only this but as computer science and eng students, a big part of our portfolios are our projects and where we put them (github). this is the exact issue we wanted to solve. research students don't have any online portfolio of their own to show off their credentials and arXiv was just not it.
               <br></br>
               <br></br>
-              over the next month or so i'd say i put more time into resdex than i did for my courses and exam season. this grind definetely paid off since we ended up partnering with different undergrad research labs from <span style={{color: "#c6cdce", fontStyle: "italic" }}>mcmaster university, university of toronto, university of waterloo, laurier university and a few more</span>!
+              over the next month or so i'd say i put more time into resdex than i did for my courses and exam season. this grind definetely paid off since we ended up collaborating with different undergrad research labs from <span style={{color: "#c6cdce", fontStyle: "italic" }}>mcmaster university, university of toronto, university of waterloo, laurier university and a few more</span>! we're nearing around 500+ pre-signups already!
               <br></br>
               <br></br>
               <img src="/v2/resdex.png" alt="resdex" style={{ width: "100%", height: "auto", borderRadius: "4px" }} />
               <br></br>
+              alot of people saw the potential in this project not just via the mission but also the complex technical challenges we were tackling. in essence we were recreating a mixture of linkedin and github from the ground up. this experience is something that will stick with me forever. as the primary founding engineer, i was working across all aspects of the project from the frontend to the backend to the database to the ai capabilities. learned a crazy amount of system design and architecture skills that i wouldnt have learned otherwise (things like database design, authentication, websockets, caching, api endpoints, etc.) -- which school was def not teaching me.
               <br></br>
-              alot of people saw the potential in this project not just via the mission but also the complex technical challenges we were tackling. in essence we were recreating a mixture of linkedin and github from the ground up. this experience is something that will stick with me forever. as the primary founding engineer, i was working across all aspects of the project from the frontend to the backend to the database to the ai capabilities. learned a crazy amount of system design and architecture skills that i wouldnt have learned otherwise (things like supabase, jwt tokens, authentication, websockets, etc.) -- which school was def not teaching me.
-              </p>
-             
-              <p style={{ color: "#656765", marginBottom: "2rem" }}>
-                [content]
+              <br></br>
+              <img src="/v2/profile.png" alt="resdex-profile" style={{ width: "100%", height: "auto", borderRadius: "4px" }} />
+              here's a sneak-peek of the profile view!
+              <br></br>
+              <br></br>
+              around this same time alot of people started to learn about what we were building. people i had never talked to knew what we were building and wanted in on it. that's when it hit. it was a feeling of validation, knowing that people wanted to be a part of this and that we were actually doing something right.
+              <br></br>
+              <br></br>
+              onto phase 2. where life took a turn.
               </p>
             </section>
 
             <section id="section-2">
               <h2 style={{ color: "#c6cdce", fontSize: "1.4rem", marginTop: "2rem", marginBottom: "1rem" }}>
-                section title
+                phase 2
               </h2>
               <p style={{ color: "#656765", marginBottom: "1rem" }}>
-                [content]
+              internship? trying to reach self-satisfaction?
               </p>
               <p style={{ color: "#656765", marginBottom: "2rem" }}>
-                [content]
+                as with the first word in the description...internship. i had landed my first internship at <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ fidelity ]</span>, one of the largest financial services company in the world. i was under the scope of an automation developer / tech consultant within the emerging technologies team. huge thanks to <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ divya ]</span> and <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ andre ]</span> for taking a chance on me (in hindsight it definetely paid off for the team!).
+                <br></br>
+                <br></br>
+                now of course this wasn't a swe role. but i didn't let that affect me. i feel like a lot of people base their work-ethic on the title, and company of their role but there's so much more to learn when you're genuinely passionate about what you're doing. i was determined to make the most of it and learn as much as i could and i don't mean this sarcastically, i honestly did.
+                <br></br> 
+                <br></br>
+                i was definetely putting more than <span style={{color: "#c6cdce"}}>50 hour work weeks</span>-- a lot of my friends always told me that it was useless to work more hours than i was billed for or that "work-life balance" was important or that "you'll get a return offer" but none of that mattered to me. frankly speaking, i wasn't even thinking about a return offer. i was just dialed in on power automate and the azure registry lol.
+                <br></br>
+                <br></br>
+                but anyways, that was one thing that was going pretty well in life for me. however i was still searching for self-satisfaction. even though i was happy with the work i was doing and would definetely take the role if i was offered it again (foreshadowing *cough cough*), i was still searching for that feeling of accomplishment that i was getting from my hackathon win and just building cool things.
+                <br></br>
+                <br></br>
+                someone told me to put this into this writeup but this was the beginning of my <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>summer arc</span>.
+                <br></br>
+                <br></br>
+                this "arc" changed my trajectory for the rest of the year and definetely the rest of my life. i mentioned above that i was putting almost 50 hour work weeks in but at this same time when i wasn't working on fidelity, i was working on my skills and projects. i don't think people understand the level of dedication and commitment it takes to do that but right after i wrapped up my work for the day from fidelity, i'd open my laptop and start working on my projects. i did this consistently and it got to a point where if i didn't do something productive (outside of work) it would feel like a day wasted. as im writing this i think im shakespeare but i was obsessed. obsessed with this feeling of accomplishment that if i was out even at 2am and i hadn't done something, i'd go home and work even if it meant for an hour.
+                <br></br>
+                <br></br>
+                <img src="/v2/contribution.png" alt="summer_arc" style={{ width: "100%", height: "auto", borderRadius: "4px" }} />
+                screenshot of my contribution graph for the year (1091 contributions). rough start but june to september during fidelity was when these contributions really picked up. (btw none of these are related to fidelity, didn't even use git at work)
+                <br></br>
+                <br></br>
+                now it's much easier said than done. first few days of this mentality definetely was draining and felt very forced. after a week of grind and dedication consistently, it never felt forced rather it felt like a natural extension of my day. 
+                <br></br>
+                <br></br>
+                something that i didn't let go was hackathons. no job or grind was stopping me from doing them. the next one i went to was <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>spurhacks</span>. this hackathon was sort of different. there were 3 different tracks, one for your normal project based, one for venture and one for new ideas. we <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ fenil, darsh, jay, tirth and kush ]</span> were in the venture track with resdex. (yes we ended up recruiting a few more people).
+                <br></br>
+                <br></br>
+                definetely a new type of experience. wasn't the typical hackathon but it made us deeply think about how startups actually work. what revenue models, what market size, what problem were we really solving etc. we were pitching for upwards to $1m in funding! we ended up getting invited to the spur accelerator program which was amazing.
               </p>
             </section>
           </div>
