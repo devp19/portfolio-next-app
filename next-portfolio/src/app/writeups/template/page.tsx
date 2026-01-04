@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import styles from "../page.module.css";
+import styles from "../../page.module.css";
 
 export default function WriteupPage() {
   const router = useRouter();
@@ -103,6 +103,7 @@ export default function WriteupPage() {
     </div>
   );
 }
+
 
 
 

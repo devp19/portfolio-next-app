@@ -8,6 +8,13 @@
     const router = useRouter();
     const [viewerCount, setViewerCount] = useState<string>("");
 
+    const scrollToSection = (sectionId: string) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
     useEffect(() => {
       const handleViewCount = async () => {
         try {
@@ -73,7 +80,7 @@
           </p>
           <header style={{ marginBottom: "2rem" }}>
             <div className={styles.header}>
-              <h1 style={{ color: "#c6cdce", margin: 0, fontSize: "1.8rem" }}>a year in review (wip!)</h1>
+              <h1 style={{ color: "#c6cdce", margin: 0, fontSize: "1.8rem" }}>a year in review [ 2025 ]</h1>
               {/* <div className={styles.socialLinks}>
                 <a href="#" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>[website]</a>
                 <a href="#" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>[linkedin]</a>
@@ -105,7 +112,7 @@
                   bit of a stretch but i'm going to try to put my 2025 into a single page. (or atleast what i can put online lol) -- got inspired by a few people who posted theirs and after reading them, seems like a good personal reflection thing to do every year. going to be as transparent as possible about my year especially with this being the first sort of personal reflection i put up. met a ton of cool people this year so you'll see a lot of names mentioned here.
                   <br></br>
                   <br></br>
-                  before i start, i just want to say im not special. im not some prodigy who has it all figured out even though some people think so. whatever i mention here is a just on the surface level of what you can accomplish if you put in the work, no matter how small or big so hopefully this crazy roller coaster of a year inspires you in some shape or form :) 
+                  before i start, i just want to say im not special. im not some prodigy who has it all figured out even though some people think so. whatever i mention here is just on the surface level of what you can accomplish if you put in the work, no matter how small or big so hopefully this crazy roller coaster of a year inspires you in some shape or form :) 
                   <br></br>
                   <br></br>
                   to begin and probably the most corniest opening to a reflection, <span style={{color: "#c6cdce", fontStyle: "italic" }}>2025 was definetely not what i expected it to be.</span> i feel like everyone says this in hindsight of a year but you know those <span style={{ opacity: 1, color: "#c6cdce", fontStyle: "italic" }}>"where do you see yourself in 5 years"</span> type of questions? well yeah definetely did not see myself here.
@@ -114,15 +121,66 @@
                   anyways, to make this a bit easier to read and write, i've split it into 3 phases of 2025.
                   <br></br>
                   <br></br>
-                  <ul style={{ borderLeft: "2px solid #656765", paddingLeft: "1rem" }}>
-                    <li style={{ color: "#c6cdce" }}><span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 1:</span> not sure what im even doing at this point...but it seems to be working?</li>
+                </p>
+                <ul style={{ borderLeft: "2px solid #656765", paddingLeft: "1rem" }}>
+                  <li
+                    style={{
+                      color: "#c6cdce",
+                      cursor: "pointer",
+                      transition: "all 0.2s ease"
+                    }}
+                    onClick={() => scrollToSection('section-1')}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.color = "#ffffff";
+                      e.currentTarget.style.transform = "translateX(4px)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.color = "#c6cdce";
+                      e.currentTarget.style.transform = "translateX(0px)";
+                    }}
+                  >
+                    <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 1:</span> not sure what im even doing at this point...but it seems to be working?
+                  </li>
                     <br></br>
-                    <li style={{ color: "#c6cdce" }}><span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 2:</span> internship? trying to reach self-satisfaction?</li>
+                    <li
+                      style={{
+                        color: "#c6cdce",
+                        cursor: "pointer",
+                        transition: "all 0.2s ease"
+                      }}
+                      onClick={() => scrollToSection('section-2')}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.color = "#ffffff";
+                        e.currentTarget.style.transform = "translateX(4px)";
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.color = "#c6cdce";
+                        e.currentTarget.style.transform = "translateX(0px)";
+                      }}
+                    >
+                      <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 2:</span> internship? trying to reach self-satisfaction?
+                    </li>
                     <br></br>
-                    <li style={{ color: "#c6cdce" }}><span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 3:</span> how did this happen? wow.</li>
-                  </ul>
-                  <br></br>
-                  <br></br>
+                    <li
+                      style={{
+                        color: "#c6cdce",
+                        cursor: "pointer",
+                        transition: "all 0.2s ease"
+                      }}
+                      onClick={() => scrollToSection('section-3')}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.color = "#ffffff";
+                        e.currentTarget.style.transform = "translateX(4px)";
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.color = "#c6cdce";
+                        e.currentTarget.style.transform = "translateX(0px)";
+                      }}
+                    >
+                      <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>phase 3:</span> how did this happen? wow.
+                    </li>
+                </ul>
+                <p style={{ color: "#656765", marginBottom: "2rem" }}>
                 
                 </p>
               </section>
@@ -135,7 +193,7 @@
                 not sure what im even doing at this point...but it seems to be working?
                 <br></br>
                 <br></br>
-                weird description of phase 1 but honestly that's the best way to describe it. heading into a fresh year, i was really unsure of what was in store. all i knew was i was comparing myself with all the <span style={{color: "#c6cdce", fontStyle: "italic" }}>"cracked"</span> people. 
+                weird description of phase 1 but honestly that's the best way to describe it. heading into a fresh year, i was really unsure of what was in store. the only thing i knew was that i was comparing myself with all the <span style={{color: "#c6cdce", fontStyle: "italic" }}>"cracked"</span> people. 
                 <br></br>
                 <br></br>
                 as funny as that sounds, something i learned fairly quickly about myself was my sense of ego. but it was the good type of ego. it was the ego that pushed me to believe that <span style={{color: "#c6cdce", fontStyle: "italic" }}>"if he can. why can't i?"</span>
@@ -147,7 +205,7 @@
               now besides the motivation, i was lost in january. i was lost in the sense of what i wanted to do with my life, my career, my future, everything. so what did i do? as like any lost cs student, jumped into a hackathon. <span style={{color: "#c6cdce", fontStyle: "italic" }}>deltahacks</span>.
                 <br></br>
                 <br></br>
-                now this is where life i guess took a turn. first hackathon, and not just any hackathon but a pretty big one. this was also last minute, ended up taking <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ kush ]</span>'s spot (someone i got very close with this year). mind you, this is <span style={{color: "#c6cdce", fontStyle: "italic" }}>"pre-cursor"</span> and pretty much before "vibe coding" started getting hype. (also i didnt even know cursor existed back then but that's a whole other story). 
+                first ever hackathon for the year, and not just any hackathon but a pretty big one. this was also last minute, ended up taking <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ kush ]</span>'s spot (someone i got very close with this year). mind you, this is <span style={{color: "#c6cdce", fontStyle: "italic" }}>"pre-cursor"</span> and pretty much before "vibe coding" started getting hype. (also i didnt even know cursor existed back then but that's a whole other story). 
                 <br></br>
                 <br></br>
                 anyways, together our very makeshift last minute yet very capable team, <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ fenil, aryan and sapna ]</span> built <span style={{color: "#c6cdce", fontStyle: "italic" }}>qonnectr</span>. 
@@ -174,7 +232,7 @@
   for those of you that complain about not being able to find a job/internship and aren't building things or yet alone going to hackathons, i assure you the problem is not the market, it's you. once you see the things that people are building, you'll realize you're not as special as you think you are and that's just the harsh reality.
                 <br></br>
                 <br></br>
-                now around this time the pressure of finding a summer internship started to build up. now with a hackathon win under my belt and alot of other stuff going on, i realized that with no prior experience i had no chance competing against other candidates. i had to build my credibility and start building my portfolio. something i highly encourage everyone is to build your own experience if you don't have any. this started off with me, <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>[ fenil (co-founder and pm), deep (outreach) and bhavi (outreach) ]</span> to really start working on <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>resdex</span> again.
+                now around this time the pressure of finding a summer internship started to build up. now with a hackathon win under my belt and alot of other stuff going on, i realized that with no prior experience i had no chance competing against other candidates. i had to build my credibility and start building my portfolio. something i highly encourage everyone to do. take ownership of your experience and build your own if you don't have any. this started off with me, <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>[ fenil (co-founder and pm), deep (outreach) and bhavi (outreach) ]</span> to really start working on <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>resdex</span> again.
                 <br></br>
                 <br></br>
                 resdex was something i had been working on for a while but never really gave it the attention it deserved. also now that im writing this, for some strange reason i hated telling people i was working on it because it was a startup? in general though i think i just never liked to show off or come off as too excited about it. anyways it was a project (which turned into a startup) that i was really passionate about and i wanted to build it into something past just text on a page. for those of you that don't know, resdex is a research discovery platform that allows students to discover research opportunities and connect with other students who are interested in the same field of research.  
@@ -221,7 +279,7 @@
                   someone told me to put this into this writeup but they like to say it was the beginning of my <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>summer arc</span>.
                   <br></br>
                   <br></br>
-                  this "arc" changed my trajectory for the rest of the year and definetely the rest of my life. i mentioned above that i was putting in more than 50 hour work weeks in but simultanouely i was also <span style={{color: "#c6cdce", fontStyle: "italic" }}>building and shipping at an insane rate</span>. may-september was honestly a blur. either i was working for fidelity or i was coding. and no i don't mean leetcode, i mean actual full-fledged applicable projects that often encompassed end to end system design.
+                  this "arc" changed my trajectory for the rest of the year and definetely the rest of my life. i mentioned above that i was putting in more than 50 hour work weeks in but simultaneously i was also <span style={{color: "#c6cdce", fontStyle: "italic" }}>building and shipping at an insane rate</span>. may-september was honestly a blur. either i was working for fidelity or i was coding. and no i don't mean leetcode, i mean actual full-fledged applicable projects that often encompassed end to end system design.
                   <br></br>
                   <br></br> 
                   a lot of you reading this probably are thinking im crazy. it was my summer and i was just working? where's my social life or definition of "fun"? frankly speaking, i also went out the most i ever did. out with friends, out with family, random sidequests, you name it. it's crazy how much free time you get when you're self-aware about the things you waste time on. as corny as it sounds, i cut off all my distractions and focused on one thing: <span style={{color: "#c6cdce", fontStyle: "italic" }}>improving myself</span>.
@@ -257,7 +315,7 @@
                 </p>
               </section>
              
-              <section id="section-1">
+              <section id="section-3">
                 <h2 style={{ color: "#c6cdce", fontSize: "1.4rem", marginTop: "1rem", marginBottom: "1rem" }}>
                   phase 3
                 </h2>
@@ -265,7 +323,7 @@
                 how did this happen? wow.                
                 <br></br>
                 <br></br>
-                these next 4 months (september - december) is straight unreal. a lot of things happened in such a short amount of time that it's super hard to even process now that i'm writing this. 
+                these next 4 months (september - december) is straight unreal. it feels like i lived a whole year in just 4 months. a lot of things happened in such a short amount of time that it's super hard to even process now that i'm writing this. 
                 <br></br>
                 <br></br>
                 starting off with my new role at fidelity as an ai developer, it was a huge personal win. now that i was moving off of a low-code environment into production ready code overseeing the whole sdlc from requirements gathering to design, development, testing, documentation and deployment, it was the best learning experience i could ask for (besides the corporate access nightmares). 
@@ -294,7 +352,7 @@
                 we sat down with none other than <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>[ nicolas dessaigne and andrew miklas ]</span> from <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>y combinator</span> to talk about the future of our project. winning big and realizing how much is possible when you just show up and start building made every hour totally, absolutely worth it.
                 <br></br>
                 <br></br>
-                this huge win is what i would say my next 3 months of 2025 were influenced by. my past 4 months of constant work and dedication paid off and i was rewarded for it. i was behind the ui and the on-runtime agent creation for opinion ranking via cohere. after sharing this online on linkedin and x, it went insanely viral (ended up getting over 500k impressions across all platforms) and tons of people reached out to me. 
+                this huge win is what i would say my next 3 months of 2025 were influenced by. my past 4 months of constant work and dedication paid off and i was rewarded for it. i was behind the ui and the on-runtime agent creation for opinion ranking via cohere. after sharing this online on linkedin and x, it went insanely viral (ended up getting over 500k impressions across all platforms, s/o krish for his gold midas hands) and tons of people reached out to me. 
                 <br></br>
                 <br></br>
                 i like to look at all of this as noise though. the most important thing i took away from all of this was that <span style={{color: "#c6cdce"}}>i grew as a person</span>. from someone who earlier in the year was very kept to myself and thought i didn't have <span style={{color: "#c6cdce" }}>any value</span> to anyone, i ended up helping a ton of people with their projects and built relationships with some really cool people. and i dont mean help as in a 5 minute conversation, i mean constant checkups, hour long deep-talks and even got to a time where i was putting everything aside just to help others. i ended up helping a lot of people by doing lots of resume reviews, interview prep, and even sitting on calls teaching things like setting up projects, building portfolio sites, database schemas etc.
@@ -326,10 +384,13 @@
                 quick demo of the implementation!
                 <br></br>
                 <br></br>
-                happy to say that after a follow-up interview, i was <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>offered the role</span> to come down to san francisco to join the team! it was a no-brainer. however i was also still interviewing with bluejay (yc x25) at the same time.
+                happy to say that after a follow-up interview, i was <span style={{color: "#c6cdce", fontStyle: "italic", backgroundColor: "#404140", borderRadius: "2px" }}>offered the role</span> to come down to san francisco to join the team! it was a no-brainer. i had pretty much made my mind up on accepting the offer but i guess god had other plans for me. in hindsight and a bit of foreshadowing, everything happens for a reason, it's all gods timing.
                 <br></br>
                 <br></br>
-                with bluejay it was a similar process however much more in depth. i was intially reached out to by <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ rohan ]</span> (co-founder and ceo) from <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ bluejay (yc x25) ]</span> on linkedin. bluejay is building the trust layer for voice and text ai agents, recently raising $4m. btw i got a ton of inbound requests from linkedin just because of the hackaton post. so definetely make sure to share your work online!
+                the reason i say that was i was also still interviewing with bluejay (yc x25) at the same time. i had even rescheduled interviews twice because i had already made up my mind. however i ended up hopping on the grind again and going through the process one more time.
+                <br></br>
+                <br></br>
+                with bluejay it was a similar process however much more in depth. i was initially reached out to by <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ rohan ]</span> (co-founder and ceo) from <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ bluejay (yc x25) ]</span> on linkedin. bluejay is building the trust layer for voice and text ai agents, recently raising $4m. btw i got a ton of inbound requests from linkedin just because of the hackaton post. so definetely make sure to share your work online!
                 <br></br>
                 <br></br>
                 anyways, bluejay's interview process was lengthy to say the least. from an initial behavioural interview, to another behavioural interview and technical interview with the co-founder and cto <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ faraz ]</span>, to a 3-day takehome project, to a 3-hour system design interview with the founding engineer <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ yash ]</span>, to a final one-day work trial, it was a lot.
@@ -363,10 +424,9 @@
                 besides the sleeping situation, we honestly created something really cool. the week before, we had won <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ deltahacks lite ]</span>, a 3 hour hackathon. we built <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ gmi @ mcmaster ]</span>, an application that makes finding housing on campus much easier. by taking in geospatial data and surrounding high-population density places like restaurants, we built a tinder like experience to swipe through listings. we won and we got a few compact-esp32 devices. we honestly thought this was the worst prize and the most useless peice of hardware created.
                 <br></br>
                 <br></br>
-                turns out it wasn't. not until we reverse engineered it. we built <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ mesh ]</span>, the coordination layer for geospatial data. it might sound fancy but in essence it allows you control any 3d object in real time using just your fingers. imagine jarvis from ironman. it's camera independent so it's not one of those computer vision projects. it had a real usecase like for example a professor walking around class, breaking down the anatomy of a brain from across the room. we didnt win which we were upset about but we met a ton of other cool hackers that saw the insane capabilities of our project.
+                turns out it wasn't. not until we reverse engineered it. we built <span style={{color: "#c6cdce", backgroundColor: "#404140", borderRadius: "2px" }}>[ mesh ]</span>, the coordination layer for geospatial data. it might sound fancy but in essence it allows you control any 3d object in real time using just your fingers. imagine jarvis from ironman. 
                 <br></br>
                 <br></br>
-
                 <video
                   src="/movements.mp4"
                   style={{ width: "100%", height: "auto", borderRadius: "4px" }}
@@ -375,14 +435,17 @@
                   muted
                   playsInline
                 />
-                demo of the devices zoomed in and rotating the 3d object
                 <br></br>
                 <br></br>
+                it's camera independent so it's not one of those computer vision projects. it had a real usecase like for example a professor walking around class, breaking down the anatomy of a brain from across the room. we didnt win which we were upset about but we met a ton of other cool hackers that saw the insane capabilities of our project.
+                <br></br>
+                <br></br>
+
                   this pretty much sums up phase 3. the best, most challenging and most rewarding phase of 2025. 
                 </p>
               </section>
               <section id="section-1">
-                <h2 style={{ color: "#c6cdce", fontSize: "1.4rem", marginTop: "1rem", marginBottom: "1rem" }}>
+                <h2 style={{ color: "#c6cdce", fontSize: "1.4rem", marginTop: "2rem", marginBottom: "1rem" }}>
                   ending remarks
                 </h2>
                 <p style={{ color: "#656765", marginBottom: "1rem" }}>

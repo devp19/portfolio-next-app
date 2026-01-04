@@ -3,6 +3,7 @@
     import { useState, useEffect } from "react";
     import Link from "next/link";
     import styles from "./page.module.css";
+    import { GiFlamedLeaf } from "react-icons/gi";
     import {
       ContributionGraph,
       ContributionGraphBlock,
@@ -193,10 +194,10 @@
                     data-active={activeTab === "writeups"}
                 >
                     <span className={styles.tabBracket}>[</span>
-                    <span className={styles.tabText}>writeups</span>
+                    <span className={styles.tabText}>writing</span>
                     <span className={styles.tabBracket}>]</span>
                 </button>
-                <span className={styles.tabSeparator}>/</span>
+                {/* <span className={styles.tabSeparator}>/</span>
                 <button 
                     className={styles.tab}
                     onClick={() => setActiveTab("blogs")}
@@ -205,7 +206,7 @@
                     <span className={styles.tabBracket}>[</span>
                     <span className={styles.tabText}>blogs</span>
                     <span className={styles.tabBracket}>]</span>
-                </button>
+                </button> */}
             </div>
             {activeTab === "cool things i've built" && (
                 <>
@@ -379,46 +380,14 @@
             {activeTab === "writeups" && (
                 <ul className={styles.list} style={{ marginTop: "1.5rem" }}>
                 <li className={styles.listItem}>
-                    <Link href="/" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
+                    <Link href="/writeups/2025" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%", gap: "1rem" }}>
                         <div className={styles.icon}>
-                        <svg 
-                            width="40" 
-                            height="40" 
-                            viewBox="0 0 40 40" 
-                            fill="none" 
-                            xmlns="http://www.w3.org/2000/svg"
-                            style={{ width: "100%", height: "100%" }}
-                        >
-                            <path 
-                                d="M20 6C14 6 8 10 6 16C6 22 10 26 14 28C18 30 20 32 20 34C20 32 22 30 26 28C30 26 34 22 34 16C32 10 26 6 20 6Z" 
-                                fill="#656765"
-                                opacity="0.3"
-                            />
-                            <path 
-                                d="M20 6C14 6 8 10 6 16C6 22 10 26 14 28C18 30 20 32 20 34C20 32 22 30 26 28C30 26 34 22 34 16C32 10 26 6 20 6Z" 
-                                stroke="#656765"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                            <path 
-                                d="M20 6L20 34" 
-                                stroke="#656765"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                            />
-                            <path 
-                                d="M14 20L20 24L26 20" 
-                                stroke="#656765"
-                                strokeWidth="1"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
+                        <GiFlamedLeaf size={30} />
                         </div>
                         <div className={styles.listItemText}>
-                        <div className={styles.primaryText}>a year in review</div>
-                        <div className={styles.secondaryText}>2025 put into a page</div>
+                        <div className={styles.primaryText}>a year in review [ 2025 ]</div>
+                        <div className={styles.secondaryText}>my surprising, never in a million years would I expect, 2025...put into a single page.
+                        </div>
                         </div>
                         <span className={styles.readMore}>[→]</span>
                     </Link>
@@ -630,7 +599,7 @@
                 </span>
                 <span className={styles.footerDate}>
                     <span className={styles.pulsingDot}></span>
-                    last updated: 12/31/2025
+                    last updated: 04/01/2026
                 </span>
             </div>
 
