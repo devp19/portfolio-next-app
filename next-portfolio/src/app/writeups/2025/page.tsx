@@ -469,7 +469,7 @@
             </span>
             <span className={styles.footerDate}>
               <span className={styles.pulsingDot}></span>
-              last updated: 01/04/2026
+              last updated: 01/05/2026
             </span>
           </div>
         </main>
