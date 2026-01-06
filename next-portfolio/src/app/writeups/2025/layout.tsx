@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     siteName: 'Dev Patel',
     images: [
       {
-        url: '/og-image-2.png',
+        url: '/v2/yearinreview.png',
         width: 1200,
         height: 630,
         alt: '2025 Year in Review – Dev Patel',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '2025 Year in Review – Dev Patel',
     description: 'A comprehensive reflection on my 2025 journey - from hackathon wins and startup building to landing at top tech companies.',
-    images: ['/og-image-2.png'],
+    images: ['/v2/yearinreview.png'],
   },
 }
 
