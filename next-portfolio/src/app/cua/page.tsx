@@ -205,7 +205,7 @@ export default function CuaPage() {
       <div className={styles.container}>
         <main className={styles.mainContent}>
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push("/")}
             style={{
               color: "#656765",
               fontSize: "0.8rem",
