@@ -1,0 +1,52 @@
+/* Global v3 styles - utility classes scoped to v3 routes */
+
+/* Apply Inter font to v3 routes */
+html,
+body {
+  font-family: var(--font-inter, 'Inter', sans-serif) !important;
+}
+
+/* Signature SVG animation - use !important to override inline styles */
+#canvas-strokes path {
+  stroke-dasharray: 2000 !important;
+  stroke-dashoffset: 2000 !important;
+  animation: drawPath 3s ease-in-out forwards !important;
+  stroke: #1a1a1a !important;
+  fill: transparent !important;
+}
+
+#canvas-strokes path:nth-child(1) {
+  animation: drawPath 3s ease-in-out forwards, showFill 0.3s 3s ease-in forwards !important;
+  animation-delay: 0s !important;
+}
+
+#canvas-strokes path:nth-child(2) {
+  animation: drawPath 3s ease-in-out forwards, showFill 0.3s 3.5s ease-in forwards !important;
+  animation-delay: 0.5s !important;
+}
+
+#canvas-strokes path:nth-child(3) {
+  animation: drawPath 3s ease-in-out forwards, showFill 0.3s 4s ease-in forwards !important;
+  animation-delay: 1s !important;
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+@keyframes showFill {
+  to {
+    fill: #1a1a1a !important;
+  }
+}
+
+/* Utility classes for easy use */
+.text-black {
+  color: #1a1a1a !important;
+}
+
+.text-secondary {
+  color: #656765 !important;
+}
